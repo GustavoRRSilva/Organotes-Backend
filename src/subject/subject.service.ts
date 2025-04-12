@@ -1,6 +1,11 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateSubjectDto } from './Dto/CreateSubjectDto';
+import { NotFoundError } from 'rxjs';
 
 @Injectable()
 export class SubjectService {
@@ -51,6 +56,19 @@ export class SubjectService {
       return { createSubject };
     } catch (e) {
       throw new e();
+    }
+  }
+
+  async deleteById(id: string) {
+    try {
+      await this.prismaService.subject.delete({
+        where: {
+          id: id,
+        },
+      });
+      return { status: 200, message: 'Deletado com sucesso' };
+    } catch (e) {
+      throw new NotFoundException('Not found subject');
     }
   }
 }

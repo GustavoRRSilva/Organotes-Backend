@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -36,5 +37,11 @@ export class SubjectController {
     @User('id') userId: string,
   ) {
     return await this.subjectService.createNote(createSubject, userId);
+  }
+
+  @UseGuards(AuthGuard)
+  @Delete('/:id')
+  async DeleteNote(@Param('id') id: string) {
+    return await this.subjectService.deleteById(id);
   }
 }
