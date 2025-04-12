@@ -61,13 +61,12 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const acessToken = await this.jwtService.signAsync({
+    const accessToken = await this.jwtService.signAsync({
       id: accountUser.id,
       name: accountUser.name,
       email: accountUser.email,
     });
-    console.log('Access Token:', acessToken); // <-- isso deve aparecer no terminal
 
-    return { acessToken };
+    return { accessToken };
   }
 }

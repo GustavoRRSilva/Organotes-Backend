@@ -133,7 +133,9 @@ exports.Prisma.SubjectScalarFieldEnum = {
   id_user: 'id_user',
   title: 'title',
   description: 'description',
-  week_day: 'week_day'
+  week_day: 'week_day',
+  updated_at: 'updated_at',
+  created_at: 'created_at'
 };
 
 exports.Prisma.SortOrder = {
