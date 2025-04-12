@@ -24,4 +24,14 @@ model User{
   receiveNotify Boolean
   updated_at DateTime @updatedAt
   created_at DateTime @default(now())
+  subjects Subject[]
+}
+
+model Subject{
+  id String @id @default(uuid())
+  id_user String 
+  user User @relation(fields: [id_user],references: [id])
+  title String
+  description String
+  week_day String 
 }
