@@ -5,6 +5,7 @@ import {
   Get,
   Param,
   Post,
+  Put,
   Req,
   Request,
   UseGuards,
@@ -13,6 +14,7 @@ import { SubjectService } from './subject.service';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { CreateSubjectDto } from './Dto/CreateSubjectDto';
 import { User } from 'src/auth/decorators/user.decorator';
+import { UpdateSubjectDto, UpdateValidation } from './Dto/UpdateSubjectDto';
 
 @Controller('subject')
 export class SubjectController {
@@ -43,5 +45,14 @@ export class SubjectController {
   @Delete('/:id')
   async DeleteNote(@Param('id') id: string) {
     return await this.subjectService.deleteById(id);
+  }
+
+  @UseGuards(AuthGuard)
+  @Put('/:id')
+  async updateNote(
+    @Param('id') id: string,
+    @Body(UpdateValidation) updateSubjectDto: UpdateSubjectDto,
+  ) {
+    return await this.subjectService.updateSubject(id, updateSubjectDto);
   }
 }

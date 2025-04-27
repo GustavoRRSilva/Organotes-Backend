@@ -6,6 +6,7 @@ import {
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateSubjectDto } from './Dto/CreateSubjectDto';
 import { NotFoundError } from 'rxjs';
+import { UpdateSubjectDto } from './Dto/UpdateSubjectDto';
 
 @Injectable()
 export class SubjectService {
@@ -69,6 +70,33 @@ export class SubjectService {
       return { status: 200, message: 'Deletado com sucesso' };
     } catch (e) {
       throw new NotFoundException('Not found subject');
+    }
+  }
+
+  async updateSubject(id: string, data: UpdateSubjectDto) {
+    const subject = await this.prismaService.subject.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    if (!subject) {
+      throw new NotFoundException('There is not subject with this id');
+    }
+
+    try {
+      const updatedSubject = await this.prismaService.subject.update({
+        where: {
+          id: id,
+        },
+        data,
+      });
+
+      return {
+        updatedSubject,
+      };
+    } catch (e) {
+      console.log(e);
+      throw e;
     }
   }
 }

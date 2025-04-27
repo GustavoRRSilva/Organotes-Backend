@@ -138,6 +138,23 @@ exports.Prisma.SubjectScalarFieldEnum = {
   created_at: 'created_at'
 };
 
+exports.Prisma.StudyRecordScalarFieldEnum = {
+  id: 'id',
+  subjectId: 'subjectId',
+  dayOfWeek: 'dayOfWeek',
+  minutesStudied: 'minutesStudied',
+  created_at: 'created_at'
+};
+
+exports.Prisma.PendingActivityScalarFieldEnum = {
+  id: 'id',
+  subjectId: 'subjectId',
+  name: 'name',
+  description: 'description',
+  percentageConclud: 'percentageConclud',
+  created_at: 'created_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -151,7 +168,9 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Subject: 'Subject'
+  Subject: 'Subject',
+  StudyRecord: 'StudyRecord',
+  PendingActivity: 'PendingActivity'
 };
 
 /**
