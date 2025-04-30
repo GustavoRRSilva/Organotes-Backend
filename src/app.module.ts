@@ -4,12 +4,14 @@ import { PrismaService } from './prisma/prisma.service';
 import { SubjectController } from './subject/subject.controller';
 import { SubjectService } from './subject/subject.service';
 import { SubjectModule } from './subject/subject.module';
-import { StudyControllerController } from './study-controller/study-controller.controller';
+
 import { StudyRecordModule } from './study-record/study-record.module';
+import { StudyRecordController } from './study-record/study-record.controller';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
-  imports: [AuthModule, SubjectModule, StudyRecordModule],
-  controllers: [SubjectController, StudyControllerController],
-  providers: [PrismaService, SubjectService],
+  imports: [AuthModule, DatabaseModule, StudyRecordModule, SubjectModule],
+  controllers: [],
+  providers: [DatabaseModule],
 })
 export class AppModule {}

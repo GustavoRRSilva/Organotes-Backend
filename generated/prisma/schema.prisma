@@ -28,10 +28,37 @@ model User {
 }
 
 model Subject {
-  id          String @id @default(uuid())
-  id_user     String
-  user        User   @relation(fields: [id_user], references: [id])
-  title       String
-  description String
-  week_day    String
+  id                String            @id @default(uuid())
+  id_user           String
+  user              User              @relation(fields: [id_user], references: [id])
+  title             String
+  description       String
+  week_day          String[]
+  updated_at        DateTime          @updatedAt
+  created_at        DateTime          @default(now())
+  studyRecord       StudyRecord[]
+  pendingActivities PendingActivity[]
+}
+
+model StudyRecord {
+  id             String   @id @default(uuid())
+  subjectId      String
+  subject        Subject  @relation(fields: [subjectId], references: [id])
+  dayOfWeek      String
+  minutesStudied Int
+  created_at     DateTime @default(now())
+
+  @@index([subjectId])
+}
+
+model PendingActivity {
+  id                String   @id @default(uuid())
+  subjectId         String
+  subject           Subject  @relation(fields: [subjectId], references: [id])
+  name              String
+  description       String
+  percentageConclud Int
+  created_at        DateTime @default(now())
+
+  @@index([subjectId])
 }

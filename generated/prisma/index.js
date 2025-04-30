@@ -188,11 +188,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:PeIwzIh6XyrLTlDG@warily-primary-griffon.data-1.use1.tembo.io:5432/postgres?sslmode=require"
+        "value": null
       }
     }
   },
