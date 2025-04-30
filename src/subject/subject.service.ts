@@ -17,6 +17,9 @@ export class SubjectService {
       where: {
         id_user: id,
       },
+      include: {
+        pendingActivities: true,
+      },
     });
   }
 
@@ -25,6 +28,18 @@ export class SubjectService {
       return await this.prismaService.subject.findMany({
         where: {
           id: id,
+        },
+        include: {
+          pendingActivities: true,
+          studyRecord: {
+            orderBy: {
+              created_at: 'desc',
+            },
+            take: 1,
+            select: {
+              created_at: true,
+            },
+          },
         },
       });
     } catch (e) {
