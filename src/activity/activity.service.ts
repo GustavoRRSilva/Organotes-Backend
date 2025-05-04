@@ -24,6 +24,7 @@ export class ActivityService {
       await this.prismaService.pendingActivity.findFirst({
         where: {
           name: data.name,
+          subjectId: subjectId,
         },
       });
 
