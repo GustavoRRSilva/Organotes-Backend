@@ -69,4 +69,20 @@ export class AuthService {
 
     return { accessToken };
   }
+
+  async userInfos(userId: string) {
+    return this.prismaService.user.findFirst({
+      where: {
+        id: userId,
+      },
+      include: {
+        subjects: {
+          include: {
+            studyRecord: true,
+            pendingActivities: true,
+          },
+        },
+      },
+    });
+  }
 }

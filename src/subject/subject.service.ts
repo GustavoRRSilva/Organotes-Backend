@@ -6,17 +6,63 @@ import {
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateSubjectDto } from './Dto/CreateSubjectDto';
 import { NotFoundError } from 'rxjs';
+import { UpdateSubjectDto } from './Dto/UpdateSubjectDto';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+import { record } from 'zod';
 
 @Injectable()
 export class SubjectService {
   constructor(private prismaService: PrismaService) {}
 
   async getAllUserSubject(id: string) {
-    return this.prismaService.subject.findMany({
+    const subjects = await this.prismaService.subject.findMany({
       where: {
         id_user: id,
       },
+      include: {
+        pendingActivities: true,
+        studyRecord: {
+          orderBy: { created_at: 'desc' },
+        },
+      },
     });
+
+    const formatted = subjects.map((subject) => {
+      const lastStudyRecord = subject.studyRecord[0];
+
+      const studyTimeDaysWithoutFormat = subject.studyRecord.reduce(
+        (acc, item) => {
+          const day = item.dayOfWeek;
+          if (!acc[day]) {
+            acc[day] = 0;
+          }
+          acc[day] += item.minutesStudied;
+          return acc;
+        },
+        {} as Record<string, number>,
+      );
+
+      const studyTimeDays = Object.entries(studyTimeDaysWithoutFormat).map(
+        ([day, value]) => ({
+          label: day,
+          value,
+        }),
+      );
+      const lastStudy = lastStudyRecord
+        ? format(new Date(lastStudyRecord.created_at), 'EEE dd/MM', {
+            locale: ptBR,
+          })
+        : null;
+
+      return {
+        subject,
+        lastStudy,
+        studyTimeDays,
+      };
+    });
+
+    return formatted;
   }
 
   async getById(id: string) {
@@ -24,6 +70,18 @@ export class SubjectService {
       return await this.prismaService.subject.findMany({
         where: {
           id: id,
+        },
+        include: {
+          pendingActivities: true,
+          studyRecord: {
+            orderBy: {
+              created_at: 'desc',
+            },
+            take: 1,
+            select: {
+              created_at: true,
+            },
+          },
         },
       });
     } catch (e) {
@@ -69,6 +127,33 @@ export class SubjectService {
       return { status: 200, message: 'Deletado com sucesso' };
     } catch (e) {
       throw new NotFoundException('Not found subject');
+    }
+  }
+
+  async updateSubject(id: string, data: UpdateSubjectDto) {
+    const subject = await this.prismaService.subject.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    if (!subject) {
+      throw new NotFoundException('There is not subject with this id');
+    }
+
+    try {
+      const updatedSubject = await this.prismaService.subject.update({
+        where: {
+          id: id,
+        },
+        data,
+      });
+
+      return {
+        updatedSubject,
+      };
+    } catch (e) {
+      console.log(e);
+      throw e;
     }
   }
 }
