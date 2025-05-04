@@ -2327,14 +2327,25 @@ export namespace Prisma {
 
   export type AggregateSubject = {
     _count: SubjectCountAggregateOutputType | null
+    _avg: SubjectAvgAggregateOutputType | null
+    _sum: SubjectSumAggregateOutputType | null
     _min: SubjectMinAggregateOutputType | null
     _max: SubjectMaxAggregateOutputType | null
+  }
+
+  export type SubjectAvgAggregateOutputType = {
+    priority: number | null
+  }
+
+  export type SubjectSumAggregateOutputType = {
+    priority: number | null
   }
 
   export type SubjectMinAggregateOutputType = {
     id: string | null
     id_user: string | null
     title: string | null
+    priority: number | null
     description: string | null
     updated_at: Date | null
     created_at: Date | null
@@ -2344,6 +2355,7 @@ export namespace Prisma {
     id: string | null
     id_user: string | null
     title: string | null
+    priority: number | null
     description: string | null
     updated_at: Date | null
     created_at: Date | null
@@ -2353,18 +2365,29 @@ export namespace Prisma {
     id: number
     id_user: number
     title: number
+    priority: number
     description: number
     week_day: number
     updated_at: number
     created_at: number
+    pendingSubjects: number
     _all: number
   }
 
+
+  export type SubjectAvgAggregateInputType = {
+    priority?: true
+  }
+
+  export type SubjectSumAggregateInputType = {
+    priority?: true
+  }
 
   export type SubjectMinAggregateInputType = {
     id?: true
     id_user?: true
     title?: true
+    priority?: true
     description?: true
     updated_at?: true
     created_at?: true
@@ -2374,6 +2397,7 @@ export namespace Prisma {
     id?: true
     id_user?: true
     title?: true
+    priority?: true
     description?: true
     updated_at?: true
     created_at?: true
@@ -2383,10 +2407,12 @@ export namespace Prisma {
     id?: true
     id_user?: true
     title?: true
+    priority?: true
     description?: true
     week_day?: true
     updated_at?: true
     created_at?: true
+    pendingSubjects?: true
     _all?: true
   }
 
@@ -2428,6 +2454,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: SubjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SubjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: SubjectMinAggregateInputType
@@ -2458,6 +2496,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: SubjectCountAggregateInputType | true
+    _avg?: SubjectAvgAggregateInputType
+    _sum?: SubjectSumAggregateInputType
     _min?: SubjectMinAggregateInputType
     _max?: SubjectMaxAggregateInputType
   }
@@ -2466,11 +2506,15 @@ export namespace Prisma {
     id: string
     id_user: string
     title: string
+    priority: number
     description: string
     week_day: string[]
     updated_at: Date
     created_at: Date
+    pendingSubjects: string[]
     _count: SubjectCountAggregateOutputType | null
+    _avg: SubjectAvgAggregateOutputType | null
+    _sum: SubjectSumAggregateOutputType | null
     _min: SubjectMinAggregateOutputType | null
     _max: SubjectMaxAggregateOutputType | null
   }
@@ -2493,10 +2537,12 @@ export namespace Prisma {
     id?: boolean
     id_user?: boolean
     title?: boolean
+    priority?: boolean
     description?: boolean
     week_day?: boolean
     updated_at?: boolean
     created_at?: boolean
+    pendingSubjects?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
     studyRecord?: boolean | Subject$studyRecordArgs<ExtArgs>
     pendingActivities?: boolean | Subject$pendingActivitiesArgs<ExtArgs>
@@ -2507,10 +2553,12 @@ export namespace Prisma {
     id?: boolean
     id_user?: boolean
     title?: boolean
+    priority?: boolean
     description?: boolean
     week_day?: boolean
     updated_at?: boolean
     created_at?: boolean
+    pendingSubjects?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
@@ -2518,10 +2566,12 @@ export namespace Prisma {
     id?: boolean
     id_user?: boolean
     title?: boolean
+    priority?: boolean
     description?: boolean
     week_day?: boolean
     updated_at?: boolean
     created_at?: boolean
+    pendingSubjects?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
@@ -2529,13 +2579,15 @@ export namespace Prisma {
     id?: boolean
     id_user?: boolean
     title?: boolean
+    priority?: boolean
     description?: boolean
     week_day?: boolean
     updated_at?: boolean
     created_at?: boolean
+    pendingSubjects?: boolean
   }
 
-  export type SubjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "id_user" | "title" | "description" | "week_day" | "updated_at" | "created_at", ExtArgs["result"]["subject"]>
+  export type SubjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "id_user" | "title" | "priority" | "description" | "week_day" | "updated_at" | "created_at" | "pendingSubjects", ExtArgs["result"]["subject"]>
   export type SubjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     studyRecord?: boolean | Subject$studyRecordArgs<ExtArgs>
@@ -2560,10 +2612,12 @@ export namespace Prisma {
       id: string
       id_user: string
       title: string
+      priority: number
       description: string
       week_day: string[]
       updated_at: Date
       created_at: Date
+      pendingSubjects: string[]
     }, ExtArgs["result"]["subject"]>
     composites: {}
   }
@@ -2993,10 +3047,12 @@ export namespace Prisma {
     readonly id: FieldRef<"Subject", 'String'>
     readonly id_user: FieldRef<"Subject", 'String'>
     readonly title: FieldRef<"Subject", 'String'>
+    readonly priority: FieldRef<"Subject", 'Int'>
     readonly description: FieldRef<"Subject", 'String'>
     readonly week_day: FieldRef<"Subject", 'String[]'>
     readonly updated_at: FieldRef<"Subject", 'DateTime'>
     readonly created_at: FieldRef<"Subject", 'DateTime'>
+    readonly pendingSubjects: FieldRef<"Subject", 'String[]'>
   }
     
 
@@ -5688,10 +5744,12 @@ export namespace Prisma {
     id: 'id',
     id_user: 'id_user',
     title: 'title',
+    priority: 'priority',
     description: 'description',
     week_day: 'week_day',
     updated_at: 'updated_at',
-    created_at: 'created_at'
+    created_at: 'created_at',
+    pendingSubjects: 'pendingSubjects'
   };
 
   export type SubjectScalarFieldEnum = (typeof SubjectScalarFieldEnum)[keyof typeof SubjectScalarFieldEnum]
@@ -5884,10 +5942,12 @@ export namespace Prisma {
     id?: StringFilter<"Subject"> | string
     id_user?: StringFilter<"Subject"> | string
     title?: StringFilter<"Subject"> | string
+    priority?: IntFilter<"Subject"> | number
     description?: StringFilter<"Subject"> | string
     week_day?: StringNullableListFilter<"Subject">
     updated_at?: DateTimeFilter<"Subject"> | Date | string
     created_at?: DateTimeFilter<"Subject"> | Date | string
+    pendingSubjects?: StringNullableListFilter<"Subject">
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     studyRecord?: StudyRecordListRelationFilter
     pendingActivities?: PendingActivityListRelationFilter
@@ -5897,10 +5957,12 @@ export namespace Prisma {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
     week_day?: SortOrder
     updated_at?: SortOrder
     created_at?: SortOrder
+    pendingSubjects?: SortOrder
     user?: UserOrderByWithRelationInput
     studyRecord?: StudyRecordOrderByRelationAggregateInput
     pendingActivities?: PendingActivityOrderByRelationAggregateInput
@@ -5913,10 +5975,12 @@ export namespace Prisma {
     NOT?: SubjectWhereInput | SubjectWhereInput[]
     id_user?: StringFilter<"Subject"> | string
     title?: StringFilter<"Subject"> | string
+    priority?: IntFilter<"Subject"> | number
     description?: StringFilter<"Subject"> | string
     week_day?: StringNullableListFilter<"Subject">
     updated_at?: DateTimeFilter<"Subject"> | Date | string
     created_at?: DateTimeFilter<"Subject"> | Date | string
+    pendingSubjects?: StringNullableListFilter<"Subject">
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     studyRecord?: StudyRecordListRelationFilter
     pendingActivities?: PendingActivityListRelationFilter
@@ -5926,13 +5990,17 @@ export namespace Prisma {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
     week_day?: SortOrder
     updated_at?: SortOrder
     created_at?: SortOrder
+    pendingSubjects?: SortOrder
     _count?: SubjectCountOrderByAggregateInput
+    _avg?: SubjectAvgOrderByAggregateInput
     _max?: SubjectMaxOrderByAggregateInput
     _min?: SubjectMinOrderByAggregateInput
+    _sum?: SubjectSumOrderByAggregateInput
   }
 
   export type SubjectScalarWhereWithAggregatesInput = {
@@ -5942,10 +6010,12 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Subject"> | string
     id_user?: StringWithAggregatesFilter<"Subject"> | string
     title?: StringWithAggregatesFilter<"Subject"> | string
+    priority?: IntWithAggregatesFilter<"Subject"> | number
     description?: StringWithAggregatesFilter<"Subject"> | string
     week_day?: StringNullableListFilter<"Subject">
     updated_at?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
     created_at?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
+    pendingSubjects?: StringNullableListFilter<"Subject">
   }
 
   export type StudyRecordWhereInput = {
@@ -6151,10 +6221,12 @@ export namespace Prisma {
   export type SubjectCreateInput = {
     id?: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
     user: UserCreateNestedOneWithoutSubjectsInput
     studyRecord?: StudyRecordCreateNestedManyWithoutSubjectInput
     pendingActivities?: PendingActivityCreateNestedManyWithoutSubjectInput
@@ -6164,10 +6236,12 @@ export namespace Prisma {
     id?: string
     id_user: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
     studyRecord?: StudyRecordUncheckedCreateNestedManyWithoutSubjectInput
     pendingActivities?: PendingActivityUncheckedCreateNestedManyWithoutSubjectInput
   }
@@ -6175,10 +6249,12 @@ export namespace Prisma {
   export type SubjectUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
     user?: UserUpdateOneRequiredWithoutSubjectsNestedInput
     studyRecord?: StudyRecordUpdateManyWithoutSubjectNestedInput
     pendingActivities?: PendingActivityUpdateManyWithoutSubjectNestedInput
@@ -6188,10 +6264,12 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     id_user?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
     studyRecord?: StudyRecordUncheckedUpdateManyWithoutSubjectNestedInput
     pendingActivities?: PendingActivityUncheckedUpdateManyWithoutSubjectNestedInput
   }
@@ -6200,29 +6278,35 @@ export namespace Prisma {
     id?: string
     id_user: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
   }
 
   export type SubjectUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
   }
 
   export type SubjectUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     id_user?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
   }
 
   export type StudyRecordCreateInput = {
@@ -6456,6 +6540,17 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
   export type StringNullableListFilter<$PrismaModel = never> = {
     equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     has?: string | StringFieldRefInput<$PrismaModel> | null
@@ -6493,16 +6588,23 @@ export namespace Prisma {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
     week_day?: SortOrder
     updated_at?: SortOrder
     created_at?: SortOrder
+    pendingSubjects?: SortOrder
+  }
+
+  export type SubjectAvgOrderByAggregateInput = {
+    priority?: SortOrder
   }
 
   export type SubjectMaxOrderByAggregateInput = {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
     updated_at?: SortOrder
     created_at?: SortOrder
@@ -6512,12 +6614,17 @@ export namespace Prisma {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
     updated_at?: SortOrder
     created_at?: SortOrder
   }
 
-  export type IntFilter<$PrismaModel = never> = {
+  export type SubjectSumOrderByAggregateInput = {
+    priority?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -6525,7 +6632,12 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type SubjectScalarRelationFilter = {
@@ -6563,22 +6675,6 @@ export namespace Prisma {
 
   export type StudyRecordSumOrderByAggregateInput = {
     minutesStudied?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type PendingActivityCountOrderByAggregateInput = {
@@ -6674,6 +6770,10 @@ export namespace Prisma {
     set: string[]
   }
 
+  export type SubjectCreatependingSubjectsInput = {
+    set: string[]
+  }
+
   export type UserCreateNestedOneWithoutSubjectsInput = {
     create?: XOR<UserCreateWithoutSubjectsInput, UserUncheckedCreateWithoutSubjectsInput>
     connectOrCreate?: UserCreateOrConnectWithoutSubjectsInput
@@ -6708,7 +6808,20 @@ export namespace Prisma {
     connect?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type SubjectUpdateweek_dayInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type SubjectUpdatependingSubjectsInput = {
     set?: string[]
     push?: string | string[]
   }
@@ -6781,14 +6894,6 @@ export namespace Prisma {
     create?: XOR<SubjectCreateWithoutStudyRecordInput, SubjectUncheckedCreateWithoutStudyRecordInput>
     connectOrCreate?: SubjectCreateOrConnectWithoutStudyRecordInput
     connect?: SubjectWhereUniqueInput
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type SubjectUpdateOneRequiredWithoutStudyRecordNestedInput = {
@@ -6923,10 +7028,12 @@ export namespace Prisma {
   export type SubjectCreateWithoutUserInput = {
     id?: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
     studyRecord?: StudyRecordCreateNestedManyWithoutSubjectInput
     pendingActivities?: PendingActivityCreateNestedManyWithoutSubjectInput
   }
@@ -6934,10 +7041,12 @@ export namespace Prisma {
   export type SubjectUncheckedCreateWithoutUserInput = {
     id?: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
     studyRecord?: StudyRecordUncheckedCreateNestedManyWithoutSubjectInput
     pendingActivities?: PendingActivityUncheckedCreateNestedManyWithoutSubjectInput
   }
@@ -6975,10 +7084,12 @@ export namespace Prisma {
     id?: StringFilter<"Subject"> | string
     id_user?: StringFilter<"Subject"> | string
     title?: StringFilter<"Subject"> | string
+    priority?: IntFilter<"Subject"> | number
     description?: StringFilter<"Subject"> | string
     week_day?: StringNullableListFilter<"Subject">
     updated_at?: DateTimeFilter<"Subject"> | Date | string
     created_at?: DateTimeFilter<"Subject"> | Date | string
+    pendingSubjects?: StringNullableListFilter<"Subject">
   }
 
   export type UserCreateWithoutSubjectsInput = {
@@ -7149,10 +7260,12 @@ export namespace Prisma {
   export type SubjectCreateWithoutStudyRecordInput = {
     id?: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
     user: UserCreateNestedOneWithoutSubjectsInput
     pendingActivities?: PendingActivityCreateNestedManyWithoutSubjectInput
   }
@@ -7161,10 +7274,12 @@ export namespace Prisma {
     id?: string
     id_user: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
     pendingActivities?: PendingActivityUncheckedCreateNestedManyWithoutSubjectInput
   }
 
@@ -7187,10 +7302,12 @@ export namespace Prisma {
   export type SubjectUpdateWithoutStudyRecordInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
     user?: UserUpdateOneRequiredWithoutSubjectsNestedInput
     pendingActivities?: PendingActivityUpdateManyWithoutSubjectNestedInput
   }
@@ -7199,20 +7316,24 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     id_user?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
     pendingActivities?: PendingActivityUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectCreateWithoutPendingActivitiesInput = {
     id?: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
     user: UserCreateNestedOneWithoutSubjectsInput
     studyRecord?: StudyRecordCreateNestedManyWithoutSubjectInput
   }
@@ -7221,10 +7342,12 @@ export namespace Prisma {
     id?: string
     id_user: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
     studyRecord?: StudyRecordUncheckedCreateNestedManyWithoutSubjectInput
   }
 
@@ -7247,10 +7370,12 @@ export namespace Prisma {
   export type SubjectUpdateWithoutPendingActivitiesInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
     user?: UserUpdateOneRequiredWithoutSubjectsNestedInput
     studyRecord?: StudyRecordUpdateManyWithoutSubjectNestedInput
   }
@@ -7259,29 +7384,35 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     id_user?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
     studyRecord?: StudyRecordUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectCreateManyUserInput = {
     id?: string
     title: string
+    priority?: number
     description: string
     week_day?: SubjectCreateweek_dayInput | string[]
     updated_at?: Date | string
     created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
   }
 
   export type SubjectUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
     studyRecord?: StudyRecordUpdateManyWithoutSubjectNestedInput
     pendingActivities?: PendingActivityUpdateManyWithoutSubjectNestedInput
   }
@@ -7289,10 +7420,12 @@ export namespace Prisma {
   export type SubjectUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
     studyRecord?: StudyRecordUncheckedUpdateManyWithoutSubjectNestedInput
     pendingActivities?: PendingActivityUncheckedUpdateManyWithoutSubjectNestedInput
   }
@@ -7300,10 +7433,12 @@ export namespace Prisma {
   export type SubjectUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
     week_day?: SubjectUpdateweek_dayInput | string[]
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
   }
 
   export type StudyRecordCreateManySubjectInput = {

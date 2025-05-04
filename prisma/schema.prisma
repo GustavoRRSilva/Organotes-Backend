@@ -32,11 +32,13 @@ model Subject{
   id_user String 
   user User @relation(fields: [id_user],references: [id])
   title String
+  priority Int @default(1)
   description String
   week_day String[] 
   updated_at DateTime @updatedAt
   created_at DateTime @default(now())
   studyRecord StudyRecord[]
+  pendingSubjects String[] @default(["Atividade 1","Atividade 2"])
   pendingActivities PendingActivity[]
 }
 

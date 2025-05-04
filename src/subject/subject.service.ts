@@ -7,20 +7,62 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateSubjectDto } from './Dto/CreateSubjectDto';
 import { NotFoundError } from 'rxjs';
 import { UpdateSubjectDto } from './Dto/UpdateSubjectDto';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+import { record } from 'zod';
 
 @Injectable()
 export class SubjectService {
   constructor(private prismaService: PrismaService) {}
 
   async getAllUserSubject(id: string) {
-    return this.prismaService.subject.findMany({
+    const subjects = await this.prismaService.subject.findMany({
       where: {
         id_user: id,
       },
       include: {
         pendingActivities: true,
+        studyRecord: {
+          orderBy: { created_at: 'desc' },
+        },
       },
     });
+
+    const formatted = subjects.map((subject) => {
+      const lastStudyRecord = subject.studyRecord[0];
+
+      const studyTimeDaysWithoutFormat = subject.studyRecord.reduce(
+        (acc, item) => {
+          const day = item.dayOfWeek;
+          if (!acc[day]) {
+            acc[day] = 0;
+          }
+          acc[day] += item.minutesStudied;
+          return acc;
+        },
+        {} as Record<string, number>,
+      );
+
+      const studyTimeDays = Object.entries(studyTimeDaysWithoutFormat).map(
+        ([day, value]) => ({
+          label: day,
+          value,
+        }),
+      );
+      const lastStudy = lastStudyRecord
+        ? format(new Date(lastStudyRecord.created_at), 'EEE dd/MM', {
+            locale: ptBR,
+          })
+        : null;
+
+      return {
+        subject,
+        lastStudy,
+        studyTimeDays,
+      };
+    });
+
+    return formatted;
   }
 
   async getById(id: string) {

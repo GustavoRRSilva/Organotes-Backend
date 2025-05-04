@@ -132,10 +132,12 @@ exports.Prisma.SubjectScalarFieldEnum = {
   id: 'id',
   id_user: 'id_user',
   title: 'title',
+  priority: 'priority',
   description: 'description',
   week_day: 'week_day',
   updated_at: 'updated_at',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  pendingSubjects: 'pendingSubjects'
 };
 
 exports.Prisma.StudyRecordScalarFieldEnum = {
