@@ -7,12 +7,19 @@ import { SubjectModule } from './subject/subject.module';
 
 import { StudyRecordModule } from './study-record/study-record.module';
 import { StudyRecordController } from './study-record/study-record.controller';
-import { StudyRecordService } from './study-record/study-record.service';
+
 import { DatabaseModule } from './database/database.module';
+import { ActivityModule } from './activity/activity.module';
 
 @Module({
-  imports: [AuthModule, SubjectModule, StudyRecordModule, DatabaseModule],
-  controllers: [SubjectController, StudyRecordController],
-  providers: [PrismaService, SubjectService, StudyRecordService],
+  imports: [
+    AuthModule,
+    DatabaseModule,
+    StudyRecordModule,
+    SubjectModule,
+    ActivityModule,
+  ],
+  controllers: [],
+  providers: [DatabaseModule],
 })
 export class AppModule {}

@@ -43,7 +43,7 @@ export class SubjectController {
 
   @UseGuards(AuthGuard)
   @Delete('/:id')
-  async DeleteNote(@Param('id') id: string) {
+  async deleteNote(@Param('id') id: string) {
     return await this.subjectService.deleteById(id);
   }
 
