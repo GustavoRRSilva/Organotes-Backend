@@ -12,6 +12,7 @@ export class StudyRecordService {
         subjectId: subjectId,
       },
     });
+
     if (infos.length > 0) {
       return infos;
     } else {
@@ -26,7 +27,7 @@ export class StudyRecordService {
           dayOfWeek: record.dayOfWeek,
           minutesStudied: record.minutesStudied,
           created_at: new Date(),
-          subjectId: subjectId,
+          subjectId: record.subjectId,
         },
       });
       return { createStudyRecord };

@@ -5,7 +5,6 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateSubjectDto } from './Dto/CreateSubjectDto';
-import { NotFoundError } from 'rxjs';
 import { UpdateSubjectDto } from './Dto/UpdateSubjectDto';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
