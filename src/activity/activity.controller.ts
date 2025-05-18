@@ -6,15 +6,19 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 
 import { ActivityService } from './activity.service';
 import { ActivityCreateDto } from './Dto/activity.dto';
 import { ActivityUpdateDto } from './Dto/updateactivity.dto';
+import { AuthGuard } from 'src/auth/auth.guard';
 
+@UseGuards(AuthGuard)
 @Controller('activity')
 export class ActivityController {
   constructor(private activityService: ActivityService) {}
+
   @Get('/:subjectId')
   async getAllActivitysBySubjectId(@Param('subjectId') subjectId: string) {
     return await this.activityService.getAll(subjectId);

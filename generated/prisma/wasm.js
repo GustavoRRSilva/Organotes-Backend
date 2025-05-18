@@ -157,6 +157,13 @@ exports.Prisma.PendingActivityScalarFieldEnum = {
   created_at: 'created_at'
 };
 
+exports.Prisma.NoteScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  content: 'content',
+  userId: 'userId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -172,7 +179,8 @@ exports.Prisma.ModelName = {
   User: 'User',
   Subject: 'Subject',
   StudyRecord: 'StudyRecord',
-  PendingActivity: 'PendingActivity'
+  PendingActivity: 'PendingActivity',
+  Note: 'Note'
 };
 
 /**

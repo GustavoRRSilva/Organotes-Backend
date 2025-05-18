@@ -89,7 +89,7 @@ export class SubjectService {
     }
   }
 
-  async createNote(data: CreateSubjectDto, userId: string) {
+  async create(data: CreateSubjectDto, userId: string) {
     const subjectAlreadyExist = await this.prismaService.subject.findFirst({
       where: {
         title: data.title,
@@ -119,11 +119,12 @@ export class SubjectService {
 
   async deleteById(id: string) {
     try {
-      await this.prismaService.subject.delete({
+      const deleted = await this.prismaService.subject.delete({
         where: {
           id: id,
         },
       });
+      console.log(deleted);
       return { status: 200, message: 'Deletado com sucesso' };
     } catch (e) {
       throw new NotFoundException('Not found subject');

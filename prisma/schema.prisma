@@ -25,6 +25,7 @@ model User{
   updated_at DateTime @updatedAt
   created_at DateTime @default(now())
   subjects Subject[]
+  note Note[]
 }
 
 model Subject{
@@ -63,4 +64,12 @@ model PendingActivity {
   created_at DateTime @default(now())
 
   @@index([subjectId])
+}
+
+model Note {
+  id String @id @default(uuid())
+  title String 
+  content String
+  userId String
+  user User @relation(fields:[userId],references: [id])
 }

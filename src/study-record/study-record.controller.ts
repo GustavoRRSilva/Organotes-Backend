@@ -6,13 +6,11 @@ import { AuthGuard } from 'src/auth/auth.guard';
 @Controller('study-record')
 export class StudyRecordController {
   constructor(private studyRecordService: StudyRecordService) {}
-  @UseGuards(AuthGuard)
   @Get('/:subjectId')
   async getAllRecords(@Param('subjectId') subjectId: string) {
     return await this.studyRecordService.getAllRecords(subjectId);
   }
 
-  @UseGuards(AuthGuard)
   @Post('/:subjectId')
   async postStudyRecord(
     @Body() record: PostStudyRecordDto,

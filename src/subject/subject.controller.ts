@@ -16,40 +16,36 @@ import { CreateSubjectDto } from './Dto/CreateSubjectDto';
 import { User } from 'src/auth/decorators/user.decorator';
 import { UpdateSubjectDto, UpdateValidation } from './Dto/UpdateSubjectDto';
 
+@UseGuards(AuthGuard)
 @Controller('subject')
 export class SubjectController {
   constructor(private subjectService: SubjectService) {}
 
-  @UseGuards(AuthGuard)
   @Get('/all/:id')
   async getAllUserSubject(@Param('id') id: string) {
     return await this.subjectService.getAllUserSubject(id);
   }
 
-  @UseGuards(AuthGuard)
   @Get('/:id')
   async getById(@Param('id') id: string) {
     return await this.subjectService.getById(id);
   }
 
-  @UseGuards(AuthGuard)
   @Post()
-  async createNote(
+  async create(
     @Body() createSubject: CreateSubjectDto,
     @User('id') userId: string,
   ) {
-    return await this.subjectService.createNote(createSubject, userId);
+    return await this.subjectService.create(createSubject, userId);
   }
 
-  @UseGuards(AuthGuard)
   @Delete('/:id')
-  async deleteNote(@Param('id') id: string) {
+  async delete(@Param('id') id: string) {
     return await this.subjectService.deleteById(id);
   }
 
-  @UseGuards(AuthGuard)
   @Put('/:id')
-  async updateNote(
+  async update(
     @Param('id') id: string,
     @Body(UpdateValidation) updateSubjectDto: UpdateSubjectDto,
   ) {
