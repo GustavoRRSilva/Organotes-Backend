@@ -26,6 +26,7 @@ model User{
   created_at DateTime @default(now())
   subjects Subject[]
   note Note[]
+  calendarActivies DayCalendarActivities[]
 }
 
 model Subject{
@@ -72,4 +73,23 @@ model Note {
   content String
   userId String
   user User @relation(fields:[userId],references: [id])
+}
+
+model DayCalendarActivities{
+  id String @id @default(uuid())
+  day Decimal
+  userId String
+  user User @relation(fields: [userId],references: [id])
+  month Decimal 
+  year Decimal
+  activityCalendar ActivityCalendar[]
+}
+
+model ActivityCalendar{
+  id String @id @default(uuid())
+  activityName String
+  description String
+  activityCalendarId String
+  time String
+  dayCalendarActivity DayCalendarActivities @relation(fields:[activityCalendarId],references:[id])
 }

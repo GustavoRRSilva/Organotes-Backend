@@ -164,6 +164,22 @@ exports.Prisma.NoteScalarFieldEnum = {
   userId: 'userId'
 };
 
+exports.Prisma.DayCalendarActivitiesScalarFieldEnum = {
+  id: 'id',
+  day: 'day',
+  userId: 'userId',
+  month: 'month',
+  year: 'year'
+};
+
+exports.Prisma.ActivityCalendarScalarFieldEnum = {
+  id: 'id',
+  activityName: 'activityName',
+  description: 'description',
+  activityCalendarId: 'activityCalendarId',
+  time: 'time'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -180,7 +196,9 @@ exports.Prisma.ModelName = {
   Subject: 'Subject',
   StudyRecord: 'StudyRecord',
   PendingActivity: 'PendingActivity',
-  Note: 'Note'
+  Note: 'Note',
+  DayCalendarActivities: 'DayCalendarActivities',
+  ActivityCalendar: 'ActivityCalendar'
 };
 
 /**

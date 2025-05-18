@@ -38,6 +38,16 @@ export type PendingActivity = $Result.DefaultSelection<Prisma.$PendingActivityPa
  * 
  */
 export type Note = $Result.DefaultSelection<Prisma.$NotePayload>
+/**
+ * Model DayCalendarActivities
+ * 
+ */
+export type DayCalendarActivities = $Result.DefaultSelection<Prisma.$DayCalendarActivitiesPayload>
+/**
+ * Model ActivityCalendar
+ * 
+ */
+export type ActivityCalendar = $Result.DefaultSelection<Prisma.$ActivityCalendarPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -213,6 +223,26 @@ export class PrismaClient<
     * ```
     */
   get note(): Prisma.NoteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.dayCalendarActivities`: Exposes CRUD operations for the **DayCalendarActivities** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DayCalendarActivities
+    * const dayCalendarActivities = await prisma.dayCalendarActivities.findMany()
+    * ```
+    */
+  get dayCalendarActivities(): Prisma.DayCalendarActivitiesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.activityCalendar`: Exposes CRUD operations for the **ActivityCalendar** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ActivityCalendars
+    * const activityCalendars = await prisma.activityCalendar.findMany()
+    * ```
+    */
+  get activityCalendar(): Prisma.ActivityCalendarDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -657,7 +687,9 @@ export namespace Prisma {
     Subject: 'Subject',
     StudyRecord: 'StudyRecord',
     PendingActivity: 'PendingActivity',
-    Note: 'Note'
+    Note: 'Note',
+    DayCalendarActivities: 'DayCalendarActivities',
+    ActivityCalendar: 'ActivityCalendar'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -676,7 +708,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "subject" | "studyRecord" | "pendingActivity" | "note"
+      modelProps: "user" | "subject" | "studyRecord" | "pendingActivity" | "note" | "dayCalendarActivities" | "activityCalendar"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1050,6 +1082,154 @@ export namespace Prisma {
           }
         }
       }
+      DayCalendarActivities: {
+        payload: Prisma.$DayCalendarActivitiesPayload<ExtArgs>
+        fields: Prisma.DayCalendarActivitiesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DayCalendarActivitiesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DayCalendarActivitiesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          findFirst: {
+            args: Prisma.DayCalendarActivitiesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DayCalendarActivitiesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          findMany: {
+            args: Prisma.DayCalendarActivitiesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>[]
+          }
+          create: {
+            args: Prisma.DayCalendarActivitiesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          createMany: {
+            args: Prisma.DayCalendarActivitiesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DayCalendarActivitiesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>[]
+          }
+          delete: {
+            args: Prisma.DayCalendarActivitiesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          update: {
+            args: Prisma.DayCalendarActivitiesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          deleteMany: {
+            args: Prisma.DayCalendarActivitiesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DayCalendarActivitiesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DayCalendarActivitiesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>[]
+          }
+          upsert: {
+            args: Prisma.DayCalendarActivitiesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          aggregate: {
+            args: Prisma.DayCalendarActivitiesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDayCalendarActivities>
+          }
+          groupBy: {
+            args: Prisma.DayCalendarActivitiesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DayCalendarActivitiesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DayCalendarActivitiesCountArgs<ExtArgs>
+            result: $Utils.Optional<DayCalendarActivitiesCountAggregateOutputType> | number
+          }
+        }
+      }
+      ActivityCalendar: {
+        payload: Prisma.$ActivityCalendarPayload<ExtArgs>
+        fields: Prisma.ActivityCalendarFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ActivityCalendarFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ActivityCalendarFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          findFirst: {
+            args: Prisma.ActivityCalendarFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ActivityCalendarFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          findMany: {
+            args: Prisma.ActivityCalendarFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>[]
+          }
+          create: {
+            args: Prisma.ActivityCalendarCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          createMany: {
+            args: Prisma.ActivityCalendarCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ActivityCalendarCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>[]
+          }
+          delete: {
+            args: Prisma.ActivityCalendarDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          update: {
+            args: Prisma.ActivityCalendarUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          deleteMany: {
+            args: Prisma.ActivityCalendarDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ActivityCalendarUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ActivityCalendarUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>[]
+          }
+          upsert: {
+            args: Prisma.ActivityCalendarUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          aggregate: {
+            args: Prisma.ActivityCalendarAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateActivityCalendar>
+          }
+          groupBy: {
+            args: Prisma.ActivityCalendarGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ActivityCalendarGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ActivityCalendarCountArgs<ExtArgs>
+            result: $Utils.Optional<ActivityCalendarCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1139,6 +1319,8 @@ export namespace Prisma {
     studyRecord?: StudyRecordOmit
     pendingActivity?: PendingActivityOmit
     note?: NoteOmit
+    dayCalendarActivities?: DayCalendarActivitiesOmit
+    activityCalendar?: ActivityCalendarOmit
   }
 
   /* Types for Logging */
@@ -1235,11 +1417,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     subjects: number
     note: number
+    calendarActivies: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subjects?: boolean | UserCountOutputTypeCountSubjectsArgs
     note?: boolean | UserCountOutputTypeCountNoteArgs
+    calendarActivies?: boolean | UserCountOutputTypeCountCalendarActiviesArgs
   }
 
   // Custom InputTypes
@@ -1265,6 +1449,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountNoteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: NoteWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCalendarActiviesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DayCalendarActivitiesWhereInput
   }
 
 
@@ -1305,6 +1496,37 @@ export namespace Prisma {
    */
   export type SubjectCountOutputTypeCountPendingActivitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PendingActivityWhereInput
+  }
+
+
+  /**
+   * Count Type DayCalendarActivitiesCountOutputType
+   */
+
+  export type DayCalendarActivitiesCountOutputType = {
+    activityCalendar: number
+  }
+
+  export type DayCalendarActivitiesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    activityCalendar?: boolean | DayCalendarActivitiesCountOutputTypeCountActivityCalendarArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DayCalendarActivitiesCountOutputType without action
+   */
+  export type DayCalendarActivitiesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivitiesCountOutputType
+     */
+    select?: DayCalendarActivitiesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DayCalendarActivitiesCountOutputType without action
+   */
+  export type DayCalendarActivitiesCountOutputTypeCountActivityCalendarArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ActivityCalendarWhereInput
   }
 
 
@@ -1502,6 +1724,7 @@ export namespace Prisma {
     created_at?: boolean
     subjects?: boolean | User$subjectsArgs<ExtArgs>
     note?: boolean | User$noteArgs<ExtArgs>
+    calendarActivies?: boolean | User$calendarActiviesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1542,6 +1765,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subjects?: boolean | User$subjectsArgs<ExtArgs>
     note?: boolean | User$noteArgs<ExtArgs>
+    calendarActivies?: boolean | User$calendarActiviesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1552,6 +1776,7 @@ export namespace Prisma {
     objects: {
       subjects: Prisma.$SubjectPayload<ExtArgs>[]
       note: Prisma.$NotePayload<ExtArgs>[]
+      calendarActivies: Prisma.$DayCalendarActivitiesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1958,6 +2183,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     subjects<T extends User$subjectsArgs<ExtArgs> = {}>(args?: Subset<T, User$subjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     note<T extends User$noteArgs<ExtArgs> = {}>(args?: Subset<T, User$noteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    calendarActivies<T extends User$calendarActiviesArgs<ExtArgs> = {}>(args?: Subset<T, User$calendarActiviesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2428,6 +2654,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+  }
+
+  /**
+   * User.calendarActivies
+   */
+  export type User$calendarActiviesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    where?: DayCalendarActivitiesWhereInput
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DayCalendarActivitiesScalarFieldEnum | DayCalendarActivitiesScalarFieldEnum[]
   }
 
   /**
@@ -6886,6 +7136,2194 @@ export namespace Prisma {
 
 
   /**
+   * Model DayCalendarActivities
+   */
+
+  export type AggregateDayCalendarActivities = {
+    _count: DayCalendarActivitiesCountAggregateOutputType | null
+    _avg: DayCalendarActivitiesAvgAggregateOutputType | null
+    _sum: DayCalendarActivitiesSumAggregateOutputType | null
+    _min: DayCalendarActivitiesMinAggregateOutputType | null
+    _max: DayCalendarActivitiesMaxAggregateOutputType | null
+  }
+
+  export type DayCalendarActivitiesAvgAggregateOutputType = {
+    day: Decimal | null
+    month: Decimal | null
+    year: Decimal | null
+  }
+
+  export type DayCalendarActivitiesSumAggregateOutputType = {
+    day: Decimal | null
+    month: Decimal | null
+    year: Decimal | null
+  }
+
+  export type DayCalendarActivitiesMinAggregateOutputType = {
+    id: string | null
+    day: Decimal | null
+    userId: string | null
+    month: Decimal | null
+    year: Decimal | null
+  }
+
+  export type DayCalendarActivitiesMaxAggregateOutputType = {
+    id: string | null
+    day: Decimal | null
+    userId: string | null
+    month: Decimal | null
+    year: Decimal | null
+  }
+
+  export type DayCalendarActivitiesCountAggregateOutputType = {
+    id: number
+    day: number
+    userId: number
+    month: number
+    year: number
+    _all: number
+  }
+
+
+  export type DayCalendarActivitiesAvgAggregateInputType = {
+    day?: true
+    month?: true
+    year?: true
+  }
+
+  export type DayCalendarActivitiesSumAggregateInputType = {
+    day?: true
+    month?: true
+    year?: true
+  }
+
+  export type DayCalendarActivitiesMinAggregateInputType = {
+    id?: true
+    day?: true
+    userId?: true
+    month?: true
+    year?: true
+  }
+
+  export type DayCalendarActivitiesMaxAggregateInputType = {
+    id?: true
+    day?: true
+    userId?: true
+    month?: true
+    year?: true
+  }
+
+  export type DayCalendarActivitiesCountAggregateInputType = {
+    id?: true
+    day?: true
+    userId?: true
+    month?: true
+    year?: true
+    _all?: true
+  }
+
+  export type DayCalendarActivitiesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DayCalendarActivities to aggregate.
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayCalendarActivities to fetch.
+     */
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayCalendarActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayCalendarActivities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DayCalendarActivities
+    **/
+    _count?: true | DayCalendarActivitiesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DayCalendarActivitiesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DayCalendarActivitiesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DayCalendarActivitiesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DayCalendarActivitiesMaxAggregateInputType
+  }
+
+  export type GetDayCalendarActivitiesAggregateType<T extends DayCalendarActivitiesAggregateArgs> = {
+        [P in keyof T & keyof AggregateDayCalendarActivities]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDayCalendarActivities[P]>
+      : GetScalarType<T[P], AggregateDayCalendarActivities[P]>
+  }
+
+
+
+
+  export type DayCalendarActivitiesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DayCalendarActivitiesWhereInput
+    orderBy?: DayCalendarActivitiesOrderByWithAggregationInput | DayCalendarActivitiesOrderByWithAggregationInput[]
+    by: DayCalendarActivitiesScalarFieldEnum[] | DayCalendarActivitiesScalarFieldEnum
+    having?: DayCalendarActivitiesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DayCalendarActivitiesCountAggregateInputType | true
+    _avg?: DayCalendarActivitiesAvgAggregateInputType
+    _sum?: DayCalendarActivitiesSumAggregateInputType
+    _min?: DayCalendarActivitiesMinAggregateInputType
+    _max?: DayCalendarActivitiesMaxAggregateInputType
+  }
+
+  export type DayCalendarActivitiesGroupByOutputType = {
+    id: string
+    day: Decimal
+    userId: string
+    month: Decimal
+    year: Decimal
+    _count: DayCalendarActivitiesCountAggregateOutputType | null
+    _avg: DayCalendarActivitiesAvgAggregateOutputType | null
+    _sum: DayCalendarActivitiesSumAggregateOutputType | null
+    _min: DayCalendarActivitiesMinAggregateOutputType | null
+    _max: DayCalendarActivitiesMaxAggregateOutputType | null
+  }
+
+  type GetDayCalendarActivitiesGroupByPayload<T extends DayCalendarActivitiesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DayCalendarActivitiesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DayCalendarActivitiesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DayCalendarActivitiesGroupByOutputType[P]>
+            : GetScalarType<T[P], DayCalendarActivitiesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DayCalendarActivitiesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    day?: boolean
+    userId?: boolean
+    month?: boolean
+    year?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    activityCalendar?: boolean | DayCalendarActivities$activityCalendarArgs<ExtArgs>
+    _count?: boolean | DayCalendarActivitiesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dayCalendarActivities"]>
+
+  export type DayCalendarActivitiesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    day?: boolean
+    userId?: boolean
+    month?: boolean
+    year?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dayCalendarActivities"]>
+
+  export type DayCalendarActivitiesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    day?: boolean
+    userId?: boolean
+    month?: boolean
+    year?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dayCalendarActivities"]>
+
+  export type DayCalendarActivitiesSelectScalar = {
+    id?: boolean
+    day?: boolean
+    userId?: boolean
+    month?: boolean
+    year?: boolean
+  }
+
+  export type DayCalendarActivitiesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "day" | "userId" | "month" | "year", ExtArgs["result"]["dayCalendarActivities"]>
+  export type DayCalendarActivitiesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    activityCalendar?: boolean | DayCalendarActivities$activityCalendarArgs<ExtArgs>
+    _count?: boolean | DayCalendarActivitiesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DayCalendarActivitiesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type DayCalendarActivitiesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $DayCalendarActivitiesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DayCalendarActivities"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      activityCalendar: Prisma.$ActivityCalendarPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      day: Prisma.Decimal
+      userId: string
+      month: Prisma.Decimal
+      year: Prisma.Decimal
+    }, ExtArgs["result"]["dayCalendarActivities"]>
+    composites: {}
+  }
+
+  type DayCalendarActivitiesGetPayload<S extends boolean | null | undefined | DayCalendarActivitiesDefaultArgs> = $Result.GetResult<Prisma.$DayCalendarActivitiesPayload, S>
+
+  type DayCalendarActivitiesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DayCalendarActivitiesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DayCalendarActivitiesCountAggregateInputType | true
+    }
+
+  export interface DayCalendarActivitiesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DayCalendarActivities'], meta: { name: 'DayCalendarActivities' } }
+    /**
+     * Find zero or one DayCalendarActivities that matches the filter.
+     * @param {DayCalendarActivitiesFindUniqueArgs} args - Arguments to find a DayCalendarActivities
+     * @example
+     * // Get one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DayCalendarActivitiesFindUniqueArgs>(args: SelectSubset<T, DayCalendarActivitiesFindUniqueArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DayCalendarActivities that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DayCalendarActivitiesFindUniqueOrThrowArgs} args - Arguments to find a DayCalendarActivities
+     * @example
+     * // Get one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DayCalendarActivitiesFindUniqueOrThrowArgs>(args: SelectSubset<T, DayCalendarActivitiesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DayCalendarActivities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesFindFirstArgs} args - Arguments to find a DayCalendarActivities
+     * @example
+     * // Get one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DayCalendarActivitiesFindFirstArgs>(args?: SelectSubset<T, DayCalendarActivitiesFindFirstArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DayCalendarActivities that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesFindFirstOrThrowArgs} args - Arguments to find a DayCalendarActivities
+     * @example
+     * // Get one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DayCalendarActivitiesFindFirstOrThrowArgs>(args?: SelectSubset<T, DayCalendarActivitiesFindFirstOrThrowArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DayCalendarActivities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findMany()
+     * 
+     * // Get first 10 DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const dayCalendarActivitiesWithIdOnly = await prisma.dayCalendarActivities.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DayCalendarActivitiesFindManyArgs>(args?: SelectSubset<T, DayCalendarActivitiesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DayCalendarActivities.
+     * @param {DayCalendarActivitiesCreateArgs} args - Arguments to create a DayCalendarActivities.
+     * @example
+     * // Create one DayCalendarActivities
+     * const DayCalendarActivities = await prisma.dayCalendarActivities.create({
+     *   data: {
+     *     // ... data to create a DayCalendarActivities
+     *   }
+     * })
+     * 
+     */
+    create<T extends DayCalendarActivitiesCreateArgs>(args: SelectSubset<T, DayCalendarActivitiesCreateArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DayCalendarActivities.
+     * @param {DayCalendarActivitiesCreateManyArgs} args - Arguments to create many DayCalendarActivities.
+     * @example
+     * // Create many DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DayCalendarActivitiesCreateManyArgs>(args?: SelectSubset<T, DayCalendarActivitiesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DayCalendarActivities and returns the data saved in the database.
+     * @param {DayCalendarActivitiesCreateManyAndReturnArgs} args - Arguments to create many DayCalendarActivities.
+     * @example
+     * // Create many DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DayCalendarActivities and only return the `id`
+     * const dayCalendarActivitiesWithIdOnly = await prisma.dayCalendarActivities.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DayCalendarActivitiesCreateManyAndReturnArgs>(args?: SelectSubset<T, DayCalendarActivitiesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a DayCalendarActivities.
+     * @param {DayCalendarActivitiesDeleteArgs} args - Arguments to delete one DayCalendarActivities.
+     * @example
+     * // Delete one DayCalendarActivities
+     * const DayCalendarActivities = await prisma.dayCalendarActivities.delete({
+     *   where: {
+     *     // ... filter to delete one DayCalendarActivities
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DayCalendarActivitiesDeleteArgs>(args: SelectSubset<T, DayCalendarActivitiesDeleteArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DayCalendarActivities.
+     * @param {DayCalendarActivitiesUpdateArgs} args - Arguments to update one DayCalendarActivities.
+     * @example
+     * // Update one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DayCalendarActivitiesUpdateArgs>(args: SelectSubset<T, DayCalendarActivitiesUpdateArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DayCalendarActivities.
+     * @param {DayCalendarActivitiesDeleteManyArgs} args - Arguments to filter DayCalendarActivities to delete.
+     * @example
+     * // Delete a few DayCalendarActivities
+     * const { count } = await prisma.dayCalendarActivities.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DayCalendarActivitiesDeleteManyArgs>(args?: SelectSubset<T, DayCalendarActivitiesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DayCalendarActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DayCalendarActivitiesUpdateManyArgs>(args: SelectSubset<T, DayCalendarActivitiesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DayCalendarActivities and returns the data updated in the database.
+     * @param {DayCalendarActivitiesUpdateManyAndReturnArgs} args - Arguments to update many DayCalendarActivities.
+     * @example
+     * // Update many DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more DayCalendarActivities and only return the `id`
+     * const dayCalendarActivitiesWithIdOnly = await prisma.dayCalendarActivities.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DayCalendarActivitiesUpdateManyAndReturnArgs>(args: SelectSubset<T, DayCalendarActivitiesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one DayCalendarActivities.
+     * @param {DayCalendarActivitiesUpsertArgs} args - Arguments to update or create a DayCalendarActivities.
+     * @example
+     * // Update or create a DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.upsert({
+     *   create: {
+     *     // ... data to create a DayCalendarActivities
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DayCalendarActivities we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DayCalendarActivitiesUpsertArgs>(args: SelectSubset<T, DayCalendarActivitiesUpsertArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DayCalendarActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesCountArgs} args - Arguments to filter DayCalendarActivities to count.
+     * @example
+     * // Count the number of DayCalendarActivities
+     * const count = await prisma.dayCalendarActivities.count({
+     *   where: {
+     *     // ... the filter for the DayCalendarActivities we want to count
+     *   }
+     * })
+    **/
+    count<T extends DayCalendarActivitiesCountArgs>(
+      args?: Subset<T, DayCalendarActivitiesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DayCalendarActivitiesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DayCalendarActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DayCalendarActivitiesAggregateArgs>(args: Subset<T, DayCalendarActivitiesAggregateArgs>): Prisma.PrismaPromise<GetDayCalendarActivitiesAggregateType<T>>
+
+    /**
+     * Group by DayCalendarActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DayCalendarActivitiesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DayCalendarActivitiesGroupByArgs['orderBy'] }
+        : { orderBy?: DayCalendarActivitiesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DayCalendarActivitiesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDayCalendarActivitiesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DayCalendarActivities model
+   */
+  readonly fields: DayCalendarActivitiesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DayCalendarActivities.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DayCalendarActivitiesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    activityCalendar<T extends DayCalendarActivities$activityCalendarArgs<ExtArgs> = {}>(args?: Subset<T, DayCalendarActivities$activityCalendarArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DayCalendarActivities model
+   */
+  interface DayCalendarActivitiesFieldRefs {
+    readonly id: FieldRef<"DayCalendarActivities", 'String'>
+    readonly day: FieldRef<"DayCalendarActivities", 'Decimal'>
+    readonly userId: FieldRef<"DayCalendarActivities", 'String'>
+    readonly month: FieldRef<"DayCalendarActivities", 'Decimal'>
+    readonly year: FieldRef<"DayCalendarActivities", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DayCalendarActivities findUnique
+   */
+  export type DayCalendarActivitiesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  /**
+   * DayCalendarActivities findUniqueOrThrow
+   */
+  export type DayCalendarActivitiesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  /**
+   * DayCalendarActivities findFirst
+   */
+  export type DayCalendarActivitiesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayCalendarActivities to fetch.
+     */
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DayCalendarActivities.
+     */
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayCalendarActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayCalendarActivities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DayCalendarActivities.
+     */
+    distinct?: DayCalendarActivitiesScalarFieldEnum | DayCalendarActivitiesScalarFieldEnum[]
+  }
+
+  /**
+   * DayCalendarActivities findFirstOrThrow
+   */
+  export type DayCalendarActivitiesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayCalendarActivities to fetch.
+     */
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DayCalendarActivities.
+     */
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayCalendarActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayCalendarActivities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DayCalendarActivities.
+     */
+    distinct?: DayCalendarActivitiesScalarFieldEnum | DayCalendarActivitiesScalarFieldEnum[]
+  }
+
+  /**
+   * DayCalendarActivities findMany
+   */
+  export type DayCalendarActivitiesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayCalendarActivities to fetch.
+     */
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DayCalendarActivities.
+     */
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayCalendarActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayCalendarActivities.
+     */
+    skip?: number
+    distinct?: DayCalendarActivitiesScalarFieldEnum | DayCalendarActivitiesScalarFieldEnum[]
+  }
+
+  /**
+   * DayCalendarActivities create
+   */
+  export type DayCalendarActivitiesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DayCalendarActivities.
+     */
+    data: XOR<DayCalendarActivitiesCreateInput, DayCalendarActivitiesUncheckedCreateInput>
+  }
+
+  /**
+   * DayCalendarActivities createMany
+   */
+  export type DayCalendarActivitiesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DayCalendarActivities.
+     */
+    data: DayCalendarActivitiesCreateManyInput | DayCalendarActivitiesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DayCalendarActivities createManyAndReturn
+   */
+  export type DayCalendarActivitiesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * The data used to create many DayCalendarActivities.
+     */
+    data: DayCalendarActivitiesCreateManyInput | DayCalendarActivitiesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DayCalendarActivities update
+   */
+  export type DayCalendarActivitiesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DayCalendarActivities.
+     */
+    data: XOR<DayCalendarActivitiesUpdateInput, DayCalendarActivitiesUncheckedUpdateInput>
+    /**
+     * Choose, which DayCalendarActivities to update.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  /**
+   * DayCalendarActivities updateMany
+   */
+  export type DayCalendarActivitiesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DayCalendarActivities.
+     */
+    data: XOR<DayCalendarActivitiesUpdateManyMutationInput, DayCalendarActivitiesUncheckedUpdateManyInput>
+    /**
+     * Filter which DayCalendarActivities to update
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * Limit how many DayCalendarActivities to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DayCalendarActivities updateManyAndReturn
+   */
+  export type DayCalendarActivitiesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * The data used to update DayCalendarActivities.
+     */
+    data: XOR<DayCalendarActivitiesUpdateManyMutationInput, DayCalendarActivitiesUncheckedUpdateManyInput>
+    /**
+     * Filter which DayCalendarActivities to update
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * Limit how many DayCalendarActivities to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DayCalendarActivities upsert
+   */
+  export type DayCalendarActivitiesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DayCalendarActivities to update in case it exists.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * In case the DayCalendarActivities found by the `where` argument doesn't exist, create a new DayCalendarActivities with this data.
+     */
+    create: XOR<DayCalendarActivitiesCreateInput, DayCalendarActivitiesUncheckedCreateInput>
+    /**
+     * In case the DayCalendarActivities was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DayCalendarActivitiesUpdateInput, DayCalendarActivitiesUncheckedUpdateInput>
+  }
+
+  /**
+   * DayCalendarActivities delete
+   */
+  export type DayCalendarActivitiesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter which DayCalendarActivities to delete.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  /**
+   * DayCalendarActivities deleteMany
+   */
+  export type DayCalendarActivitiesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DayCalendarActivities to delete
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * Limit how many DayCalendarActivities to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DayCalendarActivities.activityCalendar
+   */
+  export type DayCalendarActivities$activityCalendarArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    where?: ActivityCalendarWhereInput
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    cursor?: ActivityCalendarWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ActivityCalendarScalarFieldEnum | ActivityCalendarScalarFieldEnum[]
+  }
+
+  /**
+   * DayCalendarActivities without action
+   */
+  export type DayCalendarActivitiesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ActivityCalendar
+   */
+
+  export type AggregateActivityCalendar = {
+    _count: ActivityCalendarCountAggregateOutputType | null
+    _min: ActivityCalendarMinAggregateOutputType | null
+    _max: ActivityCalendarMaxAggregateOutputType | null
+  }
+
+  export type ActivityCalendarMinAggregateOutputType = {
+    id: string | null
+    activityName: string | null
+    description: string | null
+    activityCalendarId: string | null
+    time: string | null
+  }
+
+  export type ActivityCalendarMaxAggregateOutputType = {
+    id: string | null
+    activityName: string | null
+    description: string | null
+    activityCalendarId: string | null
+    time: string | null
+  }
+
+  export type ActivityCalendarCountAggregateOutputType = {
+    id: number
+    activityName: number
+    description: number
+    activityCalendarId: number
+    time: number
+    _all: number
+  }
+
+
+  export type ActivityCalendarMinAggregateInputType = {
+    id?: true
+    activityName?: true
+    description?: true
+    activityCalendarId?: true
+    time?: true
+  }
+
+  export type ActivityCalendarMaxAggregateInputType = {
+    id?: true
+    activityName?: true
+    description?: true
+    activityCalendarId?: true
+    time?: true
+  }
+
+  export type ActivityCalendarCountAggregateInputType = {
+    id?: true
+    activityName?: true
+    description?: true
+    activityCalendarId?: true
+    time?: true
+    _all?: true
+  }
+
+  export type ActivityCalendarAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ActivityCalendar to aggregate.
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ActivityCalendars to fetch.
+     */
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ActivityCalendarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ActivityCalendars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ActivityCalendars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ActivityCalendars
+    **/
+    _count?: true | ActivityCalendarCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ActivityCalendarMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ActivityCalendarMaxAggregateInputType
+  }
+
+  export type GetActivityCalendarAggregateType<T extends ActivityCalendarAggregateArgs> = {
+        [P in keyof T & keyof AggregateActivityCalendar]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateActivityCalendar[P]>
+      : GetScalarType<T[P], AggregateActivityCalendar[P]>
+  }
+
+
+
+
+  export type ActivityCalendarGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ActivityCalendarWhereInput
+    orderBy?: ActivityCalendarOrderByWithAggregationInput | ActivityCalendarOrderByWithAggregationInput[]
+    by: ActivityCalendarScalarFieldEnum[] | ActivityCalendarScalarFieldEnum
+    having?: ActivityCalendarScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ActivityCalendarCountAggregateInputType | true
+    _min?: ActivityCalendarMinAggregateInputType
+    _max?: ActivityCalendarMaxAggregateInputType
+  }
+
+  export type ActivityCalendarGroupByOutputType = {
+    id: string
+    activityName: string
+    description: string
+    activityCalendarId: string
+    time: string
+    _count: ActivityCalendarCountAggregateOutputType | null
+    _min: ActivityCalendarMinAggregateOutputType | null
+    _max: ActivityCalendarMaxAggregateOutputType | null
+  }
+
+  type GetActivityCalendarGroupByPayload<T extends ActivityCalendarGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ActivityCalendarGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ActivityCalendarGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ActivityCalendarGroupByOutputType[P]>
+            : GetScalarType<T[P], ActivityCalendarGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ActivityCalendarSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    activityName?: boolean
+    description?: boolean
+    activityCalendarId?: boolean
+    time?: boolean
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["activityCalendar"]>
+
+  export type ActivityCalendarSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    activityName?: boolean
+    description?: boolean
+    activityCalendarId?: boolean
+    time?: boolean
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["activityCalendar"]>
+
+  export type ActivityCalendarSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    activityName?: boolean
+    description?: boolean
+    activityCalendarId?: boolean
+    time?: boolean
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["activityCalendar"]>
+
+  export type ActivityCalendarSelectScalar = {
+    id?: boolean
+    activityName?: boolean
+    description?: boolean
+    activityCalendarId?: boolean
+    time?: boolean
+  }
+
+  export type ActivityCalendarOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "activityName" | "description" | "activityCalendarId" | "time", ExtArgs["result"]["activityCalendar"]>
+  export type ActivityCalendarInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }
+  export type ActivityCalendarIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }
+  export type ActivityCalendarIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }
+
+  export type $ActivityCalendarPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ActivityCalendar"
+    objects: {
+      dayCalendarActivity: Prisma.$DayCalendarActivitiesPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      activityName: string
+      description: string
+      activityCalendarId: string
+      time: string
+    }, ExtArgs["result"]["activityCalendar"]>
+    composites: {}
+  }
+
+  type ActivityCalendarGetPayload<S extends boolean | null | undefined | ActivityCalendarDefaultArgs> = $Result.GetResult<Prisma.$ActivityCalendarPayload, S>
+
+  type ActivityCalendarCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ActivityCalendarFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ActivityCalendarCountAggregateInputType | true
+    }
+
+  export interface ActivityCalendarDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ActivityCalendar'], meta: { name: 'ActivityCalendar' } }
+    /**
+     * Find zero or one ActivityCalendar that matches the filter.
+     * @param {ActivityCalendarFindUniqueArgs} args - Arguments to find a ActivityCalendar
+     * @example
+     * // Get one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ActivityCalendarFindUniqueArgs>(args: SelectSubset<T, ActivityCalendarFindUniqueArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ActivityCalendar that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ActivityCalendarFindUniqueOrThrowArgs} args - Arguments to find a ActivityCalendar
+     * @example
+     * // Get one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ActivityCalendarFindUniqueOrThrowArgs>(args: SelectSubset<T, ActivityCalendarFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ActivityCalendar that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarFindFirstArgs} args - Arguments to find a ActivityCalendar
+     * @example
+     * // Get one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ActivityCalendarFindFirstArgs>(args?: SelectSubset<T, ActivityCalendarFindFirstArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ActivityCalendar that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarFindFirstOrThrowArgs} args - Arguments to find a ActivityCalendar
+     * @example
+     * // Get one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ActivityCalendarFindFirstOrThrowArgs>(args?: SelectSubset<T, ActivityCalendarFindFirstOrThrowArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ActivityCalendars that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ActivityCalendars
+     * const activityCalendars = await prisma.activityCalendar.findMany()
+     * 
+     * // Get first 10 ActivityCalendars
+     * const activityCalendars = await prisma.activityCalendar.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const activityCalendarWithIdOnly = await prisma.activityCalendar.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ActivityCalendarFindManyArgs>(args?: SelectSubset<T, ActivityCalendarFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ActivityCalendar.
+     * @param {ActivityCalendarCreateArgs} args - Arguments to create a ActivityCalendar.
+     * @example
+     * // Create one ActivityCalendar
+     * const ActivityCalendar = await prisma.activityCalendar.create({
+     *   data: {
+     *     // ... data to create a ActivityCalendar
+     *   }
+     * })
+     * 
+     */
+    create<T extends ActivityCalendarCreateArgs>(args: SelectSubset<T, ActivityCalendarCreateArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ActivityCalendars.
+     * @param {ActivityCalendarCreateManyArgs} args - Arguments to create many ActivityCalendars.
+     * @example
+     * // Create many ActivityCalendars
+     * const activityCalendar = await prisma.activityCalendar.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ActivityCalendarCreateManyArgs>(args?: SelectSubset<T, ActivityCalendarCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ActivityCalendars and returns the data saved in the database.
+     * @param {ActivityCalendarCreateManyAndReturnArgs} args - Arguments to create many ActivityCalendars.
+     * @example
+     * // Create many ActivityCalendars
+     * const activityCalendar = await prisma.activityCalendar.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ActivityCalendars and only return the `id`
+     * const activityCalendarWithIdOnly = await prisma.activityCalendar.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ActivityCalendarCreateManyAndReturnArgs>(args?: SelectSubset<T, ActivityCalendarCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ActivityCalendar.
+     * @param {ActivityCalendarDeleteArgs} args - Arguments to delete one ActivityCalendar.
+     * @example
+     * // Delete one ActivityCalendar
+     * const ActivityCalendar = await prisma.activityCalendar.delete({
+     *   where: {
+     *     // ... filter to delete one ActivityCalendar
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ActivityCalendarDeleteArgs>(args: SelectSubset<T, ActivityCalendarDeleteArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ActivityCalendar.
+     * @param {ActivityCalendarUpdateArgs} args - Arguments to update one ActivityCalendar.
+     * @example
+     * // Update one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ActivityCalendarUpdateArgs>(args: SelectSubset<T, ActivityCalendarUpdateArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ActivityCalendars.
+     * @param {ActivityCalendarDeleteManyArgs} args - Arguments to filter ActivityCalendars to delete.
+     * @example
+     * // Delete a few ActivityCalendars
+     * const { count } = await prisma.activityCalendar.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ActivityCalendarDeleteManyArgs>(args?: SelectSubset<T, ActivityCalendarDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ActivityCalendars.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ActivityCalendars
+     * const activityCalendar = await prisma.activityCalendar.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ActivityCalendarUpdateManyArgs>(args: SelectSubset<T, ActivityCalendarUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ActivityCalendars and returns the data updated in the database.
+     * @param {ActivityCalendarUpdateManyAndReturnArgs} args - Arguments to update many ActivityCalendars.
+     * @example
+     * // Update many ActivityCalendars
+     * const activityCalendar = await prisma.activityCalendar.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ActivityCalendars and only return the `id`
+     * const activityCalendarWithIdOnly = await prisma.activityCalendar.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ActivityCalendarUpdateManyAndReturnArgs>(args: SelectSubset<T, ActivityCalendarUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ActivityCalendar.
+     * @param {ActivityCalendarUpsertArgs} args - Arguments to update or create a ActivityCalendar.
+     * @example
+     * // Update or create a ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.upsert({
+     *   create: {
+     *     // ... data to create a ActivityCalendar
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ActivityCalendar we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ActivityCalendarUpsertArgs>(args: SelectSubset<T, ActivityCalendarUpsertArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ActivityCalendars.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarCountArgs} args - Arguments to filter ActivityCalendars to count.
+     * @example
+     * // Count the number of ActivityCalendars
+     * const count = await prisma.activityCalendar.count({
+     *   where: {
+     *     // ... the filter for the ActivityCalendars we want to count
+     *   }
+     * })
+    **/
+    count<T extends ActivityCalendarCountArgs>(
+      args?: Subset<T, ActivityCalendarCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ActivityCalendarCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ActivityCalendar.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ActivityCalendarAggregateArgs>(args: Subset<T, ActivityCalendarAggregateArgs>): Prisma.PrismaPromise<GetActivityCalendarAggregateType<T>>
+
+    /**
+     * Group by ActivityCalendar.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ActivityCalendarGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ActivityCalendarGroupByArgs['orderBy'] }
+        : { orderBy?: ActivityCalendarGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ActivityCalendarGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetActivityCalendarGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ActivityCalendar model
+   */
+  readonly fields: ActivityCalendarFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ActivityCalendar.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ActivityCalendarClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    dayCalendarActivity<T extends DayCalendarActivitiesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DayCalendarActivitiesDefaultArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ActivityCalendar model
+   */
+  interface ActivityCalendarFieldRefs {
+    readonly id: FieldRef<"ActivityCalendar", 'String'>
+    readonly activityName: FieldRef<"ActivityCalendar", 'String'>
+    readonly description: FieldRef<"ActivityCalendar", 'String'>
+    readonly activityCalendarId: FieldRef<"ActivityCalendar", 'String'>
+    readonly time: FieldRef<"ActivityCalendar", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ActivityCalendar findUnique
+   */
+  export type ActivityCalendarFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendar to fetch.
+     */
+    where: ActivityCalendarWhereUniqueInput
+  }
+
+  /**
+   * ActivityCalendar findUniqueOrThrow
+   */
+  export type ActivityCalendarFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendar to fetch.
+     */
+    where: ActivityCalendarWhereUniqueInput
+  }
+
+  /**
+   * ActivityCalendar findFirst
+   */
+  export type ActivityCalendarFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendar to fetch.
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ActivityCalendars to fetch.
+     */
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ActivityCalendars.
+     */
+    cursor?: ActivityCalendarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ActivityCalendars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ActivityCalendars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ActivityCalendars.
+     */
+    distinct?: ActivityCalendarScalarFieldEnum | ActivityCalendarScalarFieldEnum[]
+  }
+
+  /**
+   * ActivityCalendar findFirstOrThrow
+   */
+  export type ActivityCalendarFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendar to fetch.
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ActivityCalendars to fetch.
+     */
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ActivityCalendars.
+     */
+    cursor?: ActivityCalendarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ActivityCalendars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ActivityCalendars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ActivityCalendars.
+     */
+    distinct?: ActivityCalendarScalarFieldEnum | ActivityCalendarScalarFieldEnum[]
+  }
+
+  /**
+   * ActivityCalendar findMany
+   */
+  export type ActivityCalendarFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendars to fetch.
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ActivityCalendars to fetch.
+     */
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ActivityCalendars.
+     */
+    cursor?: ActivityCalendarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ActivityCalendars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ActivityCalendars.
+     */
+    skip?: number
+    distinct?: ActivityCalendarScalarFieldEnum | ActivityCalendarScalarFieldEnum[]
+  }
+
+  /**
+   * ActivityCalendar create
+   */
+  export type ActivityCalendarCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ActivityCalendar.
+     */
+    data: XOR<ActivityCalendarCreateInput, ActivityCalendarUncheckedCreateInput>
+  }
+
+  /**
+   * ActivityCalendar createMany
+   */
+  export type ActivityCalendarCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ActivityCalendars.
+     */
+    data: ActivityCalendarCreateManyInput | ActivityCalendarCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ActivityCalendar createManyAndReturn
+   */
+  export type ActivityCalendarCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * The data used to create many ActivityCalendars.
+     */
+    data: ActivityCalendarCreateManyInput | ActivityCalendarCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ActivityCalendar update
+   */
+  export type ActivityCalendarUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ActivityCalendar.
+     */
+    data: XOR<ActivityCalendarUpdateInput, ActivityCalendarUncheckedUpdateInput>
+    /**
+     * Choose, which ActivityCalendar to update.
+     */
+    where: ActivityCalendarWhereUniqueInput
+  }
+
+  /**
+   * ActivityCalendar updateMany
+   */
+  export type ActivityCalendarUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ActivityCalendars.
+     */
+    data: XOR<ActivityCalendarUpdateManyMutationInput, ActivityCalendarUncheckedUpdateManyInput>
+    /**
+     * Filter which ActivityCalendars to update
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * Limit how many ActivityCalendars to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ActivityCalendar updateManyAndReturn
+   */
+  export type ActivityCalendarUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * The data used to update ActivityCalendars.
+     */
+    data: XOR<ActivityCalendarUpdateManyMutationInput, ActivityCalendarUncheckedUpdateManyInput>
+    /**
+     * Filter which ActivityCalendars to update
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * Limit how many ActivityCalendars to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ActivityCalendar upsert
+   */
+  export type ActivityCalendarUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ActivityCalendar to update in case it exists.
+     */
+    where: ActivityCalendarWhereUniqueInput
+    /**
+     * In case the ActivityCalendar found by the `where` argument doesn't exist, create a new ActivityCalendar with this data.
+     */
+    create: XOR<ActivityCalendarCreateInput, ActivityCalendarUncheckedCreateInput>
+    /**
+     * In case the ActivityCalendar was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ActivityCalendarUpdateInput, ActivityCalendarUncheckedUpdateInput>
+  }
+
+  /**
+   * ActivityCalendar delete
+   */
+  export type ActivityCalendarDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter which ActivityCalendar to delete.
+     */
+    where: ActivityCalendarWhereUniqueInput
+  }
+
+  /**
+   * ActivityCalendar deleteMany
+   */
+  export type ActivityCalendarDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ActivityCalendars to delete
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * Limit how many ActivityCalendars to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ActivityCalendar without action
+   */
+  export type ActivityCalendarDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6961,6 +9399,28 @@ export namespace Prisma {
   export type NoteScalarFieldEnum = (typeof NoteScalarFieldEnum)[keyof typeof NoteScalarFieldEnum]
 
 
+  export const DayCalendarActivitiesScalarFieldEnum: {
+    id: 'id',
+    day: 'day',
+    userId: 'userId',
+    month: 'month',
+    year: 'year'
+  };
+
+  export type DayCalendarActivitiesScalarFieldEnum = (typeof DayCalendarActivitiesScalarFieldEnum)[keyof typeof DayCalendarActivitiesScalarFieldEnum]
+
+
+  export const ActivityCalendarScalarFieldEnum: {
+    id: 'id',
+    activityName: 'activityName',
+    description: 'description',
+    activityCalendarId: 'activityCalendarId',
+    time: 'time'
+  };
+
+  export type ActivityCalendarScalarFieldEnum = (typeof ActivityCalendarScalarFieldEnum)[keyof typeof ActivityCalendarScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -7032,6 +9492,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -7062,6 +9536,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"User"> | Date | string
     subjects?: SubjectListRelationFilter
     note?: NoteListRelationFilter
+    calendarActivies?: DayCalendarActivitiesListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -7075,6 +9550,7 @@ export namespace Prisma {
     created_at?: SortOrder
     subjects?: SubjectOrderByRelationAggregateInput
     note?: NoteOrderByRelationAggregateInput
+    calendarActivies?: DayCalendarActivitiesOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7091,6 +9567,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"User"> | Date | string
     subjects?: SubjectListRelationFilter
     note?: NoteListRelationFilter
+    calendarActivies?: DayCalendarActivitiesListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -7373,6 +9850,121 @@ export namespace Prisma {
     userId?: StringWithAggregatesFilter<"Note"> | string
   }
 
+  export type DayCalendarActivitiesWhereInput = {
+    AND?: DayCalendarActivitiesWhereInput | DayCalendarActivitiesWhereInput[]
+    OR?: DayCalendarActivitiesWhereInput[]
+    NOT?: DayCalendarActivitiesWhereInput | DayCalendarActivitiesWhereInput[]
+    id?: StringFilter<"DayCalendarActivities"> | string
+    day?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    userId?: StringFilter<"DayCalendarActivities"> | string
+    month?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    year?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    activityCalendar?: ActivityCalendarListRelationFilter
+  }
+
+  export type DayCalendarActivitiesOrderByWithRelationInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    user?: UserOrderByWithRelationInput
+    activityCalendar?: ActivityCalendarOrderByRelationAggregateInput
+  }
+
+  export type DayCalendarActivitiesWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DayCalendarActivitiesWhereInput | DayCalendarActivitiesWhereInput[]
+    OR?: DayCalendarActivitiesWhereInput[]
+    NOT?: DayCalendarActivitiesWhereInput | DayCalendarActivitiesWhereInput[]
+    day?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    userId?: StringFilter<"DayCalendarActivities"> | string
+    month?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    year?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    activityCalendar?: ActivityCalendarListRelationFilter
+  }, "id">
+
+  export type DayCalendarActivitiesOrderByWithAggregationInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    _count?: DayCalendarActivitiesCountOrderByAggregateInput
+    _avg?: DayCalendarActivitiesAvgOrderByAggregateInput
+    _max?: DayCalendarActivitiesMaxOrderByAggregateInput
+    _min?: DayCalendarActivitiesMinOrderByAggregateInput
+    _sum?: DayCalendarActivitiesSumOrderByAggregateInput
+  }
+
+  export type DayCalendarActivitiesScalarWhereWithAggregatesInput = {
+    AND?: DayCalendarActivitiesScalarWhereWithAggregatesInput | DayCalendarActivitiesScalarWhereWithAggregatesInput[]
+    OR?: DayCalendarActivitiesScalarWhereWithAggregatesInput[]
+    NOT?: DayCalendarActivitiesScalarWhereWithAggregatesInput | DayCalendarActivitiesScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"DayCalendarActivities"> | string
+    day?: DecimalWithAggregatesFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    userId?: StringWithAggregatesFilter<"DayCalendarActivities"> | string
+    month?: DecimalWithAggregatesFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    year?: DecimalWithAggregatesFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ActivityCalendarWhereInput = {
+    AND?: ActivityCalendarWhereInput | ActivityCalendarWhereInput[]
+    OR?: ActivityCalendarWhereInput[]
+    NOT?: ActivityCalendarWhereInput | ActivityCalendarWhereInput[]
+    id?: StringFilter<"ActivityCalendar"> | string
+    activityName?: StringFilter<"ActivityCalendar"> | string
+    description?: StringFilter<"ActivityCalendar"> | string
+    activityCalendarId?: StringFilter<"ActivityCalendar"> | string
+    time?: StringFilter<"ActivityCalendar"> | string
+    dayCalendarActivity?: XOR<DayCalendarActivitiesScalarRelationFilter, DayCalendarActivitiesWhereInput>
+  }
+
+  export type ActivityCalendarOrderByWithRelationInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
+    dayCalendarActivity?: DayCalendarActivitiesOrderByWithRelationInput
+  }
+
+  export type ActivityCalendarWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ActivityCalendarWhereInput | ActivityCalendarWhereInput[]
+    OR?: ActivityCalendarWhereInput[]
+    NOT?: ActivityCalendarWhereInput | ActivityCalendarWhereInput[]
+    activityName?: StringFilter<"ActivityCalendar"> | string
+    description?: StringFilter<"ActivityCalendar"> | string
+    activityCalendarId?: StringFilter<"ActivityCalendar"> | string
+    time?: StringFilter<"ActivityCalendar"> | string
+    dayCalendarActivity?: XOR<DayCalendarActivitiesScalarRelationFilter, DayCalendarActivitiesWhereInput>
+  }, "id">
+
+  export type ActivityCalendarOrderByWithAggregationInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
+    _count?: ActivityCalendarCountOrderByAggregateInput
+    _max?: ActivityCalendarMaxOrderByAggregateInput
+    _min?: ActivityCalendarMinOrderByAggregateInput
+  }
+
+  export type ActivityCalendarScalarWhereWithAggregatesInput = {
+    AND?: ActivityCalendarScalarWhereWithAggregatesInput | ActivityCalendarScalarWhereWithAggregatesInput[]
+    OR?: ActivityCalendarScalarWhereWithAggregatesInput[]
+    NOT?: ActivityCalendarScalarWhereWithAggregatesInput | ActivityCalendarScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ActivityCalendar"> | string
+    activityName?: StringWithAggregatesFilter<"ActivityCalendar"> | string
+    description?: StringWithAggregatesFilter<"ActivityCalendar"> | string
+    activityCalendarId?: StringWithAggregatesFilter<"ActivityCalendar"> | string
+    time?: StringWithAggregatesFilter<"ActivityCalendar"> | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -7384,6 +9976,7 @@ export namespace Prisma {
     created_at?: Date | string
     subjects?: SubjectCreateNestedManyWithoutUserInput
     note?: NoteCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7397,6 +9990,7 @@ export namespace Prisma {
     created_at?: Date | string
     subjects?: SubjectUncheckedCreateNestedManyWithoutUserInput
     note?: NoteUncheckedCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -7410,6 +10004,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     subjects?: SubjectUpdateManyWithoutUserNestedInput
     note?: NoteUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7423,6 +10018,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     subjects?: SubjectUncheckedUpdateManyWithoutUserNestedInput
     note?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7714,6 +10310,120 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type DayCalendarActivitiesCreateInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    user: UserCreateNestedOneWithoutCalendarActiviesInput
+    activityCalendar?: ActivityCalendarCreateNestedManyWithoutDayCalendarActivityInput
+  }
+
+  export type DayCalendarActivitiesUncheckedCreateInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    userId: string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUncheckedCreateNestedManyWithoutDayCalendarActivityInput
+  }
+
+  export type DayCalendarActivitiesUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    user?: UserUpdateOneRequiredWithoutCalendarActiviesNestedInput
+    activityCalendar?: ActivityCalendarUpdateManyWithoutDayCalendarActivityNestedInput
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    userId?: StringFieldUpdateOperationsInput | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityNestedInput
+  }
+
+  export type DayCalendarActivitiesCreateManyInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    userId: string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+  }
+
+  export type DayCalendarActivitiesUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    userId?: StringFieldUpdateOperationsInput | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ActivityCalendarCreateInput = {
+    id?: string
+    activityName: string
+    description: string
+    time: string
+    dayCalendarActivity: DayCalendarActivitiesCreateNestedOneWithoutActivityCalendarInput
+  }
+
+  export type ActivityCalendarUncheckedCreateInput = {
+    id?: string
+    activityName: string
+    description: string
+    activityCalendarId: string
+    time: string
+  }
+
+  export type ActivityCalendarUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    dayCalendarActivity?: DayCalendarActivitiesUpdateOneRequiredWithoutActivityCalendarNestedInput
+  }
+
+  export type ActivityCalendarUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    activityCalendarId?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ActivityCalendarCreateManyInput = {
+    id?: string
+    activityName: string
+    description: string
+    activityCalendarId: string
+    time: string
+  }
+
+  export type ActivityCalendarUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ActivityCalendarUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    activityCalendarId?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -7757,11 +10467,21 @@ export namespace Prisma {
     none?: NoteWhereInput
   }
 
+  export type DayCalendarActivitiesListRelationFilter = {
+    every?: DayCalendarActivitiesWhereInput
+    some?: DayCalendarActivitiesWhereInput
+    none?: DayCalendarActivitiesWhereInput
+  }
+
   export type SubjectOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type NoteOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DayCalendarActivitiesOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -8031,6 +10751,108 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ActivityCalendarListRelationFilter = {
+    every?: ActivityCalendarWhereInput
+    some?: ActivityCalendarWhereInput
+    none?: ActivityCalendarWhereInput
+  }
+
+  export type ActivityCalendarOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DayCalendarActivitiesCountOrderByAggregateInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DayCalendarActivitiesAvgOrderByAggregateInput = {
+    day?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DayCalendarActivitiesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DayCalendarActivitiesMinOrderByAggregateInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DayCalendarActivitiesSumOrderByAggregateInput = {
+    day?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type DayCalendarActivitiesScalarRelationFilter = {
+    is?: DayCalendarActivitiesWhereInput
+    isNot?: DayCalendarActivitiesWhereInput
+  }
+
+  export type ActivityCalendarCountOrderByAggregateInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
+  }
+
+  export type ActivityCalendarMaxOrderByAggregateInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
+  }
+
+  export type ActivityCalendarMinOrderByAggregateInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
+  }
+
   export type SubjectCreateNestedManyWithoutUserInput = {
     create?: XOR<SubjectCreateWithoutUserInput, SubjectUncheckedCreateWithoutUserInput> | SubjectCreateWithoutUserInput[] | SubjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SubjectCreateOrConnectWithoutUserInput | SubjectCreateOrConnectWithoutUserInput[]
@@ -8045,6 +10867,13 @@ export namespace Prisma {
     connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
   }
 
+  export type DayCalendarActivitiesCreateNestedManyWithoutUserInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput> | DayCalendarActivitiesCreateWithoutUserInput[] | DayCalendarActivitiesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutUserInput | DayCalendarActivitiesCreateOrConnectWithoutUserInput[]
+    createMany?: DayCalendarActivitiesCreateManyUserInputEnvelope
+    connect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+  }
+
   export type SubjectUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SubjectCreateWithoutUserInput, SubjectUncheckedCreateWithoutUserInput> | SubjectCreateWithoutUserInput[] | SubjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SubjectCreateOrConnectWithoutUserInput | SubjectCreateOrConnectWithoutUserInput[]
@@ -8057,6 +10886,13 @@ export namespace Prisma {
     connectOrCreate?: NoteCreateOrConnectWithoutUserInput | NoteCreateOrConnectWithoutUserInput[]
     createMany?: NoteCreateManyUserInputEnvelope
     connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  }
+
+  export type DayCalendarActivitiesUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput> | DayCalendarActivitiesCreateWithoutUserInput[] | DayCalendarActivitiesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutUserInput | DayCalendarActivitiesCreateOrConnectWithoutUserInput[]
+    createMany?: DayCalendarActivitiesCreateManyUserInputEnvelope
+    connect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -8099,6 +10935,20 @@ export namespace Prisma {
     deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
   }
 
+  export type DayCalendarActivitiesUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput> | DayCalendarActivitiesCreateWithoutUserInput[] | DayCalendarActivitiesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutUserInput | DayCalendarActivitiesCreateOrConnectWithoutUserInput[]
+    upsert?: DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput | DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DayCalendarActivitiesCreateManyUserInputEnvelope
+    set?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    disconnect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    delete?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    connect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    update?: DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput | DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput | DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DayCalendarActivitiesScalarWhereInput | DayCalendarActivitiesScalarWhereInput[]
+  }
+
   export type SubjectUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SubjectCreateWithoutUserInput, SubjectUncheckedCreateWithoutUserInput> | SubjectCreateWithoutUserInput[] | SubjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SubjectCreateOrConnectWithoutUserInput | SubjectCreateOrConnectWithoutUserInput[]
@@ -8125,6 +10975,20 @@ export namespace Prisma {
     update?: NoteUpdateWithWhereUniqueWithoutUserInput | NoteUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: NoteUpdateManyWithWhereWithoutUserInput | NoteUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput> | DayCalendarActivitiesCreateWithoutUserInput[] | DayCalendarActivitiesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutUserInput | DayCalendarActivitiesCreateOrConnectWithoutUserInput[]
+    upsert?: DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput | DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DayCalendarActivitiesCreateManyUserInputEnvelope
+    set?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    disconnect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    delete?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    connect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    update?: DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput | DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput | DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DayCalendarActivitiesScalarWhereInput | DayCalendarActivitiesScalarWhereInput[]
   }
 
   export type SubjectCreateweek_dayInput = {
@@ -8293,6 +11157,84 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNoteInput, UserUpdateWithoutNoteInput>, UserUncheckedUpdateWithoutNoteInput>
   }
 
+  export type UserCreateNestedOneWithoutCalendarActiviesInput = {
+    create?: XOR<UserCreateWithoutCalendarActiviesInput, UserUncheckedCreateWithoutCalendarActiviesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCalendarActiviesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ActivityCalendarCreateNestedManyWithoutDayCalendarActivityInput = {
+    create?: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput> | ActivityCalendarCreateWithoutDayCalendarActivityInput[] | ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput[]
+    connectOrCreate?: ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput | ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput[]
+    createMany?: ActivityCalendarCreateManyDayCalendarActivityInputEnvelope
+    connect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+  }
+
+  export type ActivityCalendarUncheckedCreateNestedManyWithoutDayCalendarActivityInput = {
+    create?: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput> | ActivityCalendarCreateWithoutDayCalendarActivityInput[] | ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput[]
+    connectOrCreate?: ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput | ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput[]
+    createMany?: ActivityCalendarCreateManyDayCalendarActivityInputEnvelope
+    connect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+  }
+
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type UserUpdateOneRequiredWithoutCalendarActiviesNestedInput = {
+    create?: XOR<UserCreateWithoutCalendarActiviesInput, UserUncheckedCreateWithoutCalendarActiviesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCalendarActiviesInput
+    upsert?: UserUpsertWithoutCalendarActiviesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCalendarActiviesInput, UserUpdateWithoutCalendarActiviesInput>, UserUncheckedUpdateWithoutCalendarActiviesInput>
+  }
+
+  export type ActivityCalendarUpdateManyWithoutDayCalendarActivityNestedInput = {
+    create?: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput> | ActivityCalendarCreateWithoutDayCalendarActivityInput[] | ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput[]
+    connectOrCreate?: ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput | ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput[]
+    upsert?: ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput | ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput[]
+    createMany?: ActivityCalendarCreateManyDayCalendarActivityInputEnvelope
+    set?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    disconnect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    delete?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    connect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    update?: ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput | ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput[]
+    updateMany?: ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput | ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput[]
+    deleteMany?: ActivityCalendarScalarWhereInput | ActivityCalendarScalarWhereInput[]
+  }
+
+  export type ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityNestedInput = {
+    create?: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput> | ActivityCalendarCreateWithoutDayCalendarActivityInput[] | ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput[]
+    connectOrCreate?: ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput | ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput[]
+    upsert?: ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput | ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput[]
+    createMany?: ActivityCalendarCreateManyDayCalendarActivityInputEnvelope
+    set?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    disconnect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    delete?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    connect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    update?: ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput | ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput[]
+    updateMany?: ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput | ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput[]
+    deleteMany?: ActivityCalendarScalarWhereInput | ActivityCalendarScalarWhereInput[]
+  }
+
+  export type DayCalendarActivitiesCreateNestedOneWithoutActivityCalendarInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput>
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutActivityCalendarInput
+    connect?: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  export type DayCalendarActivitiesUpdateOneRequiredWithoutActivityCalendarNestedInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput>
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutActivityCalendarInput
+    upsert?: DayCalendarActivitiesUpsertWithoutActivityCalendarInput
+    connect?: DayCalendarActivitiesWhereUniqueInput
+    update?: XOR<XOR<DayCalendarActivitiesUpdateToOneWithWhereWithoutActivityCalendarInput, DayCalendarActivitiesUpdateWithoutActivityCalendarInput>, DayCalendarActivitiesUncheckedUpdateWithoutActivityCalendarInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -8400,6 +11342,33 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
   export type SubjectCreateWithoutUserInput = {
     id?: string
     title: string
@@ -8455,6 +11424,32 @@ export namespace Prisma {
 
   export type NoteCreateManyUserInputEnvelope = {
     data: NoteCreateManyUserInput | NoteCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DayCalendarActivitiesCreateWithoutUserInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarCreateNestedManyWithoutDayCalendarActivityInput
+  }
+
+  export type DayCalendarActivitiesUncheckedCreateWithoutUserInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUncheckedCreateNestedManyWithoutDayCalendarActivityInput
+  }
+
+  export type DayCalendarActivitiesCreateOrConnectWithoutUserInput = {
+    where: DayCalendarActivitiesWhereUniqueInput
+    create: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput>
+  }
+
+  export type DayCalendarActivitiesCreateManyUserInputEnvelope = {
+    data: DayCalendarActivitiesCreateManyUserInput | DayCalendarActivitiesCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -8515,6 +11510,33 @@ export namespace Prisma {
     userId?: StringFilter<"Note"> | string
   }
 
+  export type DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput = {
+    where: DayCalendarActivitiesWhereUniqueInput
+    update: XOR<DayCalendarActivitiesUpdateWithoutUserInput, DayCalendarActivitiesUncheckedUpdateWithoutUserInput>
+    create: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput>
+  }
+
+  export type DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput = {
+    where: DayCalendarActivitiesWhereUniqueInput
+    data: XOR<DayCalendarActivitiesUpdateWithoutUserInput, DayCalendarActivitiesUncheckedUpdateWithoutUserInput>
+  }
+
+  export type DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput = {
+    where: DayCalendarActivitiesScalarWhereInput
+    data: XOR<DayCalendarActivitiesUpdateManyMutationInput, DayCalendarActivitiesUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type DayCalendarActivitiesScalarWhereInput = {
+    AND?: DayCalendarActivitiesScalarWhereInput | DayCalendarActivitiesScalarWhereInput[]
+    OR?: DayCalendarActivitiesScalarWhereInput[]
+    NOT?: DayCalendarActivitiesScalarWhereInput | DayCalendarActivitiesScalarWhereInput[]
+    id?: StringFilter<"DayCalendarActivities"> | string
+    day?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    userId?: StringFilter<"DayCalendarActivities"> | string
+    month?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    year?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+  }
+
   export type UserCreateWithoutSubjectsInput = {
     id?: string
     name: string
@@ -8525,6 +11547,7 @@ export namespace Prisma {
     updated_at?: Date | string
     created_at?: Date | string
     note?: NoteCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSubjectsInput = {
@@ -8537,6 +11560,7 @@ export namespace Prisma {
     updated_at?: Date | string
     created_at?: Date | string
     note?: NoteUncheckedCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSubjectsInput = {
@@ -8615,6 +11639,7 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     note?: NoteUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSubjectsInput = {
@@ -8627,6 +11652,7 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     note?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type StudyRecordUpsertWithWhereUniqueWithoutSubjectInput = {
@@ -8830,6 +11856,7 @@ export namespace Prisma {
     updated_at?: Date | string
     created_at?: Date | string
     subjects?: SubjectCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutNoteInput = {
@@ -8842,6 +11869,7 @@ export namespace Prisma {
     updated_at?: Date | string
     created_at?: Date | string
     subjects?: SubjectUncheckedCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutNoteInput = {
@@ -8870,6 +11898,7 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     subjects?: SubjectUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutNoteInput = {
@@ -8882,6 +11911,174 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     subjects?: SubjectUncheckedUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutCalendarActiviesInput = {
+    id?: string
+    name: string
+    email: string
+    cellphoneNumber: string
+    password: string
+    receiveNotify: boolean
+    updated_at?: Date | string
+    created_at?: Date | string
+    subjects?: SubjectCreateNestedManyWithoutUserInput
+    note?: NoteCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutCalendarActiviesInput = {
+    id?: string
+    name: string
+    email: string
+    cellphoneNumber: string
+    password: string
+    receiveNotify: boolean
+    updated_at?: Date | string
+    created_at?: Date | string
+    subjects?: SubjectUncheckedCreateNestedManyWithoutUserInput
+    note?: NoteUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutCalendarActiviesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCalendarActiviesInput, UserUncheckedCreateWithoutCalendarActiviesInput>
+  }
+
+  export type ActivityCalendarCreateWithoutDayCalendarActivityInput = {
+    id?: string
+    activityName: string
+    description: string
+    time: string
+  }
+
+  export type ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput = {
+    id?: string
+    activityName: string
+    description: string
+    time: string
+  }
+
+  export type ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput = {
+    where: ActivityCalendarWhereUniqueInput
+    create: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput>
+  }
+
+  export type ActivityCalendarCreateManyDayCalendarActivityInputEnvelope = {
+    data: ActivityCalendarCreateManyDayCalendarActivityInput | ActivityCalendarCreateManyDayCalendarActivityInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutCalendarActiviesInput = {
+    update: XOR<UserUpdateWithoutCalendarActiviesInput, UserUncheckedUpdateWithoutCalendarActiviesInput>
+    create: XOR<UserCreateWithoutCalendarActiviesInput, UserUncheckedCreateWithoutCalendarActiviesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutCalendarActiviesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutCalendarActiviesInput, UserUncheckedUpdateWithoutCalendarActiviesInput>
+  }
+
+  export type UserUpdateWithoutCalendarActiviesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cellphoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    receiveNotify?: BoolFieldUpdateOperationsInput | boolean
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subjects?: SubjectUpdateManyWithoutUserNestedInput
+    note?: NoteUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCalendarActiviesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cellphoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    receiveNotify?: BoolFieldUpdateOperationsInput | boolean
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subjects?: SubjectUncheckedUpdateManyWithoutUserNestedInput
+    note?: NoteUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput = {
+    where: ActivityCalendarWhereUniqueInput
+    update: XOR<ActivityCalendarUpdateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedUpdateWithoutDayCalendarActivityInput>
+    create: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput>
+  }
+
+  export type ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput = {
+    where: ActivityCalendarWhereUniqueInput
+    data: XOR<ActivityCalendarUpdateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedUpdateWithoutDayCalendarActivityInput>
+  }
+
+  export type ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput = {
+    where: ActivityCalendarScalarWhereInput
+    data: XOR<ActivityCalendarUpdateManyMutationInput, ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityInput>
+  }
+
+  export type ActivityCalendarScalarWhereInput = {
+    AND?: ActivityCalendarScalarWhereInput | ActivityCalendarScalarWhereInput[]
+    OR?: ActivityCalendarScalarWhereInput[]
+    NOT?: ActivityCalendarScalarWhereInput | ActivityCalendarScalarWhereInput[]
+    id?: StringFilter<"ActivityCalendar"> | string
+    activityName?: StringFilter<"ActivityCalendar"> | string
+    description?: StringFilter<"ActivityCalendar"> | string
+    activityCalendarId?: StringFilter<"ActivityCalendar"> | string
+    time?: StringFilter<"ActivityCalendar"> | string
+  }
+
+  export type DayCalendarActivitiesCreateWithoutActivityCalendarInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    user: UserCreateNestedOneWithoutCalendarActiviesInput
+  }
+
+  export type DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    userId: string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+  }
+
+  export type DayCalendarActivitiesCreateOrConnectWithoutActivityCalendarInput = {
+    where: DayCalendarActivitiesWhereUniqueInput
+    create: XOR<DayCalendarActivitiesCreateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput>
+  }
+
+  export type DayCalendarActivitiesUpsertWithoutActivityCalendarInput = {
+    update: XOR<DayCalendarActivitiesUpdateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedUpdateWithoutActivityCalendarInput>
+    create: XOR<DayCalendarActivitiesCreateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput>
+    where?: DayCalendarActivitiesWhereInput
+  }
+
+  export type DayCalendarActivitiesUpdateToOneWithWhereWithoutActivityCalendarInput = {
+    where?: DayCalendarActivitiesWhereInput
+    data: XOR<DayCalendarActivitiesUpdateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedUpdateWithoutActivityCalendarInput>
+  }
+
+  export type DayCalendarActivitiesUpdateWithoutActivityCalendarInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    user?: UserUpdateOneRequiredWithoutCalendarActiviesNestedInput
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateWithoutActivityCalendarInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    userId?: StringFieldUpdateOperationsInput | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type SubjectCreateManyUserInput = {
@@ -8899,6 +12096,13 @@ export namespace Prisma {
     id?: string
     title: string
     content: string
+  }
+
+  export type DayCalendarActivitiesCreateManyUserInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
   }
 
   export type SubjectUpdateWithoutUserInput = {
@@ -8954,6 +12158,29 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DayCalendarActivitiesUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUpdateManyWithoutDayCalendarActivityNestedInput
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityNestedInput
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type StudyRecordCreateManySubjectInput = {
@@ -9014,6 +12241,34 @@ export namespace Prisma {
     description?: StringFieldUpdateOperationsInput | string
     percentageConclud?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ActivityCalendarCreateManyDayCalendarActivityInput = {
+    id?: string
+    activityName: string
+    description: string
+    time: string
+  }
+
+  export type ActivityCalendarUpdateWithoutDayCalendarActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ActivityCalendarUncheckedUpdateWithoutDayCalendarActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
   }
 
 
