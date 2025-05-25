@@ -21,9 +21,11 @@ import { UpdateSubjectDto, UpdateValidation } from './Dto/UpdateSubjectDto';
 export class SubjectController {
   constructor(private subjectService: SubjectService) {}
 
-  @Get('/all/:id')
-  async getAllUserSubject(@Param('id') id: string) {
-    return await this.subjectService.getAllUserSubject(id);
+  @Get('')
+  async getAllUserSubject(@Request() req) {
+    const userId = req.user.id;
+
+    return await this.subjectService.getAllUserSubject(userId);
   }
 
   @Get('/:id')
