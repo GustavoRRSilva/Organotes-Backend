@@ -23,6 +23,10 @@ export class ActivityController {
   async getAllActivitysBySubjectId(@Param('subjectId') subjectId: string) {
     return await this.activityService.getAll(subjectId);
   }
+  @Get('/findOne/:id')
+  async getOneActivity(@Param('id') id: string) {
+    return await this.activityService.findOne(id);
+  }
 
   @Post('/:subjectId')
   async postActivity(

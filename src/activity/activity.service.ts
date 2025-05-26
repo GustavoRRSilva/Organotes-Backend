@@ -19,6 +19,14 @@ export class ActivityService {
     });
   }
 
+  async findOne(activityId: string) {
+    return this.prismaService.pendingActivity.findFirstOrThrow({
+      where: {
+        id: activityId,
+      },
+    });
+  }
+
   async postActivity(data: ActivityCreateDto, subjectId: string) {
     const searchActivityExistent =
       await this.prismaService.pendingActivity.findFirst({
