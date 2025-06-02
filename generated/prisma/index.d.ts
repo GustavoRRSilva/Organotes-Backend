@@ -23,6 +23,31 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type Subject = $Result.DefaultSelection<Prisma.$SubjectPayload>
+/**
+ * Model StudyRecord
+ * 
+ */
+export type StudyRecord = $Result.DefaultSelection<Prisma.$StudyRecordPayload>
+/**
+ * Model PendingActivity
+ * 
+ */
+export type PendingActivity = $Result.DefaultSelection<Prisma.$PendingActivityPayload>
+/**
+ * Model Note
+ * 
+ */
+export type Note = $Result.DefaultSelection<Prisma.$NotePayload>
+/**
+ * Model DayCalendarActivities
+ * 
+ */
+export type DayCalendarActivities = $Result.DefaultSelection<Prisma.$DayCalendarActivitiesPayload>
+/**
+ * Model ActivityCalendar
+ * 
+ */
+export type ActivityCalendar = $Result.DefaultSelection<Prisma.$ActivityCalendarPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -168,6 +193,56 @@ export class PrismaClient<
     * ```
     */
   get subject(): Prisma.SubjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.studyRecord`: Exposes CRUD operations for the **StudyRecord** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more StudyRecords
+    * const studyRecords = await prisma.studyRecord.findMany()
+    * ```
+    */
+  get studyRecord(): Prisma.StudyRecordDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.pendingActivity`: Exposes CRUD operations for the **PendingActivity** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PendingActivities
+    * const pendingActivities = await prisma.pendingActivity.findMany()
+    * ```
+    */
+  get pendingActivity(): Prisma.PendingActivityDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.note`: Exposes CRUD operations for the **Note** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Notes
+    * const notes = await prisma.note.findMany()
+    * ```
+    */
+  get note(): Prisma.NoteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.dayCalendarActivities`: Exposes CRUD operations for the **DayCalendarActivities** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DayCalendarActivities
+    * const dayCalendarActivities = await prisma.dayCalendarActivities.findMany()
+    * ```
+    */
+  get dayCalendarActivities(): Prisma.DayCalendarActivitiesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.activityCalendar`: Exposes CRUD operations for the **ActivityCalendar** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ActivityCalendars
+    * const activityCalendars = await prisma.activityCalendar.findMany()
+    * ```
+    */
+  get activityCalendar(): Prisma.ActivityCalendarDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -609,7 +684,12 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Subject: 'Subject'
+    Subject: 'Subject',
+    StudyRecord: 'StudyRecord',
+    PendingActivity: 'PendingActivity',
+    Note: 'Note',
+    DayCalendarActivities: 'DayCalendarActivities',
+    ActivityCalendar: 'ActivityCalendar'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +708,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "subject"
+      modelProps: "user" | "subject" | "studyRecord" | "pendingActivity" | "note" | "dayCalendarActivities" | "activityCalendar"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -780,6 +860,376 @@ export namespace Prisma {
           }
         }
       }
+      StudyRecord: {
+        payload: Prisma.$StudyRecordPayload<ExtArgs>
+        fields: Prisma.StudyRecordFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.StudyRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.StudyRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload>
+          }
+          findFirst: {
+            args: Prisma.StudyRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.StudyRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload>
+          }
+          findMany: {
+            args: Prisma.StudyRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload>[]
+          }
+          create: {
+            args: Prisma.StudyRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload>
+          }
+          createMany: {
+            args: Prisma.StudyRecordCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.StudyRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload>[]
+          }
+          delete: {
+            args: Prisma.StudyRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload>
+          }
+          update: {
+            args: Prisma.StudyRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload>
+          }
+          deleteMany: {
+            args: Prisma.StudyRecordDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.StudyRecordUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.StudyRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload>[]
+          }
+          upsert: {
+            args: Prisma.StudyRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StudyRecordPayload>
+          }
+          aggregate: {
+            args: Prisma.StudyRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStudyRecord>
+          }
+          groupBy: {
+            args: Prisma.StudyRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<StudyRecordGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.StudyRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<StudyRecordCountAggregateOutputType> | number
+          }
+        }
+      }
+      PendingActivity: {
+        payload: Prisma.$PendingActivityPayload<ExtArgs>
+        fields: Prisma.PendingActivityFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PendingActivityFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PendingActivityFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload>
+          }
+          findFirst: {
+            args: Prisma.PendingActivityFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PendingActivityFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload>
+          }
+          findMany: {
+            args: Prisma.PendingActivityFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload>[]
+          }
+          create: {
+            args: Prisma.PendingActivityCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload>
+          }
+          createMany: {
+            args: Prisma.PendingActivityCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PendingActivityCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload>[]
+          }
+          delete: {
+            args: Prisma.PendingActivityDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload>
+          }
+          update: {
+            args: Prisma.PendingActivityUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload>
+          }
+          deleteMany: {
+            args: Prisma.PendingActivityDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PendingActivityUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PendingActivityUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload>[]
+          }
+          upsert: {
+            args: Prisma.PendingActivityUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PendingActivityPayload>
+          }
+          aggregate: {
+            args: Prisma.PendingActivityAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePendingActivity>
+          }
+          groupBy: {
+            args: Prisma.PendingActivityGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PendingActivityGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PendingActivityCountArgs<ExtArgs>
+            result: $Utils.Optional<PendingActivityCountAggregateOutputType> | number
+          }
+        }
+      }
+      Note: {
+        payload: Prisma.$NotePayload<ExtArgs>
+        fields: Prisma.NoteFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.NoteFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.NoteFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+          }
+          findFirst: {
+            args: Prisma.NoteFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.NoteFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+          }
+          findMany: {
+            args: Prisma.NoteFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload>[]
+          }
+          create: {
+            args: Prisma.NoteCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+          }
+          createMany: {
+            args: Prisma.NoteCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.NoteCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload>[]
+          }
+          delete: {
+            args: Prisma.NoteDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+          }
+          update: {
+            args: Prisma.NoteUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+          }
+          deleteMany: {
+            args: Prisma.NoteDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.NoteUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.NoteUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload>[]
+          }
+          upsert: {
+            args: Prisma.NoteUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+          }
+          aggregate: {
+            args: Prisma.NoteAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNote>
+          }
+          groupBy: {
+            args: Prisma.NoteGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NoteGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.NoteCountArgs<ExtArgs>
+            result: $Utils.Optional<NoteCountAggregateOutputType> | number
+          }
+        }
+      }
+      DayCalendarActivities: {
+        payload: Prisma.$DayCalendarActivitiesPayload<ExtArgs>
+        fields: Prisma.DayCalendarActivitiesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DayCalendarActivitiesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DayCalendarActivitiesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          findFirst: {
+            args: Prisma.DayCalendarActivitiesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DayCalendarActivitiesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          findMany: {
+            args: Prisma.DayCalendarActivitiesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>[]
+          }
+          create: {
+            args: Prisma.DayCalendarActivitiesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          createMany: {
+            args: Prisma.DayCalendarActivitiesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DayCalendarActivitiesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>[]
+          }
+          delete: {
+            args: Prisma.DayCalendarActivitiesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          update: {
+            args: Prisma.DayCalendarActivitiesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          deleteMany: {
+            args: Prisma.DayCalendarActivitiesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DayCalendarActivitiesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DayCalendarActivitiesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>[]
+          }
+          upsert: {
+            args: Prisma.DayCalendarActivitiesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DayCalendarActivitiesPayload>
+          }
+          aggregate: {
+            args: Prisma.DayCalendarActivitiesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDayCalendarActivities>
+          }
+          groupBy: {
+            args: Prisma.DayCalendarActivitiesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DayCalendarActivitiesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DayCalendarActivitiesCountArgs<ExtArgs>
+            result: $Utils.Optional<DayCalendarActivitiesCountAggregateOutputType> | number
+          }
+        }
+      }
+      ActivityCalendar: {
+        payload: Prisma.$ActivityCalendarPayload<ExtArgs>
+        fields: Prisma.ActivityCalendarFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ActivityCalendarFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ActivityCalendarFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          findFirst: {
+            args: Prisma.ActivityCalendarFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ActivityCalendarFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          findMany: {
+            args: Prisma.ActivityCalendarFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>[]
+          }
+          create: {
+            args: Prisma.ActivityCalendarCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          createMany: {
+            args: Prisma.ActivityCalendarCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ActivityCalendarCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>[]
+          }
+          delete: {
+            args: Prisma.ActivityCalendarDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          update: {
+            args: Prisma.ActivityCalendarUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          deleteMany: {
+            args: Prisma.ActivityCalendarDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ActivityCalendarUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ActivityCalendarUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>[]
+          }
+          upsert: {
+            args: Prisma.ActivityCalendarUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ActivityCalendarPayload>
+          }
+          aggregate: {
+            args: Prisma.ActivityCalendarAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateActivityCalendar>
+          }
+          groupBy: {
+            args: Prisma.ActivityCalendarGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ActivityCalendarGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ActivityCalendarCountArgs<ExtArgs>
+            result: $Utils.Optional<ActivityCalendarCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -866,6 +1316,11 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     subject?: SubjectOmit
+    studyRecord?: StudyRecordOmit
+    pendingActivity?: PendingActivityOmit
+    note?: NoteOmit
+    dayCalendarActivities?: DayCalendarActivitiesOmit
+    activityCalendar?: ActivityCalendarOmit
   }
 
   /* Types for Logging */
@@ -961,10 +1416,14 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     subjects: number
+    note: number
+    calendarActivies: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subjects?: boolean | UserCountOutputTypeCountSubjectsArgs
+    note?: boolean | UserCountOutputTypeCountNoteArgs
+    calendarActivies?: boolean | UserCountOutputTypeCountCalendarActiviesArgs
   }
 
   // Custom InputTypes
@@ -983,6 +1442,91 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountSubjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SubjectWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountNoteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NoteWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCalendarActiviesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DayCalendarActivitiesWhereInput
+  }
+
+
+  /**
+   * Count Type SubjectCountOutputType
+   */
+
+  export type SubjectCountOutputType = {
+    studyRecord: number
+    pendingActivities: number
+  }
+
+  export type SubjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    studyRecord?: boolean | SubjectCountOutputTypeCountStudyRecordArgs
+    pendingActivities?: boolean | SubjectCountOutputTypeCountPendingActivitiesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SubjectCountOutputType without action
+   */
+  export type SubjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubjectCountOutputType
+     */
+    select?: SubjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SubjectCountOutputType without action
+   */
+  export type SubjectCountOutputTypeCountStudyRecordArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StudyRecordWhereInput
+  }
+
+  /**
+   * SubjectCountOutputType without action
+   */
+  export type SubjectCountOutputTypeCountPendingActivitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PendingActivityWhereInput
+  }
+
+
+  /**
+   * Count Type DayCalendarActivitiesCountOutputType
+   */
+
+  export type DayCalendarActivitiesCountOutputType = {
+    activityCalendar: number
+  }
+
+  export type DayCalendarActivitiesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    activityCalendar?: boolean | DayCalendarActivitiesCountOutputTypeCountActivityCalendarArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DayCalendarActivitiesCountOutputType without action
+   */
+  export type DayCalendarActivitiesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivitiesCountOutputType
+     */
+    select?: DayCalendarActivitiesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DayCalendarActivitiesCountOutputType without action
+   */
+  export type DayCalendarActivitiesCountOutputTypeCountActivityCalendarArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ActivityCalendarWhereInput
   }
 
 
@@ -1179,6 +1723,8 @@ export namespace Prisma {
     updated_at?: boolean
     created_at?: boolean
     subjects?: boolean | User$subjectsArgs<ExtArgs>
+    note?: boolean | User$noteArgs<ExtArgs>
+    calendarActivies?: boolean | User$calendarActiviesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1218,6 +1764,8 @@ export namespace Prisma {
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "cellphoneNumber" | "password" | "receiveNotify" | "updated_at" | "created_at", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subjects?: boolean | User$subjectsArgs<ExtArgs>
+    note?: boolean | User$noteArgs<ExtArgs>
+    calendarActivies?: boolean | User$calendarActiviesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1227,6 +1775,8 @@ export namespace Prisma {
     name: "User"
     objects: {
       subjects: Prisma.$SubjectPayload<ExtArgs>[]
+      note: Prisma.$NotePayload<ExtArgs>[]
+      calendarActivies: Prisma.$DayCalendarActivitiesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1632,6 +2182,8 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     subjects<T extends User$subjectsArgs<ExtArgs> = {}>(args?: Subset<T, User$subjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    note<T extends User$noteArgs<ExtArgs> = {}>(args?: Subset<T, User$noteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    calendarActivies<T extends User$calendarActiviesArgs<ExtArgs> = {}>(args?: Subset<T, User$calendarActiviesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2081,6 +2633,54 @@ export namespace Prisma {
   }
 
   /**
+   * User.note
+   */
+  export type User$noteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    where?: NoteWhereInput
+    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    cursor?: NoteWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+  }
+
+  /**
+   * User.calendarActivies
+   */
+  export type User$calendarActiviesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    where?: DayCalendarActivitiesWhereInput
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DayCalendarActivitiesScalarFieldEnum | DayCalendarActivitiesScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2105,58 +2705,92 @@ export namespace Prisma {
 
   export type AggregateSubject = {
     _count: SubjectCountAggregateOutputType | null
+    _avg: SubjectAvgAggregateOutputType | null
+    _sum: SubjectSumAggregateOutputType | null
     _min: SubjectMinAggregateOutputType | null
     _max: SubjectMaxAggregateOutputType | null
+  }
+
+  export type SubjectAvgAggregateOutputType = {
+    priority: number | null
+  }
+
+  export type SubjectSumAggregateOutputType = {
+    priority: number | null
   }
 
   export type SubjectMinAggregateOutputType = {
     id: string | null
     id_user: string | null
     title: string | null
+    priority: number | null
     description: string | null
-    week_day: string | null
+    updated_at: Date | null
+    created_at: Date | null
   }
 
   export type SubjectMaxAggregateOutputType = {
     id: string | null
     id_user: string | null
     title: string | null
+    priority: number | null
     description: string | null
-    week_day: string | null
+    updated_at: Date | null
+    created_at: Date | null
   }
 
   export type SubjectCountAggregateOutputType = {
     id: number
     id_user: number
     title: number
+    priority: number
     description: number
     week_day: number
+    updated_at: number
+    created_at: number
+    pendingSubjects: number
     _all: number
   }
 
+
+  export type SubjectAvgAggregateInputType = {
+    priority?: true
+  }
+
+  export type SubjectSumAggregateInputType = {
+    priority?: true
+  }
 
   export type SubjectMinAggregateInputType = {
     id?: true
     id_user?: true
     title?: true
+    priority?: true
     description?: true
-    week_day?: true
+    updated_at?: true
+    created_at?: true
   }
 
   export type SubjectMaxAggregateInputType = {
     id?: true
     id_user?: true
     title?: true
+    priority?: true
     description?: true
-    week_day?: true
+    updated_at?: true
+    created_at?: true
   }
 
   export type SubjectCountAggregateInputType = {
     id?: true
     id_user?: true
     title?: true
+    priority?: true
     description?: true
     week_day?: true
+    updated_at?: true
+    created_at?: true
+    pendingSubjects?: true
     _all?: true
   }
 
@@ -2198,6 +2832,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: SubjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SubjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: SubjectMinAggregateInputType
@@ -2228,6 +2874,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: SubjectCountAggregateInputType | true
+    _avg?: SubjectAvgAggregateInputType
+    _sum?: SubjectSumAggregateInputType
     _min?: SubjectMinAggregateInputType
     _max?: SubjectMaxAggregateInputType
   }
@@ -2236,9 +2884,15 @@ export namespace Prisma {
     id: string
     id_user: string
     title: string
+    priority: number
     description: string
-    week_day: string
+    week_day: string[]
+    updated_at: Date
+    created_at: Date
+    pendingSubjects: string[]
     _count: SubjectCountAggregateOutputType | null
+    _avg: SubjectAvgAggregateOutputType | null
+    _sum: SubjectSumAggregateOutputType | null
     _min: SubjectMinAggregateOutputType | null
     _max: SubjectMaxAggregateOutputType | null
   }
@@ -2261,17 +2915,28 @@ export namespace Prisma {
     id?: boolean
     id_user?: boolean
     title?: boolean
+    priority?: boolean
     description?: boolean
     week_day?: boolean
+    updated_at?: boolean
+    created_at?: boolean
+    pendingSubjects?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
+    studyRecord?: boolean | Subject$studyRecordArgs<ExtArgs>
+    pendingActivities?: boolean | Subject$pendingActivitiesArgs<ExtArgs>
+    _count?: boolean | SubjectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
   export type SubjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     id_user?: boolean
     title?: boolean
+    priority?: boolean
     description?: boolean
     week_day?: boolean
+    updated_at?: boolean
+    created_at?: boolean
+    pendingSubjects?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
@@ -2279,8 +2944,12 @@ export namespace Prisma {
     id?: boolean
     id_user?: boolean
     title?: boolean
+    priority?: boolean
     description?: boolean
     week_day?: boolean
+    updated_at?: boolean
+    created_at?: boolean
+    pendingSubjects?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subject"]>
 
@@ -2288,13 +2957,20 @@ export namespace Prisma {
     id?: boolean
     id_user?: boolean
     title?: boolean
+    priority?: boolean
     description?: boolean
     week_day?: boolean
+    updated_at?: boolean
+    created_at?: boolean
+    pendingSubjects?: boolean
   }
 
-  export type SubjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "id_user" | "title" | "description" | "week_day", ExtArgs["result"]["subject"]>
+  export type SubjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "id_user" | "title" | "priority" | "description" | "week_day" | "updated_at" | "created_at" | "pendingSubjects", ExtArgs["result"]["subject"]>
   export type SubjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
+    studyRecord?: boolean | Subject$studyRecordArgs<ExtArgs>
+    pendingActivities?: boolean | Subject$pendingActivitiesArgs<ExtArgs>
+    _count?: boolean | SubjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SubjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -2307,13 +2983,19 @@ export namespace Prisma {
     name: "Subject"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
+      studyRecord: Prisma.$StudyRecordPayload<ExtArgs>[]
+      pendingActivities: Prisma.$PendingActivityPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       id_user: string
       title: string
+      priority: number
       description: string
-      week_day: string
+      week_day: string[]
+      updated_at: Date
+      created_at: Date
+      pendingSubjects: string[]
     }, ExtArgs["result"]["subject"]>
     composites: {}
   }
@@ -2709,6 +3391,8 @@ export namespace Prisma {
   export interface Prisma__SubjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    studyRecord<T extends Subject$studyRecordArgs<ExtArgs> = {}>(args?: Subset<T, Subject$studyRecordArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    pendingActivities<T extends Subject$pendingActivitiesArgs<ExtArgs> = {}>(args?: Subset<T, Subject$pendingActivitiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2741,8 +3425,12 @@ export namespace Prisma {
     readonly id: FieldRef<"Subject", 'String'>
     readonly id_user: FieldRef<"Subject", 'String'>
     readonly title: FieldRef<"Subject", 'String'>
+    readonly priority: FieldRef<"Subject", 'Int'>
     readonly description: FieldRef<"Subject", 'String'>
-    readonly week_day: FieldRef<"Subject", 'String'>
+    readonly week_day: FieldRef<"Subject", 'String[]'>
+    readonly updated_at: FieldRef<"Subject", 'DateTime'>
+    readonly created_at: FieldRef<"Subject", 'DateTime'>
+    readonly pendingSubjects: FieldRef<"Subject", 'String[]'>
   }
     
 
@@ -3139,6 +3827,54 @@ export namespace Prisma {
   }
 
   /**
+   * Subject.studyRecord
+   */
+  export type Subject$studyRecordArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    where?: StudyRecordWhereInput
+    orderBy?: StudyRecordOrderByWithRelationInput | StudyRecordOrderByWithRelationInput[]
+    cursor?: StudyRecordWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: StudyRecordScalarFieldEnum | StudyRecordScalarFieldEnum[]
+  }
+
+  /**
+   * Subject.pendingActivities
+   */
+  export type Subject$pendingActivitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    where?: PendingActivityWhereInput
+    orderBy?: PendingActivityOrderByWithRelationInput | PendingActivityOrderByWithRelationInput[]
+    cursor?: PendingActivityWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PendingActivityScalarFieldEnum | PendingActivityScalarFieldEnum[]
+  }
+
+  /**
    * Subject without action
    */
   export type SubjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3154,6 +3890,5436 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: SubjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model StudyRecord
+   */
+
+  export type AggregateStudyRecord = {
+    _count: StudyRecordCountAggregateOutputType | null
+    _avg: StudyRecordAvgAggregateOutputType | null
+    _sum: StudyRecordSumAggregateOutputType | null
+    _min: StudyRecordMinAggregateOutputType | null
+    _max: StudyRecordMaxAggregateOutputType | null
+  }
+
+  export type StudyRecordAvgAggregateOutputType = {
+    minutesStudied: number | null
+  }
+
+  export type StudyRecordSumAggregateOutputType = {
+    minutesStudied: number | null
+  }
+
+  export type StudyRecordMinAggregateOutputType = {
+    id: string | null
+    subjectId: string | null
+    dayOfWeek: string | null
+    minutesStudied: number | null
+    created_at: Date | null
+  }
+
+  export type StudyRecordMaxAggregateOutputType = {
+    id: string | null
+    subjectId: string | null
+    dayOfWeek: string | null
+    minutesStudied: number | null
+    created_at: Date | null
+  }
+
+  export type StudyRecordCountAggregateOutputType = {
+    id: number
+    subjectId: number
+    dayOfWeek: number
+    minutesStudied: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type StudyRecordAvgAggregateInputType = {
+    minutesStudied?: true
+  }
+
+  export type StudyRecordSumAggregateInputType = {
+    minutesStudied?: true
+  }
+
+  export type StudyRecordMinAggregateInputType = {
+    id?: true
+    subjectId?: true
+    dayOfWeek?: true
+    minutesStudied?: true
+    created_at?: true
+  }
+
+  export type StudyRecordMaxAggregateInputType = {
+    id?: true
+    subjectId?: true
+    dayOfWeek?: true
+    minutesStudied?: true
+    created_at?: true
+  }
+
+  export type StudyRecordCountAggregateInputType = {
+    id?: true
+    subjectId?: true
+    dayOfWeek?: true
+    minutesStudied?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type StudyRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which StudyRecord to aggregate.
+     */
+    where?: StudyRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StudyRecords to fetch.
+     */
+    orderBy?: StudyRecordOrderByWithRelationInput | StudyRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: StudyRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StudyRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StudyRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned StudyRecords
+    **/
+    _count?: true | StudyRecordCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: StudyRecordAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: StudyRecordSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: StudyRecordMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: StudyRecordMaxAggregateInputType
+  }
+
+  export type GetStudyRecordAggregateType<T extends StudyRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregateStudyRecord]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStudyRecord[P]>
+      : GetScalarType<T[P], AggregateStudyRecord[P]>
+  }
+
+
+
+
+  export type StudyRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StudyRecordWhereInput
+    orderBy?: StudyRecordOrderByWithAggregationInput | StudyRecordOrderByWithAggregationInput[]
+    by: StudyRecordScalarFieldEnum[] | StudyRecordScalarFieldEnum
+    having?: StudyRecordScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: StudyRecordCountAggregateInputType | true
+    _avg?: StudyRecordAvgAggregateInputType
+    _sum?: StudyRecordSumAggregateInputType
+    _min?: StudyRecordMinAggregateInputType
+    _max?: StudyRecordMaxAggregateInputType
+  }
+
+  export type StudyRecordGroupByOutputType = {
+    id: string
+    subjectId: string
+    dayOfWeek: string
+    minutesStudied: number
+    created_at: Date
+    _count: StudyRecordCountAggregateOutputType | null
+    _avg: StudyRecordAvgAggregateOutputType | null
+    _sum: StudyRecordSumAggregateOutputType | null
+    _min: StudyRecordMinAggregateOutputType | null
+    _max: StudyRecordMaxAggregateOutputType | null
+  }
+
+  type GetStudyRecordGroupByPayload<T extends StudyRecordGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<StudyRecordGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof StudyRecordGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], StudyRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], StudyRecordGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type StudyRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    subjectId?: boolean
+    dayOfWeek?: boolean
+    minutesStudied?: boolean
+    created_at?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["studyRecord"]>
+
+  export type StudyRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    subjectId?: boolean
+    dayOfWeek?: boolean
+    minutesStudied?: boolean
+    created_at?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["studyRecord"]>
+
+  export type StudyRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    subjectId?: boolean
+    dayOfWeek?: boolean
+    minutesStudied?: boolean
+    created_at?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["studyRecord"]>
+
+  export type StudyRecordSelectScalar = {
+    id?: boolean
+    subjectId?: boolean
+    dayOfWeek?: boolean
+    minutesStudied?: boolean
+    created_at?: boolean
+  }
+
+  export type StudyRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "subjectId" | "dayOfWeek" | "minutesStudied" | "created_at", ExtArgs["result"]["studyRecord"]>
+  export type StudyRecordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }
+  export type StudyRecordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }
+  export type StudyRecordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }
+
+  export type $StudyRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "StudyRecord"
+    objects: {
+      subject: Prisma.$SubjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      subjectId: string
+      dayOfWeek: string
+      minutesStudied: number
+      created_at: Date
+    }, ExtArgs["result"]["studyRecord"]>
+    composites: {}
+  }
+
+  type StudyRecordGetPayload<S extends boolean | null | undefined | StudyRecordDefaultArgs> = $Result.GetResult<Prisma.$StudyRecordPayload, S>
+
+  type StudyRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<StudyRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: StudyRecordCountAggregateInputType | true
+    }
+
+  export interface StudyRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['StudyRecord'], meta: { name: 'StudyRecord' } }
+    /**
+     * Find zero or one StudyRecord that matches the filter.
+     * @param {StudyRecordFindUniqueArgs} args - Arguments to find a StudyRecord
+     * @example
+     * // Get one StudyRecord
+     * const studyRecord = await prisma.studyRecord.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends StudyRecordFindUniqueArgs>(args: SelectSubset<T, StudyRecordFindUniqueArgs<ExtArgs>>): Prisma__StudyRecordClient<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one StudyRecord that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {StudyRecordFindUniqueOrThrowArgs} args - Arguments to find a StudyRecord
+     * @example
+     * // Get one StudyRecord
+     * const studyRecord = await prisma.studyRecord.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends StudyRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, StudyRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__StudyRecordClient<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first StudyRecord that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudyRecordFindFirstArgs} args - Arguments to find a StudyRecord
+     * @example
+     * // Get one StudyRecord
+     * const studyRecord = await prisma.studyRecord.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends StudyRecordFindFirstArgs>(args?: SelectSubset<T, StudyRecordFindFirstArgs<ExtArgs>>): Prisma__StudyRecordClient<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first StudyRecord that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudyRecordFindFirstOrThrowArgs} args - Arguments to find a StudyRecord
+     * @example
+     * // Get one StudyRecord
+     * const studyRecord = await prisma.studyRecord.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends StudyRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, StudyRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__StudyRecordClient<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more StudyRecords that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudyRecordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all StudyRecords
+     * const studyRecords = await prisma.studyRecord.findMany()
+     * 
+     * // Get first 10 StudyRecords
+     * const studyRecords = await prisma.studyRecord.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const studyRecordWithIdOnly = await prisma.studyRecord.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends StudyRecordFindManyArgs>(args?: SelectSubset<T, StudyRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a StudyRecord.
+     * @param {StudyRecordCreateArgs} args - Arguments to create a StudyRecord.
+     * @example
+     * // Create one StudyRecord
+     * const StudyRecord = await prisma.studyRecord.create({
+     *   data: {
+     *     // ... data to create a StudyRecord
+     *   }
+     * })
+     * 
+     */
+    create<T extends StudyRecordCreateArgs>(args: SelectSubset<T, StudyRecordCreateArgs<ExtArgs>>): Prisma__StudyRecordClient<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many StudyRecords.
+     * @param {StudyRecordCreateManyArgs} args - Arguments to create many StudyRecords.
+     * @example
+     * // Create many StudyRecords
+     * const studyRecord = await prisma.studyRecord.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends StudyRecordCreateManyArgs>(args?: SelectSubset<T, StudyRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many StudyRecords and returns the data saved in the database.
+     * @param {StudyRecordCreateManyAndReturnArgs} args - Arguments to create many StudyRecords.
+     * @example
+     * // Create many StudyRecords
+     * const studyRecord = await prisma.studyRecord.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many StudyRecords and only return the `id`
+     * const studyRecordWithIdOnly = await prisma.studyRecord.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends StudyRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, StudyRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a StudyRecord.
+     * @param {StudyRecordDeleteArgs} args - Arguments to delete one StudyRecord.
+     * @example
+     * // Delete one StudyRecord
+     * const StudyRecord = await prisma.studyRecord.delete({
+     *   where: {
+     *     // ... filter to delete one StudyRecord
+     *   }
+     * })
+     * 
+     */
+    delete<T extends StudyRecordDeleteArgs>(args: SelectSubset<T, StudyRecordDeleteArgs<ExtArgs>>): Prisma__StudyRecordClient<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one StudyRecord.
+     * @param {StudyRecordUpdateArgs} args - Arguments to update one StudyRecord.
+     * @example
+     * // Update one StudyRecord
+     * const studyRecord = await prisma.studyRecord.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends StudyRecordUpdateArgs>(args: SelectSubset<T, StudyRecordUpdateArgs<ExtArgs>>): Prisma__StudyRecordClient<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more StudyRecords.
+     * @param {StudyRecordDeleteManyArgs} args - Arguments to filter StudyRecords to delete.
+     * @example
+     * // Delete a few StudyRecords
+     * const { count } = await prisma.studyRecord.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends StudyRecordDeleteManyArgs>(args?: SelectSubset<T, StudyRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more StudyRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudyRecordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many StudyRecords
+     * const studyRecord = await prisma.studyRecord.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends StudyRecordUpdateManyArgs>(args: SelectSubset<T, StudyRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more StudyRecords and returns the data updated in the database.
+     * @param {StudyRecordUpdateManyAndReturnArgs} args - Arguments to update many StudyRecords.
+     * @example
+     * // Update many StudyRecords
+     * const studyRecord = await prisma.studyRecord.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more StudyRecords and only return the `id`
+     * const studyRecordWithIdOnly = await prisma.studyRecord.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends StudyRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, StudyRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one StudyRecord.
+     * @param {StudyRecordUpsertArgs} args - Arguments to update or create a StudyRecord.
+     * @example
+     * // Update or create a StudyRecord
+     * const studyRecord = await prisma.studyRecord.upsert({
+     *   create: {
+     *     // ... data to create a StudyRecord
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the StudyRecord we want to update
+     *   }
+     * })
+     */
+    upsert<T extends StudyRecordUpsertArgs>(args: SelectSubset<T, StudyRecordUpsertArgs<ExtArgs>>): Prisma__StudyRecordClient<$Result.GetResult<Prisma.$StudyRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of StudyRecords.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudyRecordCountArgs} args - Arguments to filter StudyRecords to count.
+     * @example
+     * // Count the number of StudyRecords
+     * const count = await prisma.studyRecord.count({
+     *   where: {
+     *     // ... the filter for the StudyRecords we want to count
+     *   }
+     * })
+    **/
+    count<T extends StudyRecordCountArgs>(
+      args?: Subset<T, StudyRecordCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], StudyRecordCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a StudyRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudyRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends StudyRecordAggregateArgs>(args: Subset<T, StudyRecordAggregateArgs>): Prisma.PrismaPromise<GetStudyRecordAggregateType<T>>
+
+    /**
+     * Group by StudyRecord.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StudyRecordGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends StudyRecordGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: StudyRecordGroupByArgs['orderBy'] }
+        : { orderBy?: StudyRecordGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, StudyRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStudyRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the StudyRecord model
+   */
+  readonly fields: StudyRecordFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for StudyRecord.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__StudyRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    subject<T extends SubjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SubjectDefaultArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the StudyRecord model
+   */
+  interface StudyRecordFieldRefs {
+    readonly id: FieldRef<"StudyRecord", 'String'>
+    readonly subjectId: FieldRef<"StudyRecord", 'String'>
+    readonly dayOfWeek: FieldRef<"StudyRecord", 'String'>
+    readonly minutesStudied: FieldRef<"StudyRecord", 'Int'>
+    readonly created_at: FieldRef<"StudyRecord", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * StudyRecord findUnique
+   */
+  export type StudyRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which StudyRecord to fetch.
+     */
+    where: StudyRecordWhereUniqueInput
+  }
+
+  /**
+   * StudyRecord findUniqueOrThrow
+   */
+  export type StudyRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which StudyRecord to fetch.
+     */
+    where: StudyRecordWhereUniqueInput
+  }
+
+  /**
+   * StudyRecord findFirst
+   */
+  export type StudyRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which StudyRecord to fetch.
+     */
+    where?: StudyRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StudyRecords to fetch.
+     */
+    orderBy?: StudyRecordOrderByWithRelationInput | StudyRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for StudyRecords.
+     */
+    cursor?: StudyRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StudyRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StudyRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of StudyRecords.
+     */
+    distinct?: StudyRecordScalarFieldEnum | StudyRecordScalarFieldEnum[]
+  }
+
+  /**
+   * StudyRecord findFirstOrThrow
+   */
+  export type StudyRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which StudyRecord to fetch.
+     */
+    where?: StudyRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StudyRecords to fetch.
+     */
+    orderBy?: StudyRecordOrderByWithRelationInput | StudyRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for StudyRecords.
+     */
+    cursor?: StudyRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StudyRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StudyRecords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of StudyRecords.
+     */
+    distinct?: StudyRecordScalarFieldEnum | StudyRecordScalarFieldEnum[]
+  }
+
+  /**
+   * StudyRecord findMany
+   */
+  export type StudyRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    /**
+     * Filter, which StudyRecords to fetch.
+     */
+    where?: StudyRecordWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of StudyRecords to fetch.
+     */
+    orderBy?: StudyRecordOrderByWithRelationInput | StudyRecordOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing StudyRecords.
+     */
+    cursor?: StudyRecordWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` StudyRecords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` StudyRecords.
+     */
+    skip?: number
+    distinct?: StudyRecordScalarFieldEnum | StudyRecordScalarFieldEnum[]
+  }
+
+  /**
+   * StudyRecord create
+   */
+  export type StudyRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to create a StudyRecord.
+     */
+    data: XOR<StudyRecordCreateInput, StudyRecordUncheckedCreateInput>
+  }
+
+  /**
+   * StudyRecord createMany
+   */
+  export type StudyRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many StudyRecords.
+     */
+    data: StudyRecordCreateManyInput | StudyRecordCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * StudyRecord createManyAndReturn
+   */
+  export type StudyRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * The data used to create many StudyRecords.
+     */
+    data: StudyRecordCreateManyInput | StudyRecordCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * StudyRecord update
+   */
+  export type StudyRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    /**
+     * The data needed to update a StudyRecord.
+     */
+    data: XOR<StudyRecordUpdateInput, StudyRecordUncheckedUpdateInput>
+    /**
+     * Choose, which StudyRecord to update.
+     */
+    where: StudyRecordWhereUniqueInput
+  }
+
+  /**
+   * StudyRecord updateMany
+   */
+  export type StudyRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update StudyRecords.
+     */
+    data: XOR<StudyRecordUpdateManyMutationInput, StudyRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which StudyRecords to update
+     */
+    where?: StudyRecordWhereInput
+    /**
+     * Limit how many StudyRecords to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * StudyRecord updateManyAndReturn
+   */
+  export type StudyRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * The data used to update StudyRecords.
+     */
+    data: XOR<StudyRecordUpdateManyMutationInput, StudyRecordUncheckedUpdateManyInput>
+    /**
+     * Filter which StudyRecords to update
+     */
+    where?: StudyRecordWhereInput
+    /**
+     * Limit how many StudyRecords to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * StudyRecord upsert
+   */
+  export type StudyRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    /**
+     * The filter to search for the StudyRecord to update in case it exists.
+     */
+    where: StudyRecordWhereUniqueInput
+    /**
+     * In case the StudyRecord found by the `where` argument doesn't exist, create a new StudyRecord with this data.
+     */
+    create: XOR<StudyRecordCreateInput, StudyRecordUncheckedCreateInput>
+    /**
+     * In case the StudyRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<StudyRecordUpdateInput, StudyRecordUncheckedUpdateInput>
+  }
+
+  /**
+   * StudyRecord delete
+   */
+  export type StudyRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+    /**
+     * Filter which StudyRecord to delete.
+     */
+    where: StudyRecordWhereUniqueInput
+  }
+
+  /**
+   * StudyRecord deleteMany
+   */
+  export type StudyRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which StudyRecords to delete
+     */
+    where?: StudyRecordWhereInput
+    /**
+     * Limit how many StudyRecords to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * StudyRecord without action
+   */
+  export type StudyRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudyRecord
+     */
+    select?: StudyRecordSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the StudyRecord
+     */
+    omit?: StudyRecordOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudyRecordInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PendingActivity
+   */
+
+  export type AggregatePendingActivity = {
+    _count: PendingActivityCountAggregateOutputType | null
+    _avg: PendingActivityAvgAggregateOutputType | null
+    _sum: PendingActivitySumAggregateOutputType | null
+    _min: PendingActivityMinAggregateOutputType | null
+    _max: PendingActivityMaxAggregateOutputType | null
+  }
+
+  export type PendingActivityAvgAggregateOutputType = {
+    percentageConclud: number | null
+  }
+
+  export type PendingActivitySumAggregateOutputType = {
+    percentageConclud: number | null
+  }
+
+  export type PendingActivityMinAggregateOutputType = {
+    id: string | null
+    subjectId: string | null
+    name: string | null
+    description: string | null
+    percentageConclud: number | null
+    created_at: Date | null
+  }
+
+  export type PendingActivityMaxAggregateOutputType = {
+    id: string | null
+    subjectId: string | null
+    name: string | null
+    description: string | null
+    percentageConclud: number | null
+    created_at: Date | null
+  }
+
+  export type PendingActivityCountAggregateOutputType = {
+    id: number
+    subjectId: number
+    name: number
+    description: number
+    percentageConclud: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type PendingActivityAvgAggregateInputType = {
+    percentageConclud?: true
+  }
+
+  export type PendingActivitySumAggregateInputType = {
+    percentageConclud?: true
+  }
+
+  export type PendingActivityMinAggregateInputType = {
+    id?: true
+    subjectId?: true
+    name?: true
+    description?: true
+    percentageConclud?: true
+    created_at?: true
+  }
+
+  export type PendingActivityMaxAggregateInputType = {
+    id?: true
+    subjectId?: true
+    name?: true
+    description?: true
+    percentageConclud?: true
+    created_at?: true
+  }
+
+  export type PendingActivityCountAggregateInputType = {
+    id?: true
+    subjectId?: true
+    name?: true
+    description?: true
+    percentageConclud?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type PendingActivityAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PendingActivity to aggregate.
+     */
+    where?: PendingActivityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PendingActivities to fetch.
+     */
+    orderBy?: PendingActivityOrderByWithRelationInput | PendingActivityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PendingActivityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PendingActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PendingActivities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PendingActivities
+    **/
+    _count?: true | PendingActivityCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PendingActivityAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PendingActivitySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PendingActivityMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PendingActivityMaxAggregateInputType
+  }
+
+  export type GetPendingActivityAggregateType<T extends PendingActivityAggregateArgs> = {
+        [P in keyof T & keyof AggregatePendingActivity]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePendingActivity[P]>
+      : GetScalarType<T[P], AggregatePendingActivity[P]>
+  }
+
+
+
+
+  export type PendingActivityGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PendingActivityWhereInput
+    orderBy?: PendingActivityOrderByWithAggregationInput | PendingActivityOrderByWithAggregationInput[]
+    by: PendingActivityScalarFieldEnum[] | PendingActivityScalarFieldEnum
+    having?: PendingActivityScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PendingActivityCountAggregateInputType | true
+    _avg?: PendingActivityAvgAggregateInputType
+    _sum?: PendingActivitySumAggregateInputType
+    _min?: PendingActivityMinAggregateInputType
+    _max?: PendingActivityMaxAggregateInputType
+  }
+
+  export type PendingActivityGroupByOutputType = {
+    id: string
+    subjectId: string
+    name: string
+    description: string
+    percentageConclud: number
+    created_at: Date
+    _count: PendingActivityCountAggregateOutputType | null
+    _avg: PendingActivityAvgAggregateOutputType | null
+    _sum: PendingActivitySumAggregateOutputType | null
+    _min: PendingActivityMinAggregateOutputType | null
+    _max: PendingActivityMaxAggregateOutputType | null
+  }
+
+  type GetPendingActivityGroupByPayload<T extends PendingActivityGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PendingActivityGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PendingActivityGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PendingActivityGroupByOutputType[P]>
+            : GetScalarType<T[P], PendingActivityGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PendingActivitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    subjectId?: boolean
+    name?: boolean
+    description?: boolean
+    percentageConclud?: boolean
+    created_at?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pendingActivity"]>
+
+  export type PendingActivitySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    subjectId?: boolean
+    name?: boolean
+    description?: boolean
+    percentageConclud?: boolean
+    created_at?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pendingActivity"]>
+
+  export type PendingActivitySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    subjectId?: boolean
+    name?: boolean
+    description?: boolean
+    percentageConclud?: boolean
+    created_at?: boolean
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pendingActivity"]>
+
+  export type PendingActivitySelectScalar = {
+    id?: boolean
+    subjectId?: boolean
+    name?: boolean
+    description?: boolean
+    percentageConclud?: boolean
+    created_at?: boolean
+  }
+
+  export type PendingActivityOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "subjectId" | "name" | "description" | "percentageConclud" | "created_at", ExtArgs["result"]["pendingActivity"]>
+  export type PendingActivityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }
+  export type PendingActivityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }
+  export type PendingActivityIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subject?: boolean | SubjectDefaultArgs<ExtArgs>
+  }
+
+  export type $PendingActivityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PendingActivity"
+    objects: {
+      subject: Prisma.$SubjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      subjectId: string
+      name: string
+      description: string
+      percentageConclud: number
+      created_at: Date
+    }, ExtArgs["result"]["pendingActivity"]>
+    composites: {}
+  }
+
+  type PendingActivityGetPayload<S extends boolean | null | undefined | PendingActivityDefaultArgs> = $Result.GetResult<Prisma.$PendingActivityPayload, S>
+
+  type PendingActivityCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PendingActivityFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PendingActivityCountAggregateInputType | true
+    }
+
+  export interface PendingActivityDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PendingActivity'], meta: { name: 'PendingActivity' } }
+    /**
+     * Find zero or one PendingActivity that matches the filter.
+     * @param {PendingActivityFindUniqueArgs} args - Arguments to find a PendingActivity
+     * @example
+     * // Get one PendingActivity
+     * const pendingActivity = await prisma.pendingActivity.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PendingActivityFindUniqueArgs>(args: SelectSubset<T, PendingActivityFindUniqueArgs<ExtArgs>>): Prisma__PendingActivityClient<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PendingActivity that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PendingActivityFindUniqueOrThrowArgs} args - Arguments to find a PendingActivity
+     * @example
+     * // Get one PendingActivity
+     * const pendingActivity = await prisma.pendingActivity.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PendingActivityFindUniqueOrThrowArgs>(args: SelectSubset<T, PendingActivityFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PendingActivityClient<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PendingActivity that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PendingActivityFindFirstArgs} args - Arguments to find a PendingActivity
+     * @example
+     * // Get one PendingActivity
+     * const pendingActivity = await prisma.pendingActivity.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PendingActivityFindFirstArgs>(args?: SelectSubset<T, PendingActivityFindFirstArgs<ExtArgs>>): Prisma__PendingActivityClient<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PendingActivity that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PendingActivityFindFirstOrThrowArgs} args - Arguments to find a PendingActivity
+     * @example
+     * // Get one PendingActivity
+     * const pendingActivity = await prisma.pendingActivity.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PendingActivityFindFirstOrThrowArgs>(args?: SelectSubset<T, PendingActivityFindFirstOrThrowArgs<ExtArgs>>): Prisma__PendingActivityClient<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PendingActivities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PendingActivityFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PendingActivities
+     * const pendingActivities = await prisma.pendingActivity.findMany()
+     * 
+     * // Get first 10 PendingActivities
+     * const pendingActivities = await prisma.pendingActivity.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const pendingActivityWithIdOnly = await prisma.pendingActivity.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PendingActivityFindManyArgs>(args?: SelectSubset<T, PendingActivityFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PendingActivity.
+     * @param {PendingActivityCreateArgs} args - Arguments to create a PendingActivity.
+     * @example
+     * // Create one PendingActivity
+     * const PendingActivity = await prisma.pendingActivity.create({
+     *   data: {
+     *     // ... data to create a PendingActivity
+     *   }
+     * })
+     * 
+     */
+    create<T extends PendingActivityCreateArgs>(args: SelectSubset<T, PendingActivityCreateArgs<ExtArgs>>): Prisma__PendingActivityClient<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PendingActivities.
+     * @param {PendingActivityCreateManyArgs} args - Arguments to create many PendingActivities.
+     * @example
+     * // Create many PendingActivities
+     * const pendingActivity = await prisma.pendingActivity.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PendingActivityCreateManyArgs>(args?: SelectSubset<T, PendingActivityCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PendingActivities and returns the data saved in the database.
+     * @param {PendingActivityCreateManyAndReturnArgs} args - Arguments to create many PendingActivities.
+     * @example
+     * // Create many PendingActivities
+     * const pendingActivity = await prisma.pendingActivity.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PendingActivities and only return the `id`
+     * const pendingActivityWithIdOnly = await prisma.pendingActivity.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PendingActivityCreateManyAndReturnArgs>(args?: SelectSubset<T, PendingActivityCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PendingActivity.
+     * @param {PendingActivityDeleteArgs} args - Arguments to delete one PendingActivity.
+     * @example
+     * // Delete one PendingActivity
+     * const PendingActivity = await prisma.pendingActivity.delete({
+     *   where: {
+     *     // ... filter to delete one PendingActivity
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PendingActivityDeleteArgs>(args: SelectSubset<T, PendingActivityDeleteArgs<ExtArgs>>): Prisma__PendingActivityClient<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PendingActivity.
+     * @param {PendingActivityUpdateArgs} args - Arguments to update one PendingActivity.
+     * @example
+     * // Update one PendingActivity
+     * const pendingActivity = await prisma.pendingActivity.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PendingActivityUpdateArgs>(args: SelectSubset<T, PendingActivityUpdateArgs<ExtArgs>>): Prisma__PendingActivityClient<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PendingActivities.
+     * @param {PendingActivityDeleteManyArgs} args - Arguments to filter PendingActivities to delete.
+     * @example
+     * // Delete a few PendingActivities
+     * const { count } = await prisma.pendingActivity.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PendingActivityDeleteManyArgs>(args?: SelectSubset<T, PendingActivityDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PendingActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PendingActivityUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PendingActivities
+     * const pendingActivity = await prisma.pendingActivity.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PendingActivityUpdateManyArgs>(args: SelectSubset<T, PendingActivityUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PendingActivities and returns the data updated in the database.
+     * @param {PendingActivityUpdateManyAndReturnArgs} args - Arguments to update many PendingActivities.
+     * @example
+     * // Update many PendingActivities
+     * const pendingActivity = await prisma.pendingActivity.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PendingActivities and only return the `id`
+     * const pendingActivityWithIdOnly = await prisma.pendingActivity.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PendingActivityUpdateManyAndReturnArgs>(args: SelectSubset<T, PendingActivityUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PendingActivity.
+     * @param {PendingActivityUpsertArgs} args - Arguments to update or create a PendingActivity.
+     * @example
+     * // Update or create a PendingActivity
+     * const pendingActivity = await prisma.pendingActivity.upsert({
+     *   create: {
+     *     // ... data to create a PendingActivity
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PendingActivity we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PendingActivityUpsertArgs>(args: SelectSubset<T, PendingActivityUpsertArgs<ExtArgs>>): Prisma__PendingActivityClient<$Result.GetResult<Prisma.$PendingActivityPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PendingActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PendingActivityCountArgs} args - Arguments to filter PendingActivities to count.
+     * @example
+     * // Count the number of PendingActivities
+     * const count = await prisma.pendingActivity.count({
+     *   where: {
+     *     // ... the filter for the PendingActivities we want to count
+     *   }
+     * })
+    **/
+    count<T extends PendingActivityCountArgs>(
+      args?: Subset<T, PendingActivityCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PendingActivityCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PendingActivity.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PendingActivityAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PendingActivityAggregateArgs>(args: Subset<T, PendingActivityAggregateArgs>): Prisma.PrismaPromise<GetPendingActivityAggregateType<T>>
+
+    /**
+     * Group by PendingActivity.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PendingActivityGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PendingActivityGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PendingActivityGroupByArgs['orderBy'] }
+        : { orderBy?: PendingActivityGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PendingActivityGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPendingActivityGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PendingActivity model
+   */
+  readonly fields: PendingActivityFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PendingActivity.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PendingActivityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    subject<T extends SubjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SubjectDefaultArgs<ExtArgs>>): Prisma__SubjectClient<$Result.GetResult<Prisma.$SubjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PendingActivity model
+   */
+  interface PendingActivityFieldRefs {
+    readonly id: FieldRef<"PendingActivity", 'String'>
+    readonly subjectId: FieldRef<"PendingActivity", 'String'>
+    readonly name: FieldRef<"PendingActivity", 'String'>
+    readonly description: FieldRef<"PendingActivity", 'String'>
+    readonly percentageConclud: FieldRef<"PendingActivity", 'Int'>
+    readonly created_at: FieldRef<"PendingActivity", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PendingActivity findUnique
+   */
+  export type PendingActivityFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    /**
+     * Filter, which PendingActivity to fetch.
+     */
+    where: PendingActivityWhereUniqueInput
+  }
+
+  /**
+   * PendingActivity findUniqueOrThrow
+   */
+  export type PendingActivityFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    /**
+     * Filter, which PendingActivity to fetch.
+     */
+    where: PendingActivityWhereUniqueInput
+  }
+
+  /**
+   * PendingActivity findFirst
+   */
+  export type PendingActivityFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    /**
+     * Filter, which PendingActivity to fetch.
+     */
+    where?: PendingActivityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PendingActivities to fetch.
+     */
+    orderBy?: PendingActivityOrderByWithRelationInput | PendingActivityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PendingActivities.
+     */
+    cursor?: PendingActivityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PendingActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PendingActivities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PendingActivities.
+     */
+    distinct?: PendingActivityScalarFieldEnum | PendingActivityScalarFieldEnum[]
+  }
+
+  /**
+   * PendingActivity findFirstOrThrow
+   */
+  export type PendingActivityFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    /**
+     * Filter, which PendingActivity to fetch.
+     */
+    where?: PendingActivityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PendingActivities to fetch.
+     */
+    orderBy?: PendingActivityOrderByWithRelationInput | PendingActivityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PendingActivities.
+     */
+    cursor?: PendingActivityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PendingActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PendingActivities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PendingActivities.
+     */
+    distinct?: PendingActivityScalarFieldEnum | PendingActivityScalarFieldEnum[]
+  }
+
+  /**
+   * PendingActivity findMany
+   */
+  export type PendingActivityFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    /**
+     * Filter, which PendingActivities to fetch.
+     */
+    where?: PendingActivityWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PendingActivities to fetch.
+     */
+    orderBy?: PendingActivityOrderByWithRelationInput | PendingActivityOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PendingActivities.
+     */
+    cursor?: PendingActivityWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PendingActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PendingActivities.
+     */
+    skip?: number
+    distinct?: PendingActivityScalarFieldEnum | PendingActivityScalarFieldEnum[]
+  }
+
+  /**
+   * PendingActivity create
+   */
+  export type PendingActivityCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PendingActivity.
+     */
+    data: XOR<PendingActivityCreateInput, PendingActivityUncheckedCreateInput>
+  }
+
+  /**
+   * PendingActivity createMany
+   */
+  export type PendingActivityCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PendingActivities.
+     */
+    data: PendingActivityCreateManyInput | PendingActivityCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PendingActivity createManyAndReturn
+   */
+  export type PendingActivityCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * The data used to create many PendingActivities.
+     */
+    data: PendingActivityCreateManyInput | PendingActivityCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PendingActivity update
+   */
+  export type PendingActivityUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PendingActivity.
+     */
+    data: XOR<PendingActivityUpdateInput, PendingActivityUncheckedUpdateInput>
+    /**
+     * Choose, which PendingActivity to update.
+     */
+    where: PendingActivityWhereUniqueInput
+  }
+
+  /**
+   * PendingActivity updateMany
+   */
+  export type PendingActivityUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PendingActivities.
+     */
+    data: XOR<PendingActivityUpdateManyMutationInput, PendingActivityUncheckedUpdateManyInput>
+    /**
+     * Filter which PendingActivities to update
+     */
+    where?: PendingActivityWhereInput
+    /**
+     * Limit how many PendingActivities to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PendingActivity updateManyAndReturn
+   */
+  export type PendingActivityUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * The data used to update PendingActivities.
+     */
+    data: XOR<PendingActivityUpdateManyMutationInput, PendingActivityUncheckedUpdateManyInput>
+    /**
+     * Filter which PendingActivities to update
+     */
+    where?: PendingActivityWhereInput
+    /**
+     * Limit how many PendingActivities to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PendingActivity upsert
+   */
+  export type PendingActivityUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PendingActivity to update in case it exists.
+     */
+    where: PendingActivityWhereUniqueInput
+    /**
+     * In case the PendingActivity found by the `where` argument doesn't exist, create a new PendingActivity with this data.
+     */
+    create: XOR<PendingActivityCreateInput, PendingActivityUncheckedCreateInput>
+    /**
+     * In case the PendingActivity was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PendingActivityUpdateInput, PendingActivityUncheckedUpdateInput>
+  }
+
+  /**
+   * PendingActivity delete
+   */
+  export type PendingActivityDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+    /**
+     * Filter which PendingActivity to delete.
+     */
+    where: PendingActivityWhereUniqueInput
+  }
+
+  /**
+   * PendingActivity deleteMany
+   */
+  export type PendingActivityDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PendingActivities to delete
+     */
+    where?: PendingActivityWhereInput
+    /**
+     * Limit how many PendingActivities to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PendingActivity without action
+   */
+  export type PendingActivityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PendingActivity
+     */
+    select?: PendingActivitySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PendingActivity
+     */
+    omit?: PendingActivityOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PendingActivityInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Note
+   */
+
+  export type AggregateNote = {
+    _count: NoteCountAggregateOutputType | null
+    _min: NoteMinAggregateOutputType | null
+    _max: NoteMaxAggregateOutputType | null
+  }
+
+  export type NoteMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    userId: string | null
+  }
+
+  export type NoteMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    userId: string | null
+  }
+
+  export type NoteCountAggregateOutputType = {
+    id: number
+    title: number
+    content: number
+    userId: number
+    _all: number
+  }
+
+
+  export type NoteMinAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    userId?: true
+  }
+
+  export type NoteMaxAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    userId?: true
+  }
+
+  export type NoteCountAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    userId?: true
+    _all?: true
+  }
+
+  export type NoteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Note to aggregate.
+     */
+    where?: NoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notes to fetch.
+     */
+    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Notes
+    **/
+    _count?: true | NoteCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NoteMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NoteMaxAggregateInputType
+  }
+
+  export type GetNoteAggregateType<T extends NoteAggregateArgs> = {
+        [P in keyof T & keyof AggregateNote]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNote[P]>
+      : GetScalarType<T[P], AggregateNote[P]>
+  }
+
+
+
+
+  export type NoteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NoteWhereInput
+    orderBy?: NoteOrderByWithAggregationInput | NoteOrderByWithAggregationInput[]
+    by: NoteScalarFieldEnum[] | NoteScalarFieldEnum
+    having?: NoteScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NoteCountAggregateInputType | true
+    _min?: NoteMinAggregateInputType
+    _max?: NoteMaxAggregateInputType
+  }
+
+  export type NoteGroupByOutputType = {
+    id: string
+    title: string
+    content: string
+    userId: string
+    _count: NoteCountAggregateOutputType | null
+    _min: NoteMinAggregateOutputType | null
+    _max: NoteMaxAggregateOutputType | null
+  }
+
+  type GetNoteGroupByPayload<T extends NoteGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NoteGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NoteGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NoteGroupByOutputType[P]>
+            : GetScalarType<T[P], NoteGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NoteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["note"]>
+
+  export type NoteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["note"]>
+
+  export type NoteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["note"]>
+
+  export type NoteSelectScalar = {
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    userId?: boolean
+  }
+
+  export type NoteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "userId", ExtArgs["result"]["note"]>
+  export type NoteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type NoteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type NoteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $NotePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Note"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      content: string
+      userId: string
+    }, ExtArgs["result"]["note"]>
+    composites: {}
+  }
+
+  type NoteGetPayload<S extends boolean | null | undefined | NoteDefaultArgs> = $Result.GetResult<Prisma.$NotePayload, S>
+
+  type NoteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NoteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NoteCountAggregateInputType | true
+    }
+
+  export interface NoteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Note'], meta: { name: 'Note' } }
+    /**
+     * Find zero or one Note that matches the filter.
+     * @param {NoteFindUniqueArgs} args - Arguments to find a Note
+     * @example
+     * // Get one Note
+     * const note = await prisma.note.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NoteFindUniqueArgs>(args: SelectSubset<T, NoteFindUniqueArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Note that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NoteFindUniqueOrThrowArgs} args - Arguments to find a Note
+     * @example
+     * // Get one Note
+     * const note = await prisma.note.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NoteFindUniqueOrThrowArgs>(args: SelectSubset<T, NoteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Note that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFindFirstArgs} args - Arguments to find a Note
+     * @example
+     * // Get one Note
+     * const note = await prisma.note.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NoteFindFirstArgs>(args?: SelectSubset<T, NoteFindFirstArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Note that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFindFirstOrThrowArgs} args - Arguments to find a Note
+     * @example
+     * // Get one Note
+     * const note = await prisma.note.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NoteFindFirstOrThrowArgs>(args?: SelectSubset<T, NoteFindFirstOrThrowArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Notes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Notes
+     * const notes = await prisma.note.findMany()
+     * 
+     * // Get first 10 Notes
+     * const notes = await prisma.note.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const noteWithIdOnly = await prisma.note.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NoteFindManyArgs>(args?: SelectSubset<T, NoteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Note.
+     * @param {NoteCreateArgs} args - Arguments to create a Note.
+     * @example
+     * // Create one Note
+     * const Note = await prisma.note.create({
+     *   data: {
+     *     // ... data to create a Note
+     *   }
+     * })
+     * 
+     */
+    create<T extends NoteCreateArgs>(args: SelectSubset<T, NoteCreateArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Notes.
+     * @param {NoteCreateManyArgs} args - Arguments to create many Notes.
+     * @example
+     * // Create many Notes
+     * const note = await prisma.note.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NoteCreateManyArgs>(args?: SelectSubset<T, NoteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Notes and returns the data saved in the database.
+     * @param {NoteCreateManyAndReturnArgs} args - Arguments to create many Notes.
+     * @example
+     * // Create many Notes
+     * const note = await prisma.note.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Notes and only return the `id`
+     * const noteWithIdOnly = await prisma.note.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NoteCreateManyAndReturnArgs>(args?: SelectSubset<T, NoteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Note.
+     * @param {NoteDeleteArgs} args - Arguments to delete one Note.
+     * @example
+     * // Delete one Note
+     * const Note = await prisma.note.delete({
+     *   where: {
+     *     // ... filter to delete one Note
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NoteDeleteArgs>(args: SelectSubset<T, NoteDeleteArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Note.
+     * @param {NoteUpdateArgs} args - Arguments to update one Note.
+     * @example
+     * // Update one Note
+     * const note = await prisma.note.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NoteUpdateArgs>(args: SelectSubset<T, NoteUpdateArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Notes.
+     * @param {NoteDeleteManyArgs} args - Arguments to filter Notes to delete.
+     * @example
+     * // Delete a few Notes
+     * const { count } = await prisma.note.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NoteDeleteManyArgs>(args?: SelectSubset<T, NoteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Notes
+     * const note = await prisma.note.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NoteUpdateManyArgs>(args: SelectSubset<T, NoteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notes and returns the data updated in the database.
+     * @param {NoteUpdateManyAndReturnArgs} args - Arguments to update many Notes.
+     * @example
+     * // Update many Notes
+     * const note = await prisma.note.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Notes and only return the `id`
+     * const noteWithIdOnly = await prisma.note.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends NoteUpdateManyAndReturnArgs>(args: SelectSubset<T, NoteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Note.
+     * @param {NoteUpsertArgs} args - Arguments to update or create a Note.
+     * @example
+     * // Update or create a Note
+     * const note = await prisma.note.upsert({
+     *   create: {
+     *     // ... data to create a Note
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Note we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NoteUpsertArgs>(args: SelectSubset<T, NoteUpsertArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Notes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteCountArgs} args - Arguments to filter Notes to count.
+     * @example
+     * // Count the number of Notes
+     * const count = await prisma.note.count({
+     *   where: {
+     *     // ... the filter for the Notes we want to count
+     *   }
+     * })
+    **/
+    count<T extends NoteCountArgs>(
+      args?: Subset<T, NoteCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NoteCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Note.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NoteAggregateArgs>(args: Subset<T, NoteAggregateArgs>): Prisma.PrismaPromise<GetNoteAggregateType<T>>
+
+    /**
+     * Group by Note.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NoteGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NoteGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NoteGroupByArgs['orderBy'] }
+        : { orderBy?: NoteGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NoteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNoteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Note model
+   */
+  readonly fields: NoteFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Note.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NoteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Note model
+   */
+  interface NoteFieldRefs {
+    readonly id: FieldRef<"Note", 'String'>
+    readonly title: FieldRef<"Note", 'String'>
+    readonly content: FieldRef<"Note", 'String'>
+    readonly userId: FieldRef<"Note", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Note findUnique
+   */
+  export type NoteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    /**
+     * Filter, which Note to fetch.
+     */
+    where: NoteWhereUniqueInput
+  }
+
+  /**
+   * Note findUniqueOrThrow
+   */
+  export type NoteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    /**
+     * Filter, which Note to fetch.
+     */
+    where: NoteWhereUniqueInput
+  }
+
+  /**
+   * Note findFirst
+   */
+  export type NoteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    /**
+     * Filter, which Note to fetch.
+     */
+    where?: NoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notes to fetch.
+     */
+    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notes.
+     */
+    cursor?: NoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notes.
+     */
+    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+  }
+
+  /**
+   * Note findFirstOrThrow
+   */
+  export type NoteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    /**
+     * Filter, which Note to fetch.
+     */
+    where?: NoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notes to fetch.
+     */
+    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notes.
+     */
+    cursor?: NoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notes.
+     */
+    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+  }
+
+  /**
+   * Note findMany
+   */
+  export type NoteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    /**
+     * Filter, which Notes to fetch.
+     */
+    where?: NoteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notes to fetch.
+     */
+    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Notes.
+     */
+    cursor?: NoteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notes.
+     */
+    skip?: number
+    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+  }
+
+  /**
+   * Note create
+   */
+  export type NoteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Note.
+     */
+    data: XOR<NoteCreateInput, NoteUncheckedCreateInput>
+  }
+
+  /**
+   * Note createMany
+   */
+  export type NoteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Notes.
+     */
+    data: NoteCreateManyInput | NoteCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Note createManyAndReturn
+   */
+  export type NoteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * The data used to create many Notes.
+     */
+    data: NoteCreateManyInput | NoteCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Note update
+   */
+  export type NoteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Note.
+     */
+    data: XOR<NoteUpdateInput, NoteUncheckedUpdateInput>
+    /**
+     * Choose, which Note to update.
+     */
+    where: NoteWhereUniqueInput
+  }
+
+  /**
+   * Note updateMany
+   */
+  export type NoteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Notes.
+     */
+    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyInput>
+    /**
+     * Filter which Notes to update
+     */
+    where?: NoteWhereInput
+    /**
+     * Limit how many Notes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Note updateManyAndReturn
+   */
+  export type NoteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * The data used to update Notes.
+     */
+    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyInput>
+    /**
+     * Filter which Notes to update
+     */
+    where?: NoteWhereInput
+    /**
+     * Limit how many Notes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Note upsert
+   */
+  export type NoteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Note to update in case it exists.
+     */
+    where: NoteWhereUniqueInput
+    /**
+     * In case the Note found by the `where` argument doesn't exist, create a new Note with this data.
+     */
+    create: XOR<NoteCreateInput, NoteUncheckedCreateInput>
+    /**
+     * In case the Note was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NoteUpdateInput, NoteUncheckedUpdateInput>
+  }
+
+  /**
+   * Note delete
+   */
+  export type NoteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+    /**
+     * Filter which Note to delete.
+     */
+    where: NoteWhereUniqueInput
+  }
+
+  /**
+   * Note deleteMany
+   */
+  export type NoteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Notes to delete
+     */
+    where?: NoteWhereInput
+    /**
+     * Limit how many Notes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Note without action
+   */
+  export type NoteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Note
+     */
+    select?: NoteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Note
+     */
+    omit?: NoteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NoteInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DayCalendarActivities
+   */
+
+  export type AggregateDayCalendarActivities = {
+    _count: DayCalendarActivitiesCountAggregateOutputType | null
+    _avg: DayCalendarActivitiesAvgAggregateOutputType | null
+    _sum: DayCalendarActivitiesSumAggregateOutputType | null
+    _min: DayCalendarActivitiesMinAggregateOutputType | null
+    _max: DayCalendarActivitiesMaxAggregateOutputType | null
+  }
+
+  export type DayCalendarActivitiesAvgAggregateOutputType = {
+    day: Decimal | null
+    month: Decimal | null
+    year: Decimal | null
+  }
+
+  export type DayCalendarActivitiesSumAggregateOutputType = {
+    day: Decimal | null
+    month: Decimal | null
+    year: Decimal | null
+  }
+
+  export type DayCalendarActivitiesMinAggregateOutputType = {
+    id: string | null
+    day: Decimal | null
+    userId: string | null
+    month: Decimal | null
+    year: Decimal | null
+  }
+
+  export type DayCalendarActivitiesMaxAggregateOutputType = {
+    id: string | null
+    day: Decimal | null
+    userId: string | null
+    month: Decimal | null
+    year: Decimal | null
+  }
+
+  export type DayCalendarActivitiesCountAggregateOutputType = {
+    id: number
+    day: number
+    userId: number
+    month: number
+    year: number
+    _all: number
+  }
+
+
+  export type DayCalendarActivitiesAvgAggregateInputType = {
+    day?: true
+    month?: true
+    year?: true
+  }
+
+  export type DayCalendarActivitiesSumAggregateInputType = {
+    day?: true
+    month?: true
+    year?: true
+  }
+
+  export type DayCalendarActivitiesMinAggregateInputType = {
+    id?: true
+    day?: true
+    userId?: true
+    month?: true
+    year?: true
+  }
+
+  export type DayCalendarActivitiesMaxAggregateInputType = {
+    id?: true
+    day?: true
+    userId?: true
+    month?: true
+    year?: true
+  }
+
+  export type DayCalendarActivitiesCountAggregateInputType = {
+    id?: true
+    day?: true
+    userId?: true
+    month?: true
+    year?: true
+    _all?: true
+  }
+
+  export type DayCalendarActivitiesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DayCalendarActivities to aggregate.
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayCalendarActivities to fetch.
+     */
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayCalendarActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayCalendarActivities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DayCalendarActivities
+    **/
+    _count?: true | DayCalendarActivitiesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DayCalendarActivitiesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DayCalendarActivitiesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DayCalendarActivitiesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DayCalendarActivitiesMaxAggregateInputType
+  }
+
+  export type GetDayCalendarActivitiesAggregateType<T extends DayCalendarActivitiesAggregateArgs> = {
+        [P in keyof T & keyof AggregateDayCalendarActivities]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDayCalendarActivities[P]>
+      : GetScalarType<T[P], AggregateDayCalendarActivities[P]>
+  }
+
+
+
+
+  export type DayCalendarActivitiesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DayCalendarActivitiesWhereInput
+    orderBy?: DayCalendarActivitiesOrderByWithAggregationInput | DayCalendarActivitiesOrderByWithAggregationInput[]
+    by: DayCalendarActivitiesScalarFieldEnum[] | DayCalendarActivitiesScalarFieldEnum
+    having?: DayCalendarActivitiesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DayCalendarActivitiesCountAggregateInputType | true
+    _avg?: DayCalendarActivitiesAvgAggregateInputType
+    _sum?: DayCalendarActivitiesSumAggregateInputType
+    _min?: DayCalendarActivitiesMinAggregateInputType
+    _max?: DayCalendarActivitiesMaxAggregateInputType
+  }
+
+  export type DayCalendarActivitiesGroupByOutputType = {
+    id: string
+    day: Decimal
+    userId: string
+    month: Decimal
+    year: Decimal
+    _count: DayCalendarActivitiesCountAggregateOutputType | null
+    _avg: DayCalendarActivitiesAvgAggregateOutputType | null
+    _sum: DayCalendarActivitiesSumAggregateOutputType | null
+    _min: DayCalendarActivitiesMinAggregateOutputType | null
+    _max: DayCalendarActivitiesMaxAggregateOutputType | null
+  }
+
+  type GetDayCalendarActivitiesGroupByPayload<T extends DayCalendarActivitiesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DayCalendarActivitiesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DayCalendarActivitiesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DayCalendarActivitiesGroupByOutputType[P]>
+            : GetScalarType<T[P], DayCalendarActivitiesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DayCalendarActivitiesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    day?: boolean
+    userId?: boolean
+    month?: boolean
+    year?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    activityCalendar?: boolean | DayCalendarActivities$activityCalendarArgs<ExtArgs>
+    _count?: boolean | DayCalendarActivitiesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dayCalendarActivities"]>
+
+  export type DayCalendarActivitiesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    day?: boolean
+    userId?: boolean
+    month?: boolean
+    year?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dayCalendarActivities"]>
+
+  export type DayCalendarActivitiesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    day?: boolean
+    userId?: boolean
+    month?: boolean
+    year?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["dayCalendarActivities"]>
+
+  export type DayCalendarActivitiesSelectScalar = {
+    id?: boolean
+    day?: boolean
+    userId?: boolean
+    month?: boolean
+    year?: boolean
+  }
+
+  export type DayCalendarActivitiesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "day" | "userId" | "month" | "year", ExtArgs["result"]["dayCalendarActivities"]>
+  export type DayCalendarActivitiesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    activityCalendar?: boolean | DayCalendarActivities$activityCalendarArgs<ExtArgs>
+    _count?: boolean | DayCalendarActivitiesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DayCalendarActivitiesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type DayCalendarActivitiesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $DayCalendarActivitiesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DayCalendarActivities"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      activityCalendar: Prisma.$ActivityCalendarPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      day: Prisma.Decimal
+      userId: string
+      month: Prisma.Decimal
+      year: Prisma.Decimal
+    }, ExtArgs["result"]["dayCalendarActivities"]>
+    composites: {}
+  }
+
+  type DayCalendarActivitiesGetPayload<S extends boolean | null | undefined | DayCalendarActivitiesDefaultArgs> = $Result.GetResult<Prisma.$DayCalendarActivitiesPayload, S>
+
+  type DayCalendarActivitiesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DayCalendarActivitiesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DayCalendarActivitiesCountAggregateInputType | true
+    }
+
+  export interface DayCalendarActivitiesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DayCalendarActivities'], meta: { name: 'DayCalendarActivities' } }
+    /**
+     * Find zero or one DayCalendarActivities that matches the filter.
+     * @param {DayCalendarActivitiesFindUniqueArgs} args - Arguments to find a DayCalendarActivities
+     * @example
+     * // Get one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DayCalendarActivitiesFindUniqueArgs>(args: SelectSubset<T, DayCalendarActivitiesFindUniqueArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DayCalendarActivities that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DayCalendarActivitiesFindUniqueOrThrowArgs} args - Arguments to find a DayCalendarActivities
+     * @example
+     * // Get one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DayCalendarActivitiesFindUniqueOrThrowArgs>(args: SelectSubset<T, DayCalendarActivitiesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DayCalendarActivities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesFindFirstArgs} args - Arguments to find a DayCalendarActivities
+     * @example
+     * // Get one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DayCalendarActivitiesFindFirstArgs>(args?: SelectSubset<T, DayCalendarActivitiesFindFirstArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DayCalendarActivities that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesFindFirstOrThrowArgs} args - Arguments to find a DayCalendarActivities
+     * @example
+     * // Get one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DayCalendarActivitiesFindFirstOrThrowArgs>(args?: SelectSubset<T, DayCalendarActivitiesFindFirstOrThrowArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DayCalendarActivities that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findMany()
+     * 
+     * // Get first 10 DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const dayCalendarActivitiesWithIdOnly = await prisma.dayCalendarActivities.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DayCalendarActivitiesFindManyArgs>(args?: SelectSubset<T, DayCalendarActivitiesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DayCalendarActivities.
+     * @param {DayCalendarActivitiesCreateArgs} args - Arguments to create a DayCalendarActivities.
+     * @example
+     * // Create one DayCalendarActivities
+     * const DayCalendarActivities = await prisma.dayCalendarActivities.create({
+     *   data: {
+     *     // ... data to create a DayCalendarActivities
+     *   }
+     * })
+     * 
+     */
+    create<T extends DayCalendarActivitiesCreateArgs>(args: SelectSubset<T, DayCalendarActivitiesCreateArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DayCalendarActivities.
+     * @param {DayCalendarActivitiesCreateManyArgs} args - Arguments to create many DayCalendarActivities.
+     * @example
+     * // Create many DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DayCalendarActivitiesCreateManyArgs>(args?: SelectSubset<T, DayCalendarActivitiesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DayCalendarActivities and returns the data saved in the database.
+     * @param {DayCalendarActivitiesCreateManyAndReturnArgs} args - Arguments to create many DayCalendarActivities.
+     * @example
+     * // Create many DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DayCalendarActivities and only return the `id`
+     * const dayCalendarActivitiesWithIdOnly = await prisma.dayCalendarActivities.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DayCalendarActivitiesCreateManyAndReturnArgs>(args?: SelectSubset<T, DayCalendarActivitiesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a DayCalendarActivities.
+     * @param {DayCalendarActivitiesDeleteArgs} args - Arguments to delete one DayCalendarActivities.
+     * @example
+     * // Delete one DayCalendarActivities
+     * const DayCalendarActivities = await prisma.dayCalendarActivities.delete({
+     *   where: {
+     *     // ... filter to delete one DayCalendarActivities
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DayCalendarActivitiesDeleteArgs>(args: SelectSubset<T, DayCalendarActivitiesDeleteArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DayCalendarActivities.
+     * @param {DayCalendarActivitiesUpdateArgs} args - Arguments to update one DayCalendarActivities.
+     * @example
+     * // Update one DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DayCalendarActivitiesUpdateArgs>(args: SelectSubset<T, DayCalendarActivitiesUpdateArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DayCalendarActivities.
+     * @param {DayCalendarActivitiesDeleteManyArgs} args - Arguments to filter DayCalendarActivities to delete.
+     * @example
+     * // Delete a few DayCalendarActivities
+     * const { count } = await prisma.dayCalendarActivities.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DayCalendarActivitiesDeleteManyArgs>(args?: SelectSubset<T, DayCalendarActivitiesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DayCalendarActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DayCalendarActivitiesUpdateManyArgs>(args: SelectSubset<T, DayCalendarActivitiesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DayCalendarActivities and returns the data updated in the database.
+     * @param {DayCalendarActivitiesUpdateManyAndReturnArgs} args - Arguments to update many DayCalendarActivities.
+     * @example
+     * // Update many DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more DayCalendarActivities and only return the `id`
+     * const dayCalendarActivitiesWithIdOnly = await prisma.dayCalendarActivities.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DayCalendarActivitiesUpdateManyAndReturnArgs>(args: SelectSubset<T, DayCalendarActivitiesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one DayCalendarActivities.
+     * @param {DayCalendarActivitiesUpsertArgs} args - Arguments to update or create a DayCalendarActivities.
+     * @example
+     * // Update or create a DayCalendarActivities
+     * const dayCalendarActivities = await prisma.dayCalendarActivities.upsert({
+     *   create: {
+     *     // ... data to create a DayCalendarActivities
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DayCalendarActivities we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DayCalendarActivitiesUpsertArgs>(args: SelectSubset<T, DayCalendarActivitiesUpsertArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DayCalendarActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesCountArgs} args - Arguments to filter DayCalendarActivities to count.
+     * @example
+     * // Count the number of DayCalendarActivities
+     * const count = await prisma.dayCalendarActivities.count({
+     *   where: {
+     *     // ... the filter for the DayCalendarActivities we want to count
+     *   }
+     * })
+    **/
+    count<T extends DayCalendarActivitiesCountArgs>(
+      args?: Subset<T, DayCalendarActivitiesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DayCalendarActivitiesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DayCalendarActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DayCalendarActivitiesAggregateArgs>(args: Subset<T, DayCalendarActivitiesAggregateArgs>): Prisma.PrismaPromise<GetDayCalendarActivitiesAggregateType<T>>
+
+    /**
+     * Group by DayCalendarActivities.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DayCalendarActivitiesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DayCalendarActivitiesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DayCalendarActivitiesGroupByArgs['orderBy'] }
+        : { orderBy?: DayCalendarActivitiesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DayCalendarActivitiesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDayCalendarActivitiesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DayCalendarActivities model
+   */
+  readonly fields: DayCalendarActivitiesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DayCalendarActivities.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DayCalendarActivitiesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    activityCalendar<T extends DayCalendarActivities$activityCalendarArgs<ExtArgs> = {}>(args?: Subset<T, DayCalendarActivities$activityCalendarArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DayCalendarActivities model
+   */
+  interface DayCalendarActivitiesFieldRefs {
+    readonly id: FieldRef<"DayCalendarActivities", 'String'>
+    readonly day: FieldRef<"DayCalendarActivities", 'Decimal'>
+    readonly userId: FieldRef<"DayCalendarActivities", 'String'>
+    readonly month: FieldRef<"DayCalendarActivities", 'Decimal'>
+    readonly year: FieldRef<"DayCalendarActivities", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DayCalendarActivities findUnique
+   */
+  export type DayCalendarActivitiesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  /**
+   * DayCalendarActivities findUniqueOrThrow
+   */
+  export type DayCalendarActivitiesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  /**
+   * DayCalendarActivities findFirst
+   */
+  export type DayCalendarActivitiesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayCalendarActivities to fetch.
+     */
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DayCalendarActivities.
+     */
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayCalendarActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayCalendarActivities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DayCalendarActivities.
+     */
+    distinct?: DayCalendarActivitiesScalarFieldEnum | DayCalendarActivitiesScalarFieldEnum[]
+  }
+
+  /**
+   * DayCalendarActivities findFirstOrThrow
+   */
+  export type DayCalendarActivitiesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayCalendarActivities to fetch.
+     */
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DayCalendarActivities.
+     */
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayCalendarActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayCalendarActivities.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DayCalendarActivities.
+     */
+    distinct?: DayCalendarActivitiesScalarFieldEnum | DayCalendarActivitiesScalarFieldEnum[]
+  }
+
+  /**
+   * DayCalendarActivities findMany
+   */
+  export type DayCalendarActivitiesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter, which DayCalendarActivities to fetch.
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DayCalendarActivities to fetch.
+     */
+    orderBy?: DayCalendarActivitiesOrderByWithRelationInput | DayCalendarActivitiesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DayCalendarActivities.
+     */
+    cursor?: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DayCalendarActivities from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DayCalendarActivities.
+     */
+    skip?: number
+    distinct?: DayCalendarActivitiesScalarFieldEnum | DayCalendarActivitiesScalarFieldEnum[]
+  }
+
+  /**
+   * DayCalendarActivities create
+   */
+  export type DayCalendarActivitiesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DayCalendarActivities.
+     */
+    data: XOR<DayCalendarActivitiesCreateInput, DayCalendarActivitiesUncheckedCreateInput>
+  }
+
+  /**
+   * DayCalendarActivities createMany
+   */
+  export type DayCalendarActivitiesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DayCalendarActivities.
+     */
+    data: DayCalendarActivitiesCreateManyInput | DayCalendarActivitiesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DayCalendarActivities createManyAndReturn
+   */
+  export type DayCalendarActivitiesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * The data used to create many DayCalendarActivities.
+     */
+    data: DayCalendarActivitiesCreateManyInput | DayCalendarActivitiesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DayCalendarActivities update
+   */
+  export type DayCalendarActivitiesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DayCalendarActivities.
+     */
+    data: XOR<DayCalendarActivitiesUpdateInput, DayCalendarActivitiesUncheckedUpdateInput>
+    /**
+     * Choose, which DayCalendarActivities to update.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  /**
+   * DayCalendarActivities updateMany
+   */
+  export type DayCalendarActivitiesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DayCalendarActivities.
+     */
+    data: XOR<DayCalendarActivitiesUpdateManyMutationInput, DayCalendarActivitiesUncheckedUpdateManyInput>
+    /**
+     * Filter which DayCalendarActivities to update
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * Limit how many DayCalendarActivities to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DayCalendarActivities updateManyAndReturn
+   */
+  export type DayCalendarActivitiesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * The data used to update DayCalendarActivities.
+     */
+    data: XOR<DayCalendarActivitiesUpdateManyMutationInput, DayCalendarActivitiesUncheckedUpdateManyInput>
+    /**
+     * Filter which DayCalendarActivities to update
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * Limit how many DayCalendarActivities to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DayCalendarActivities upsert
+   */
+  export type DayCalendarActivitiesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DayCalendarActivities to update in case it exists.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+    /**
+     * In case the DayCalendarActivities found by the `where` argument doesn't exist, create a new DayCalendarActivities with this data.
+     */
+    create: XOR<DayCalendarActivitiesCreateInput, DayCalendarActivitiesUncheckedCreateInput>
+    /**
+     * In case the DayCalendarActivities was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DayCalendarActivitiesUpdateInput, DayCalendarActivitiesUncheckedUpdateInput>
+  }
+
+  /**
+   * DayCalendarActivities delete
+   */
+  export type DayCalendarActivitiesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+    /**
+     * Filter which DayCalendarActivities to delete.
+     */
+    where: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  /**
+   * DayCalendarActivities deleteMany
+   */
+  export type DayCalendarActivitiesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DayCalendarActivities to delete
+     */
+    where?: DayCalendarActivitiesWhereInput
+    /**
+     * Limit how many DayCalendarActivities to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DayCalendarActivities.activityCalendar
+   */
+  export type DayCalendarActivities$activityCalendarArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    where?: ActivityCalendarWhereInput
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    cursor?: ActivityCalendarWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ActivityCalendarScalarFieldEnum | ActivityCalendarScalarFieldEnum[]
+  }
+
+  /**
+   * DayCalendarActivities without action
+   */
+  export type DayCalendarActivitiesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DayCalendarActivities
+     */
+    select?: DayCalendarActivitiesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DayCalendarActivities
+     */
+    omit?: DayCalendarActivitiesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DayCalendarActivitiesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ActivityCalendar
+   */
+
+  export type AggregateActivityCalendar = {
+    _count: ActivityCalendarCountAggregateOutputType | null
+    _min: ActivityCalendarMinAggregateOutputType | null
+    _max: ActivityCalendarMaxAggregateOutputType | null
+  }
+
+  export type ActivityCalendarMinAggregateOutputType = {
+    id: string | null
+    activityName: string | null
+    description: string | null
+    activityCalendarId: string | null
+    time: string | null
+  }
+
+  export type ActivityCalendarMaxAggregateOutputType = {
+    id: string | null
+    activityName: string | null
+    description: string | null
+    activityCalendarId: string | null
+    time: string | null
+  }
+
+  export type ActivityCalendarCountAggregateOutputType = {
+    id: number
+    activityName: number
+    description: number
+    activityCalendarId: number
+    time: number
+    _all: number
+  }
+
+
+  export type ActivityCalendarMinAggregateInputType = {
+    id?: true
+    activityName?: true
+    description?: true
+    activityCalendarId?: true
+    time?: true
+  }
+
+  export type ActivityCalendarMaxAggregateInputType = {
+    id?: true
+    activityName?: true
+    description?: true
+    activityCalendarId?: true
+    time?: true
+  }
+
+  export type ActivityCalendarCountAggregateInputType = {
+    id?: true
+    activityName?: true
+    description?: true
+    activityCalendarId?: true
+    time?: true
+    _all?: true
+  }
+
+  export type ActivityCalendarAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ActivityCalendar to aggregate.
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ActivityCalendars to fetch.
+     */
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ActivityCalendarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ActivityCalendars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ActivityCalendars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ActivityCalendars
+    **/
+    _count?: true | ActivityCalendarCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ActivityCalendarMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ActivityCalendarMaxAggregateInputType
+  }
+
+  export type GetActivityCalendarAggregateType<T extends ActivityCalendarAggregateArgs> = {
+        [P in keyof T & keyof AggregateActivityCalendar]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateActivityCalendar[P]>
+      : GetScalarType<T[P], AggregateActivityCalendar[P]>
+  }
+
+
+
+
+  export type ActivityCalendarGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ActivityCalendarWhereInput
+    orderBy?: ActivityCalendarOrderByWithAggregationInput | ActivityCalendarOrderByWithAggregationInput[]
+    by: ActivityCalendarScalarFieldEnum[] | ActivityCalendarScalarFieldEnum
+    having?: ActivityCalendarScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ActivityCalendarCountAggregateInputType | true
+    _min?: ActivityCalendarMinAggregateInputType
+    _max?: ActivityCalendarMaxAggregateInputType
+  }
+
+  export type ActivityCalendarGroupByOutputType = {
+    id: string
+    activityName: string
+    description: string
+    activityCalendarId: string
+    time: string
+    _count: ActivityCalendarCountAggregateOutputType | null
+    _min: ActivityCalendarMinAggregateOutputType | null
+    _max: ActivityCalendarMaxAggregateOutputType | null
+  }
+
+  type GetActivityCalendarGroupByPayload<T extends ActivityCalendarGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ActivityCalendarGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ActivityCalendarGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ActivityCalendarGroupByOutputType[P]>
+            : GetScalarType<T[P], ActivityCalendarGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ActivityCalendarSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    activityName?: boolean
+    description?: boolean
+    activityCalendarId?: boolean
+    time?: boolean
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["activityCalendar"]>
+
+  export type ActivityCalendarSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    activityName?: boolean
+    description?: boolean
+    activityCalendarId?: boolean
+    time?: boolean
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["activityCalendar"]>
+
+  export type ActivityCalendarSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    activityName?: boolean
+    description?: boolean
+    activityCalendarId?: boolean
+    time?: boolean
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["activityCalendar"]>
+
+  export type ActivityCalendarSelectScalar = {
+    id?: boolean
+    activityName?: boolean
+    description?: boolean
+    activityCalendarId?: boolean
+    time?: boolean
+  }
+
+  export type ActivityCalendarOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "activityName" | "description" | "activityCalendarId" | "time", ExtArgs["result"]["activityCalendar"]>
+  export type ActivityCalendarInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }
+  export type ActivityCalendarIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }
+  export type ActivityCalendarIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    dayCalendarActivity?: boolean | DayCalendarActivitiesDefaultArgs<ExtArgs>
+  }
+
+  export type $ActivityCalendarPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ActivityCalendar"
+    objects: {
+      dayCalendarActivity: Prisma.$DayCalendarActivitiesPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      activityName: string
+      description: string
+      activityCalendarId: string
+      time: string
+    }, ExtArgs["result"]["activityCalendar"]>
+    composites: {}
+  }
+
+  type ActivityCalendarGetPayload<S extends boolean | null | undefined | ActivityCalendarDefaultArgs> = $Result.GetResult<Prisma.$ActivityCalendarPayload, S>
+
+  type ActivityCalendarCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ActivityCalendarFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ActivityCalendarCountAggregateInputType | true
+    }
+
+  export interface ActivityCalendarDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ActivityCalendar'], meta: { name: 'ActivityCalendar' } }
+    /**
+     * Find zero or one ActivityCalendar that matches the filter.
+     * @param {ActivityCalendarFindUniqueArgs} args - Arguments to find a ActivityCalendar
+     * @example
+     * // Get one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ActivityCalendarFindUniqueArgs>(args: SelectSubset<T, ActivityCalendarFindUniqueArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ActivityCalendar that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ActivityCalendarFindUniqueOrThrowArgs} args - Arguments to find a ActivityCalendar
+     * @example
+     * // Get one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ActivityCalendarFindUniqueOrThrowArgs>(args: SelectSubset<T, ActivityCalendarFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ActivityCalendar that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarFindFirstArgs} args - Arguments to find a ActivityCalendar
+     * @example
+     * // Get one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ActivityCalendarFindFirstArgs>(args?: SelectSubset<T, ActivityCalendarFindFirstArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ActivityCalendar that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarFindFirstOrThrowArgs} args - Arguments to find a ActivityCalendar
+     * @example
+     * // Get one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ActivityCalendarFindFirstOrThrowArgs>(args?: SelectSubset<T, ActivityCalendarFindFirstOrThrowArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ActivityCalendars that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ActivityCalendars
+     * const activityCalendars = await prisma.activityCalendar.findMany()
+     * 
+     * // Get first 10 ActivityCalendars
+     * const activityCalendars = await prisma.activityCalendar.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const activityCalendarWithIdOnly = await prisma.activityCalendar.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ActivityCalendarFindManyArgs>(args?: SelectSubset<T, ActivityCalendarFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ActivityCalendar.
+     * @param {ActivityCalendarCreateArgs} args - Arguments to create a ActivityCalendar.
+     * @example
+     * // Create one ActivityCalendar
+     * const ActivityCalendar = await prisma.activityCalendar.create({
+     *   data: {
+     *     // ... data to create a ActivityCalendar
+     *   }
+     * })
+     * 
+     */
+    create<T extends ActivityCalendarCreateArgs>(args: SelectSubset<T, ActivityCalendarCreateArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ActivityCalendars.
+     * @param {ActivityCalendarCreateManyArgs} args - Arguments to create many ActivityCalendars.
+     * @example
+     * // Create many ActivityCalendars
+     * const activityCalendar = await prisma.activityCalendar.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ActivityCalendarCreateManyArgs>(args?: SelectSubset<T, ActivityCalendarCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ActivityCalendars and returns the data saved in the database.
+     * @param {ActivityCalendarCreateManyAndReturnArgs} args - Arguments to create many ActivityCalendars.
+     * @example
+     * // Create many ActivityCalendars
+     * const activityCalendar = await prisma.activityCalendar.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ActivityCalendars and only return the `id`
+     * const activityCalendarWithIdOnly = await prisma.activityCalendar.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ActivityCalendarCreateManyAndReturnArgs>(args?: SelectSubset<T, ActivityCalendarCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ActivityCalendar.
+     * @param {ActivityCalendarDeleteArgs} args - Arguments to delete one ActivityCalendar.
+     * @example
+     * // Delete one ActivityCalendar
+     * const ActivityCalendar = await prisma.activityCalendar.delete({
+     *   where: {
+     *     // ... filter to delete one ActivityCalendar
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ActivityCalendarDeleteArgs>(args: SelectSubset<T, ActivityCalendarDeleteArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ActivityCalendar.
+     * @param {ActivityCalendarUpdateArgs} args - Arguments to update one ActivityCalendar.
+     * @example
+     * // Update one ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ActivityCalendarUpdateArgs>(args: SelectSubset<T, ActivityCalendarUpdateArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ActivityCalendars.
+     * @param {ActivityCalendarDeleteManyArgs} args - Arguments to filter ActivityCalendars to delete.
+     * @example
+     * // Delete a few ActivityCalendars
+     * const { count } = await prisma.activityCalendar.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ActivityCalendarDeleteManyArgs>(args?: SelectSubset<T, ActivityCalendarDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ActivityCalendars.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ActivityCalendars
+     * const activityCalendar = await prisma.activityCalendar.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ActivityCalendarUpdateManyArgs>(args: SelectSubset<T, ActivityCalendarUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ActivityCalendars and returns the data updated in the database.
+     * @param {ActivityCalendarUpdateManyAndReturnArgs} args - Arguments to update many ActivityCalendars.
+     * @example
+     * // Update many ActivityCalendars
+     * const activityCalendar = await prisma.activityCalendar.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ActivityCalendars and only return the `id`
+     * const activityCalendarWithIdOnly = await prisma.activityCalendar.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ActivityCalendarUpdateManyAndReturnArgs>(args: SelectSubset<T, ActivityCalendarUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ActivityCalendar.
+     * @param {ActivityCalendarUpsertArgs} args - Arguments to update or create a ActivityCalendar.
+     * @example
+     * // Update or create a ActivityCalendar
+     * const activityCalendar = await prisma.activityCalendar.upsert({
+     *   create: {
+     *     // ... data to create a ActivityCalendar
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ActivityCalendar we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ActivityCalendarUpsertArgs>(args: SelectSubset<T, ActivityCalendarUpsertArgs<ExtArgs>>): Prisma__ActivityCalendarClient<$Result.GetResult<Prisma.$ActivityCalendarPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ActivityCalendars.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarCountArgs} args - Arguments to filter ActivityCalendars to count.
+     * @example
+     * // Count the number of ActivityCalendars
+     * const count = await prisma.activityCalendar.count({
+     *   where: {
+     *     // ... the filter for the ActivityCalendars we want to count
+     *   }
+     * })
+    **/
+    count<T extends ActivityCalendarCountArgs>(
+      args?: Subset<T, ActivityCalendarCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ActivityCalendarCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ActivityCalendar.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ActivityCalendarAggregateArgs>(args: Subset<T, ActivityCalendarAggregateArgs>): Prisma.PrismaPromise<GetActivityCalendarAggregateType<T>>
+
+    /**
+     * Group by ActivityCalendar.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ActivityCalendarGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ActivityCalendarGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ActivityCalendarGroupByArgs['orderBy'] }
+        : { orderBy?: ActivityCalendarGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ActivityCalendarGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetActivityCalendarGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ActivityCalendar model
+   */
+  readonly fields: ActivityCalendarFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ActivityCalendar.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ActivityCalendarClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    dayCalendarActivity<T extends DayCalendarActivitiesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DayCalendarActivitiesDefaultArgs<ExtArgs>>): Prisma__DayCalendarActivitiesClient<$Result.GetResult<Prisma.$DayCalendarActivitiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ActivityCalendar model
+   */
+  interface ActivityCalendarFieldRefs {
+    readonly id: FieldRef<"ActivityCalendar", 'String'>
+    readonly activityName: FieldRef<"ActivityCalendar", 'String'>
+    readonly description: FieldRef<"ActivityCalendar", 'String'>
+    readonly activityCalendarId: FieldRef<"ActivityCalendar", 'String'>
+    readonly time: FieldRef<"ActivityCalendar", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ActivityCalendar findUnique
+   */
+  export type ActivityCalendarFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendar to fetch.
+     */
+    where: ActivityCalendarWhereUniqueInput
+  }
+
+  /**
+   * ActivityCalendar findUniqueOrThrow
+   */
+  export type ActivityCalendarFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendar to fetch.
+     */
+    where: ActivityCalendarWhereUniqueInput
+  }
+
+  /**
+   * ActivityCalendar findFirst
+   */
+  export type ActivityCalendarFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendar to fetch.
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ActivityCalendars to fetch.
+     */
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ActivityCalendars.
+     */
+    cursor?: ActivityCalendarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ActivityCalendars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ActivityCalendars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ActivityCalendars.
+     */
+    distinct?: ActivityCalendarScalarFieldEnum | ActivityCalendarScalarFieldEnum[]
+  }
+
+  /**
+   * ActivityCalendar findFirstOrThrow
+   */
+  export type ActivityCalendarFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendar to fetch.
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ActivityCalendars to fetch.
+     */
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ActivityCalendars.
+     */
+    cursor?: ActivityCalendarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ActivityCalendars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ActivityCalendars.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ActivityCalendars.
+     */
+    distinct?: ActivityCalendarScalarFieldEnum | ActivityCalendarScalarFieldEnum[]
+  }
+
+  /**
+   * ActivityCalendar findMany
+   */
+  export type ActivityCalendarFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter, which ActivityCalendars to fetch.
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ActivityCalendars to fetch.
+     */
+    orderBy?: ActivityCalendarOrderByWithRelationInput | ActivityCalendarOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ActivityCalendars.
+     */
+    cursor?: ActivityCalendarWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ActivityCalendars from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ActivityCalendars.
+     */
+    skip?: number
+    distinct?: ActivityCalendarScalarFieldEnum | ActivityCalendarScalarFieldEnum[]
+  }
+
+  /**
+   * ActivityCalendar create
+   */
+  export type ActivityCalendarCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ActivityCalendar.
+     */
+    data: XOR<ActivityCalendarCreateInput, ActivityCalendarUncheckedCreateInput>
+  }
+
+  /**
+   * ActivityCalendar createMany
+   */
+  export type ActivityCalendarCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ActivityCalendars.
+     */
+    data: ActivityCalendarCreateManyInput | ActivityCalendarCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ActivityCalendar createManyAndReturn
+   */
+  export type ActivityCalendarCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * The data used to create many ActivityCalendars.
+     */
+    data: ActivityCalendarCreateManyInput | ActivityCalendarCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ActivityCalendar update
+   */
+  export type ActivityCalendarUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ActivityCalendar.
+     */
+    data: XOR<ActivityCalendarUpdateInput, ActivityCalendarUncheckedUpdateInput>
+    /**
+     * Choose, which ActivityCalendar to update.
+     */
+    where: ActivityCalendarWhereUniqueInput
+  }
+
+  /**
+   * ActivityCalendar updateMany
+   */
+  export type ActivityCalendarUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ActivityCalendars.
+     */
+    data: XOR<ActivityCalendarUpdateManyMutationInput, ActivityCalendarUncheckedUpdateManyInput>
+    /**
+     * Filter which ActivityCalendars to update
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * Limit how many ActivityCalendars to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ActivityCalendar updateManyAndReturn
+   */
+  export type ActivityCalendarUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * The data used to update ActivityCalendars.
+     */
+    data: XOR<ActivityCalendarUpdateManyMutationInput, ActivityCalendarUncheckedUpdateManyInput>
+    /**
+     * Filter which ActivityCalendars to update
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * Limit how many ActivityCalendars to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ActivityCalendar upsert
+   */
+  export type ActivityCalendarUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ActivityCalendar to update in case it exists.
+     */
+    where: ActivityCalendarWhereUniqueInput
+    /**
+     * In case the ActivityCalendar found by the `where` argument doesn't exist, create a new ActivityCalendar with this data.
+     */
+    create: XOR<ActivityCalendarCreateInput, ActivityCalendarUncheckedCreateInput>
+    /**
+     * In case the ActivityCalendar was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ActivityCalendarUpdateInput, ActivityCalendarUncheckedUpdateInput>
+  }
+
+  /**
+   * ActivityCalendar delete
+   */
+  export type ActivityCalendarDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
+    /**
+     * Filter which ActivityCalendar to delete.
+     */
+    where: ActivityCalendarWhereUniqueInput
+  }
+
+  /**
+   * ActivityCalendar deleteMany
+   */
+  export type ActivityCalendarDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ActivityCalendars to delete
+     */
+    where?: ActivityCalendarWhereInput
+    /**
+     * Limit how many ActivityCalendars to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ActivityCalendar without action
+   */
+  export type ActivityCalendarDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ActivityCalendar
+     */
+    select?: ActivityCalendarSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ActivityCalendar
+     */
+    omit?: ActivityCalendarOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ActivityCalendarInclude<ExtArgs> | null
   }
 
 
@@ -3189,11 +9355,70 @@ export namespace Prisma {
     id: 'id',
     id_user: 'id_user',
     title: 'title',
+    priority: 'priority',
     description: 'description',
-    week_day: 'week_day'
+    week_day: 'week_day',
+    updated_at: 'updated_at',
+    created_at: 'created_at',
+    pendingSubjects: 'pendingSubjects'
   };
 
   export type SubjectScalarFieldEnum = (typeof SubjectScalarFieldEnum)[keyof typeof SubjectScalarFieldEnum]
+
+
+  export const StudyRecordScalarFieldEnum: {
+    id: 'id',
+    subjectId: 'subjectId',
+    dayOfWeek: 'dayOfWeek',
+    minutesStudied: 'minutesStudied',
+    created_at: 'created_at'
+  };
+
+  export type StudyRecordScalarFieldEnum = (typeof StudyRecordScalarFieldEnum)[keyof typeof StudyRecordScalarFieldEnum]
+
+
+  export const PendingActivityScalarFieldEnum: {
+    id: 'id',
+    subjectId: 'subjectId',
+    name: 'name',
+    description: 'description',
+    percentageConclud: 'percentageConclud',
+    created_at: 'created_at'
+  };
+
+  export type PendingActivityScalarFieldEnum = (typeof PendingActivityScalarFieldEnum)[keyof typeof PendingActivityScalarFieldEnum]
+
+
+  export const NoteScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    content: 'content',
+    userId: 'userId'
+  };
+
+  export type NoteScalarFieldEnum = (typeof NoteScalarFieldEnum)[keyof typeof NoteScalarFieldEnum]
+
+
+  export const DayCalendarActivitiesScalarFieldEnum: {
+    id: 'id',
+    day: 'day',
+    userId: 'userId',
+    month: 'month',
+    year: 'year'
+  };
+
+  export type DayCalendarActivitiesScalarFieldEnum = (typeof DayCalendarActivitiesScalarFieldEnum)[keyof typeof DayCalendarActivitiesScalarFieldEnum]
+
+
+  export const ActivityCalendarScalarFieldEnum: {
+    id: 'id',
+    activityName: 'activityName',
+    description: 'description',
+    activityCalendarId: 'activityCalendarId',
+    time: 'time'
+  };
+
+  export type ActivityCalendarScalarFieldEnum = (typeof ActivityCalendarScalarFieldEnum)[keyof typeof ActivityCalendarScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3264,6 +9489,34 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
   /**
    * Deep Input Types
    */
@@ -3282,6 +9535,8 @@ export namespace Prisma {
     updated_at?: DateTimeFilter<"User"> | Date | string
     created_at?: DateTimeFilter<"User"> | Date | string
     subjects?: SubjectListRelationFilter
+    note?: NoteListRelationFilter
+    calendarActivies?: DayCalendarActivitiesListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -3294,6 +9549,8 @@ export namespace Prisma {
     updated_at?: SortOrder
     created_at?: SortOrder
     subjects?: SubjectOrderByRelationAggregateInput
+    note?: NoteOrderByRelationAggregateInput
+    calendarActivies?: DayCalendarActivitiesOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -3309,6 +9566,8 @@ export namespace Prisma {
     updated_at?: DateTimeFilter<"User"> | Date | string
     created_at?: DateTimeFilter<"User"> | Date | string
     subjects?: SubjectListRelationFilter
+    note?: NoteListRelationFilter
+    calendarActivies?: DayCalendarActivitiesListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -3346,18 +9605,30 @@ export namespace Prisma {
     id?: StringFilter<"Subject"> | string
     id_user?: StringFilter<"Subject"> | string
     title?: StringFilter<"Subject"> | string
+    priority?: IntFilter<"Subject"> | number
     description?: StringFilter<"Subject"> | string
-    week_day?: StringFilter<"Subject"> | string
+    week_day?: StringNullableListFilter<"Subject">
+    updated_at?: DateTimeFilter<"Subject"> | Date | string
+    created_at?: DateTimeFilter<"Subject"> | Date | string
+    pendingSubjects?: StringNullableListFilter<"Subject">
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    studyRecord?: StudyRecordListRelationFilter
+    pendingActivities?: PendingActivityListRelationFilter
   }
 
   export type SubjectOrderByWithRelationInput = {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
     week_day?: SortOrder
+    updated_at?: SortOrder
+    created_at?: SortOrder
+    pendingSubjects?: SortOrder
     user?: UserOrderByWithRelationInput
+    studyRecord?: StudyRecordOrderByRelationAggregateInput
+    pendingActivities?: PendingActivityOrderByRelationAggregateInput
   }
 
   export type SubjectWhereUniqueInput = Prisma.AtLeast<{
@@ -3367,20 +9638,32 @@ export namespace Prisma {
     NOT?: SubjectWhereInput | SubjectWhereInput[]
     id_user?: StringFilter<"Subject"> | string
     title?: StringFilter<"Subject"> | string
+    priority?: IntFilter<"Subject"> | number
     description?: StringFilter<"Subject"> | string
-    week_day?: StringFilter<"Subject"> | string
+    week_day?: StringNullableListFilter<"Subject">
+    updated_at?: DateTimeFilter<"Subject"> | Date | string
+    created_at?: DateTimeFilter<"Subject"> | Date | string
+    pendingSubjects?: StringNullableListFilter<"Subject">
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    studyRecord?: StudyRecordListRelationFilter
+    pendingActivities?: PendingActivityListRelationFilter
   }, "id">
 
   export type SubjectOrderByWithAggregationInput = {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
     week_day?: SortOrder
+    updated_at?: SortOrder
+    created_at?: SortOrder
+    pendingSubjects?: SortOrder
     _count?: SubjectCountOrderByAggregateInput
+    _avg?: SubjectAvgOrderByAggregateInput
     _max?: SubjectMaxOrderByAggregateInput
     _min?: SubjectMinOrderByAggregateInput
+    _sum?: SubjectSumOrderByAggregateInput
   }
 
   export type SubjectScalarWhereWithAggregatesInput = {
@@ -3390,8 +9673,296 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Subject"> | string
     id_user?: StringWithAggregatesFilter<"Subject"> | string
     title?: StringWithAggregatesFilter<"Subject"> | string
+    priority?: IntWithAggregatesFilter<"Subject"> | number
     description?: StringWithAggregatesFilter<"Subject"> | string
-    week_day?: StringWithAggregatesFilter<"Subject"> | string
+    week_day?: StringNullableListFilter<"Subject">
+    updated_at?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
+    created_at?: DateTimeWithAggregatesFilter<"Subject"> | Date | string
+    pendingSubjects?: StringNullableListFilter<"Subject">
+  }
+
+  export type StudyRecordWhereInput = {
+    AND?: StudyRecordWhereInput | StudyRecordWhereInput[]
+    OR?: StudyRecordWhereInput[]
+    NOT?: StudyRecordWhereInput | StudyRecordWhereInput[]
+    id?: StringFilter<"StudyRecord"> | string
+    subjectId?: StringFilter<"StudyRecord"> | string
+    dayOfWeek?: StringFilter<"StudyRecord"> | string
+    minutesStudied?: IntFilter<"StudyRecord"> | number
+    created_at?: DateTimeFilter<"StudyRecord"> | Date | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }
+
+  export type StudyRecordOrderByWithRelationInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    dayOfWeek?: SortOrder
+    minutesStudied?: SortOrder
+    created_at?: SortOrder
+    subject?: SubjectOrderByWithRelationInput
+  }
+
+  export type StudyRecordWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: StudyRecordWhereInput | StudyRecordWhereInput[]
+    OR?: StudyRecordWhereInput[]
+    NOT?: StudyRecordWhereInput | StudyRecordWhereInput[]
+    subjectId?: StringFilter<"StudyRecord"> | string
+    dayOfWeek?: StringFilter<"StudyRecord"> | string
+    minutesStudied?: IntFilter<"StudyRecord"> | number
+    created_at?: DateTimeFilter<"StudyRecord"> | Date | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }, "id">
+
+  export type StudyRecordOrderByWithAggregationInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    dayOfWeek?: SortOrder
+    minutesStudied?: SortOrder
+    created_at?: SortOrder
+    _count?: StudyRecordCountOrderByAggregateInput
+    _avg?: StudyRecordAvgOrderByAggregateInput
+    _max?: StudyRecordMaxOrderByAggregateInput
+    _min?: StudyRecordMinOrderByAggregateInput
+    _sum?: StudyRecordSumOrderByAggregateInput
+  }
+
+  export type StudyRecordScalarWhereWithAggregatesInput = {
+    AND?: StudyRecordScalarWhereWithAggregatesInput | StudyRecordScalarWhereWithAggregatesInput[]
+    OR?: StudyRecordScalarWhereWithAggregatesInput[]
+    NOT?: StudyRecordScalarWhereWithAggregatesInput | StudyRecordScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"StudyRecord"> | string
+    subjectId?: StringWithAggregatesFilter<"StudyRecord"> | string
+    dayOfWeek?: StringWithAggregatesFilter<"StudyRecord"> | string
+    minutesStudied?: IntWithAggregatesFilter<"StudyRecord"> | number
+    created_at?: DateTimeWithAggregatesFilter<"StudyRecord"> | Date | string
+  }
+
+  export type PendingActivityWhereInput = {
+    AND?: PendingActivityWhereInput | PendingActivityWhereInput[]
+    OR?: PendingActivityWhereInput[]
+    NOT?: PendingActivityWhereInput | PendingActivityWhereInput[]
+    id?: StringFilter<"PendingActivity"> | string
+    subjectId?: StringFilter<"PendingActivity"> | string
+    name?: StringFilter<"PendingActivity"> | string
+    description?: StringFilter<"PendingActivity"> | string
+    percentageConclud?: IntFilter<"PendingActivity"> | number
+    created_at?: DateTimeFilter<"PendingActivity"> | Date | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }
+
+  export type PendingActivityOrderByWithRelationInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    percentageConclud?: SortOrder
+    created_at?: SortOrder
+    subject?: SubjectOrderByWithRelationInput
+  }
+
+  export type PendingActivityWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PendingActivityWhereInput | PendingActivityWhereInput[]
+    OR?: PendingActivityWhereInput[]
+    NOT?: PendingActivityWhereInput | PendingActivityWhereInput[]
+    subjectId?: StringFilter<"PendingActivity"> | string
+    name?: StringFilter<"PendingActivity"> | string
+    description?: StringFilter<"PendingActivity"> | string
+    percentageConclud?: IntFilter<"PendingActivity"> | number
+    created_at?: DateTimeFilter<"PendingActivity"> | Date | string
+    subject?: XOR<SubjectScalarRelationFilter, SubjectWhereInput>
+  }, "id">
+
+  export type PendingActivityOrderByWithAggregationInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    percentageConclud?: SortOrder
+    created_at?: SortOrder
+    _count?: PendingActivityCountOrderByAggregateInput
+    _avg?: PendingActivityAvgOrderByAggregateInput
+    _max?: PendingActivityMaxOrderByAggregateInput
+    _min?: PendingActivityMinOrderByAggregateInput
+    _sum?: PendingActivitySumOrderByAggregateInput
+  }
+
+  export type PendingActivityScalarWhereWithAggregatesInput = {
+    AND?: PendingActivityScalarWhereWithAggregatesInput | PendingActivityScalarWhereWithAggregatesInput[]
+    OR?: PendingActivityScalarWhereWithAggregatesInput[]
+    NOT?: PendingActivityScalarWhereWithAggregatesInput | PendingActivityScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PendingActivity"> | string
+    subjectId?: StringWithAggregatesFilter<"PendingActivity"> | string
+    name?: StringWithAggregatesFilter<"PendingActivity"> | string
+    description?: StringWithAggregatesFilter<"PendingActivity"> | string
+    percentageConclud?: IntWithAggregatesFilter<"PendingActivity"> | number
+    created_at?: DateTimeWithAggregatesFilter<"PendingActivity"> | Date | string
+  }
+
+  export type NoteWhereInput = {
+    AND?: NoteWhereInput | NoteWhereInput[]
+    OR?: NoteWhereInput[]
+    NOT?: NoteWhereInput | NoteWhereInput[]
+    id?: StringFilter<"Note"> | string
+    title?: StringFilter<"Note"> | string
+    content?: StringFilter<"Note"> | string
+    userId?: StringFilter<"Note"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type NoteOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    userId?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type NoteWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NoteWhereInput | NoteWhereInput[]
+    OR?: NoteWhereInput[]
+    NOT?: NoteWhereInput | NoteWhereInput[]
+    title?: StringFilter<"Note"> | string
+    content?: StringFilter<"Note"> | string
+    userId?: StringFilter<"Note"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type NoteOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    userId?: SortOrder
+    _count?: NoteCountOrderByAggregateInput
+    _max?: NoteMaxOrderByAggregateInput
+    _min?: NoteMinOrderByAggregateInput
+  }
+
+  export type NoteScalarWhereWithAggregatesInput = {
+    AND?: NoteScalarWhereWithAggregatesInput | NoteScalarWhereWithAggregatesInput[]
+    OR?: NoteScalarWhereWithAggregatesInput[]
+    NOT?: NoteScalarWhereWithAggregatesInput | NoteScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Note"> | string
+    title?: StringWithAggregatesFilter<"Note"> | string
+    content?: StringWithAggregatesFilter<"Note"> | string
+    userId?: StringWithAggregatesFilter<"Note"> | string
+  }
+
+  export type DayCalendarActivitiesWhereInput = {
+    AND?: DayCalendarActivitiesWhereInput | DayCalendarActivitiesWhereInput[]
+    OR?: DayCalendarActivitiesWhereInput[]
+    NOT?: DayCalendarActivitiesWhereInput | DayCalendarActivitiesWhereInput[]
+    id?: StringFilter<"DayCalendarActivities"> | string
+    day?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    userId?: StringFilter<"DayCalendarActivities"> | string
+    month?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    year?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    activityCalendar?: ActivityCalendarListRelationFilter
+  }
+
+  export type DayCalendarActivitiesOrderByWithRelationInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    user?: UserOrderByWithRelationInput
+    activityCalendar?: ActivityCalendarOrderByRelationAggregateInput
+  }
+
+  export type DayCalendarActivitiesWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DayCalendarActivitiesWhereInput | DayCalendarActivitiesWhereInput[]
+    OR?: DayCalendarActivitiesWhereInput[]
+    NOT?: DayCalendarActivitiesWhereInput | DayCalendarActivitiesWhereInput[]
+    day?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    userId?: StringFilter<"DayCalendarActivities"> | string
+    month?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    year?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    activityCalendar?: ActivityCalendarListRelationFilter
+  }, "id">
+
+  export type DayCalendarActivitiesOrderByWithAggregationInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+    _count?: DayCalendarActivitiesCountOrderByAggregateInput
+    _avg?: DayCalendarActivitiesAvgOrderByAggregateInput
+    _max?: DayCalendarActivitiesMaxOrderByAggregateInput
+    _min?: DayCalendarActivitiesMinOrderByAggregateInput
+    _sum?: DayCalendarActivitiesSumOrderByAggregateInput
+  }
+
+  export type DayCalendarActivitiesScalarWhereWithAggregatesInput = {
+    AND?: DayCalendarActivitiesScalarWhereWithAggregatesInput | DayCalendarActivitiesScalarWhereWithAggregatesInput[]
+    OR?: DayCalendarActivitiesScalarWhereWithAggregatesInput[]
+    NOT?: DayCalendarActivitiesScalarWhereWithAggregatesInput | DayCalendarActivitiesScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"DayCalendarActivities"> | string
+    day?: DecimalWithAggregatesFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    userId?: StringWithAggregatesFilter<"DayCalendarActivities"> | string
+    month?: DecimalWithAggregatesFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    year?: DecimalWithAggregatesFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ActivityCalendarWhereInput = {
+    AND?: ActivityCalendarWhereInput | ActivityCalendarWhereInput[]
+    OR?: ActivityCalendarWhereInput[]
+    NOT?: ActivityCalendarWhereInput | ActivityCalendarWhereInput[]
+    id?: StringFilter<"ActivityCalendar"> | string
+    activityName?: StringFilter<"ActivityCalendar"> | string
+    description?: StringFilter<"ActivityCalendar"> | string
+    activityCalendarId?: StringFilter<"ActivityCalendar"> | string
+    time?: StringFilter<"ActivityCalendar"> | string
+    dayCalendarActivity?: XOR<DayCalendarActivitiesScalarRelationFilter, DayCalendarActivitiesWhereInput>
+  }
+
+  export type ActivityCalendarOrderByWithRelationInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
+    dayCalendarActivity?: DayCalendarActivitiesOrderByWithRelationInput
+  }
+
+  export type ActivityCalendarWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ActivityCalendarWhereInput | ActivityCalendarWhereInput[]
+    OR?: ActivityCalendarWhereInput[]
+    NOT?: ActivityCalendarWhereInput | ActivityCalendarWhereInput[]
+    activityName?: StringFilter<"ActivityCalendar"> | string
+    description?: StringFilter<"ActivityCalendar"> | string
+    activityCalendarId?: StringFilter<"ActivityCalendar"> | string
+    time?: StringFilter<"ActivityCalendar"> | string
+    dayCalendarActivity?: XOR<DayCalendarActivitiesScalarRelationFilter, DayCalendarActivitiesWhereInput>
+  }, "id">
+
+  export type ActivityCalendarOrderByWithAggregationInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
+    _count?: ActivityCalendarCountOrderByAggregateInput
+    _max?: ActivityCalendarMaxOrderByAggregateInput
+    _min?: ActivityCalendarMinOrderByAggregateInput
+  }
+
+  export type ActivityCalendarScalarWhereWithAggregatesInput = {
+    AND?: ActivityCalendarScalarWhereWithAggregatesInput | ActivityCalendarScalarWhereWithAggregatesInput[]
+    OR?: ActivityCalendarScalarWhereWithAggregatesInput[]
+    NOT?: ActivityCalendarScalarWhereWithAggregatesInput | ActivityCalendarScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ActivityCalendar"> | string
+    activityName?: StringWithAggregatesFilter<"ActivityCalendar"> | string
+    description?: StringWithAggregatesFilter<"ActivityCalendar"> | string
+    activityCalendarId?: StringWithAggregatesFilter<"ActivityCalendar"> | string
+    time?: StringWithAggregatesFilter<"ActivityCalendar"> | string
   }
 
   export type UserCreateInput = {
@@ -3404,6 +9975,8 @@ export namespace Prisma {
     updated_at?: Date | string
     created_at?: Date | string
     subjects?: SubjectCreateNestedManyWithoutUserInput
+    note?: NoteCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -3416,6 +9989,8 @@ export namespace Prisma {
     updated_at?: Date | string
     created_at?: Date | string
     subjects?: SubjectUncheckedCreateNestedManyWithoutUserInput
+    note?: NoteUncheckedCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -3428,6 +10003,8 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     subjects?: SubjectUpdateManyWithoutUserNestedInput
+    note?: NoteUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -3440,6 +10017,8 @@ export namespace Prisma {
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     subjects?: SubjectUncheckedUpdateManyWithoutUserNestedInput
+    note?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -3478,56 +10057,371 @@ export namespace Prisma {
   export type SubjectCreateInput = {
     id?: string
     title: string
+    priority?: number
     description: string
-    week_day: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
     user: UserCreateNestedOneWithoutSubjectsInput
+    studyRecord?: StudyRecordCreateNestedManyWithoutSubjectInput
+    pendingActivities?: PendingActivityCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectUncheckedCreateInput = {
     id?: string
     id_user: string
     title: string
+    priority?: number
     description: string
-    week_day: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
+    studyRecord?: StudyRecordUncheckedCreateNestedManyWithoutSubjectInput
+    pendingActivities?: PendingActivityUncheckedCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    week_day?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
     user?: UserUpdateOneRequiredWithoutSubjectsNestedInput
+    studyRecord?: StudyRecordUpdateManyWithoutSubjectNestedInput
+    pendingActivities?: PendingActivityUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     id_user?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    week_day?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
+    studyRecord?: StudyRecordUncheckedUpdateManyWithoutSubjectNestedInput
+    pendingActivities?: PendingActivityUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectCreateManyInput = {
     id?: string
     id_user: string
     title: string
+    priority?: number
     description: string
-    week_day: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
   }
 
   export type SubjectUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    week_day?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
   }
 
   export type SubjectUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     id_user?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    week_day?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
+  }
+
+  export type StudyRecordCreateInput = {
+    id?: string
+    dayOfWeek: string
+    minutesStudied: number
+    created_at?: Date | string
+    subject: SubjectCreateNestedOneWithoutStudyRecordInput
+  }
+
+  export type StudyRecordUncheckedCreateInput = {
+    id?: string
+    subjectId: string
+    dayOfWeek: string
+    minutesStudied: number
+    created_at?: Date | string
+  }
+
+  export type StudyRecordUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayOfWeek?: StringFieldUpdateOperationsInput | string
+    minutesStudied?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject?: SubjectUpdateOneRequiredWithoutStudyRecordNestedInput
+  }
+
+  export type StudyRecordUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subjectId?: StringFieldUpdateOperationsInput | string
+    dayOfWeek?: StringFieldUpdateOperationsInput | string
+    minutesStudied?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StudyRecordCreateManyInput = {
+    id?: string
+    subjectId: string
+    dayOfWeek: string
+    minutesStudied: number
+    created_at?: Date | string
+  }
+
+  export type StudyRecordUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayOfWeek?: StringFieldUpdateOperationsInput | string
+    minutesStudied?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StudyRecordUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subjectId?: StringFieldUpdateOperationsInput | string
+    dayOfWeek?: StringFieldUpdateOperationsInput | string
+    minutesStudied?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PendingActivityCreateInput = {
+    id?: string
+    name: string
+    description: string
+    percentageConclud: number
+    created_at?: Date | string
+    subject: SubjectCreateNestedOneWithoutPendingActivitiesInput
+  }
+
+  export type PendingActivityUncheckedCreateInput = {
+    id?: string
+    subjectId: string
+    name: string
+    description: string
+    percentageConclud: number
+    created_at?: Date | string
+  }
+
+  export type PendingActivityUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    percentageConclud?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subject?: SubjectUpdateOneRequiredWithoutPendingActivitiesNestedInput
+  }
+
+  export type PendingActivityUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subjectId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    percentageConclud?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PendingActivityCreateManyInput = {
+    id?: string
+    subjectId: string
+    name: string
+    description: string
+    percentageConclud: number
+    created_at?: Date | string
+  }
+
+  export type PendingActivityUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    percentageConclud?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PendingActivityUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    subjectId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    percentageConclud?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NoteCreateInput = {
+    id?: string
+    title: string
+    content: string
+    user: UserCreateNestedOneWithoutNoteInput
+  }
+
+  export type NoteUncheckedCreateInput = {
+    id?: string
+    title: string
+    content: string
+    userId: string
+  }
+
+  export type NoteUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutNoteNestedInput
+  }
+
+  export type NoteUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type NoteCreateManyInput = {
+    id?: string
+    title: string
+    content: string
+    userId: string
+  }
+
+  export type NoteUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type NoteUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DayCalendarActivitiesCreateInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    user: UserCreateNestedOneWithoutCalendarActiviesInput
+    activityCalendar?: ActivityCalendarCreateNestedManyWithoutDayCalendarActivityInput
+  }
+
+  export type DayCalendarActivitiesUncheckedCreateInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    userId: string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUncheckedCreateNestedManyWithoutDayCalendarActivityInput
+  }
+
+  export type DayCalendarActivitiesUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    user?: UserUpdateOneRequiredWithoutCalendarActiviesNestedInput
+    activityCalendar?: ActivityCalendarUpdateManyWithoutDayCalendarActivityNestedInput
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    userId?: StringFieldUpdateOperationsInput | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityNestedInput
+  }
+
+  export type DayCalendarActivitiesCreateManyInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    userId: string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+  }
+
+  export type DayCalendarActivitiesUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    userId?: StringFieldUpdateOperationsInput | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ActivityCalendarCreateInput = {
+    id?: string
+    activityName: string
+    description: string
+    time: string
+    dayCalendarActivity: DayCalendarActivitiesCreateNestedOneWithoutActivityCalendarInput
+  }
+
+  export type ActivityCalendarUncheckedCreateInput = {
+    id?: string
+    activityName: string
+    description: string
+    activityCalendarId: string
+    time: string
+  }
+
+  export type ActivityCalendarUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    dayCalendarActivity?: DayCalendarActivitiesUpdateOneRequiredWithoutActivityCalendarNestedInput
+  }
+
+  export type ActivityCalendarUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    activityCalendarId?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ActivityCalendarCreateManyInput = {
+    id?: string
+    activityName: string
+    description: string
+    activityCalendarId: string
+    time: string
+  }
+
+  export type ActivityCalendarUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ActivityCalendarUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    activityCalendarId?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3567,7 +10461,27 @@ export namespace Prisma {
     none?: SubjectWhereInput
   }
 
+  export type NoteListRelationFilter = {
+    every?: NoteWhereInput
+    some?: NoteWhereInput
+    none?: NoteWhereInput
+  }
+
+  export type DayCalendarActivitiesListRelationFilter = {
+    every?: DayCalendarActivitiesWhereInput
+    some?: DayCalendarActivitiesWhereInput
+    none?: DayCalendarActivitiesWhereInput
+  }
+
   export type SubjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type NoteOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DayCalendarActivitiesOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -3644,33 +10558,299 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
+  }
+
+  export type StudyRecordListRelationFilter = {
+    every?: StudyRecordWhereInput
+    some?: StudyRecordWhereInput
+    none?: StudyRecordWhereInput
+  }
+
+  export type PendingActivityListRelationFilter = {
+    every?: PendingActivityWhereInput
+    some?: PendingActivityWhereInput
+    none?: PendingActivityWhereInput
+  }
+
+  export type StudyRecordOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PendingActivityOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type SubjectCountOrderByAggregateInput = {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
     week_day?: SortOrder
+    updated_at?: SortOrder
+    created_at?: SortOrder
+    pendingSubjects?: SortOrder
+  }
+
+  export type SubjectAvgOrderByAggregateInput = {
+    priority?: SortOrder
   }
 
   export type SubjectMaxOrderByAggregateInput = {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
-    week_day?: SortOrder
+    updated_at?: SortOrder
+    created_at?: SortOrder
   }
 
   export type SubjectMinOrderByAggregateInput = {
     id?: SortOrder
     id_user?: SortOrder
     title?: SortOrder
+    priority?: SortOrder
     description?: SortOrder
-    week_day?: SortOrder
+    updated_at?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type SubjectSumOrderByAggregateInput = {
+    priority?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type SubjectScalarRelationFilter = {
+    is?: SubjectWhereInput
+    isNot?: SubjectWhereInput
+  }
+
+  export type StudyRecordCountOrderByAggregateInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    dayOfWeek?: SortOrder
+    minutesStudied?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type StudyRecordAvgOrderByAggregateInput = {
+    minutesStudied?: SortOrder
+  }
+
+  export type StudyRecordMaxOrderByAggregateInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    dayOfWeek?: SortOrder
+    minutesStudied?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type StudyRecordMinOrderByAggregateInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    dayOfWeek?: SortOrder
+    minutesStudied?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type StudyRecordSumOrderByAggregateInput = {
+    minutesStudied?: SortOrder
+  }
+
+  export type PendingActivityCountOrderByAggregateInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    percentageConclud?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type PendingActivityAvgOrderByAggregateInput = {
+    percentageConclud?: SortOrder
+  }
+
+  export type PendingActivityMaxOrderByAggregateInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    percentageConclud?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type PendingActivityMinOrderByAggregateInput = {
+    id?: SortOrder
+    subjectId?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    percentageConclud?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type PendingActivitySumOrderByAggregateInput = {
+    percentageConclud?: SortOrder
+  }
+
+  export type NoteCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type NoteMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type NoteMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ActivityCalendarListRelationFilter = {
+    every?: ActivityCalendarWhereInput
+    some?: ActivityCalendarWhereInput
+    none?: ActivityCalendarWhereInput
+  }
+
+  export type ActivityCalendarOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DayCalendarActivitiesCountOrderByAggregateInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DayCalendarActivitiesAvgOrderByAggregateInput = {
+    day?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DayCalendarActivitiesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DayCalendarActivitiesMinOrderByAggregateInput = {
+    id?: SortOrder
+    day?: SortOrder
+    userId?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DayCalendarActivitiesSumOrderByAggregateInput = {
+    day?: SortOrder
+    month?: SortOrder
+    year?: SortOrder
+  }
+
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type DayCalendarActivitiesScalarRelationFilter = {
+    is?: DayCalendarActivitiesWhereInput
+    isNot?: DayCalendarActivitiesWhereInput
+  }
+
+  export type ActivityCalendarCountOrderByAggregateInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
+  }
+
+  export type ActivityCalendarMaxOrderByAggregateInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
+  }
+
+  export type ActivityCalendarMinOrderByAggregateInput = {
+    id?: SortOrder
+    activityName?: SortOrder
+    description?: SortOrder
+    activityCalendarId?: SortOrder
+    time?: SortOrder
   }
 
   export type SubjectCreateNestedManyWithoutUserInput = {
@@ -3680,11 +10860,39 @@ export namespace Prisma {
     connect?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
   }
 
+  export type NoteCreateNestedManyWithoutUserInput = {
+    create?: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput> | NoteCreateWithoutUserInput[] | NoteUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NoteCreateOrConnectWithoutUserInput | NoteCreateOrConnectWithoutUserInput[]
+    createMany?: NoteCreateManyUserInputEnvelope
+    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  }
+
+  export type DayCalendarActivitiesCreateNestedManyWithoutUserInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput> | DayCalendarActivitiesCreateWithoutUserInput[] | DayCalendarActivitiesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutUserInput | DayCalendarActivitiesCreateOrConnectWithoutUserInput[]
+    createMany?: DayCalendarActivitiesCreateManyUserInputEnvelope
+    connect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+  }
+
   export type SubjectUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SubjectCreateWithoutUserInput, SubjectUncheckedCreateWithoutUserInput> | SubjectCreateWithoutUserInput[] | SubjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SubjectCreateOrConnectWithoutUserInput | SubjectCreateOrConnectWithoutUserInput[]
     createMany?: SubjectCreateManyUserInputEnvelope
     connect?: SubjectWhereUniqueInput | SubjectWhereUniqueInput[]
+  }
+
+  export type NoteUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput> | NoteCreateWithoutUserInput[] | NoteUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NoteCreateOrConnectWithoutUserInput | NoteCreateOrConnectWithoutUserInput[]
+    createMany?: NoteCreateManyUserInputEnvelope
+    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  }
+
+  export type DayCalendarActivitiesUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput> | DayCalendarActivitiesCreateWithoutUserInput[] | DayCalendarActivitiesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutUserInput | DayCalendarActivitiesCreateOrConnectWithoutUserInput[]
+    createMany?: DayCalendarActivitiesCreateManyUserInputEnvelope
+    connect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3713,6 +10921,34 @@ export namespace Prisma {
     deleteMany?: SubjectScalarWhereInput | SubjectScalarWhereInput[]
   }
 
+  export type NoteUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput> | NoteCreateWithoutUserInput[] | NoteUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NoteCreateOrConnectWithoutUserInput | NoteCreateOrConnectWithoutUserInput[]
+    upsert?: NoteUpsertWithWhereUniqueWithoutUserInput | NoteUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NoteCreateManyUserInputEnvelope
+    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    update?: NoteUpdateWithWhereUniqueWithoutUserInput | NoteUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NoteUpdateManyWithWhereWithoutUserInput | NoteUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  }
+
+  export type DayCalendarActivitiesUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput> | DayCalendarActivitiesCreateWithoutUserInput[] | DayCalendarActivitiesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutUserInput | DayCalendarActivitiesCreateOrConnectWithoutUserInput[]
+    upsert?: DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput | DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DayCalendarActivitiesCreateManyUserInputEnvelope
+    set?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    disconnect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    delete?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    connect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    update?: DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput | DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput | DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DayCalendarActivitiesScalarWhereInput | DayCalendarActivitiesScalarWhereInput[]
+  }
+
   export type SubjectUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SubjectCreateWithoutUserInput, SubjectUncheckedCreateWithoutUserInput> | SubjectCreateWithoutUserInput[] | SubjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SubjectCreateOrConnectWithoutUserInput | SubjectCreateOrConnectWithoutUserInput[]
@@ -3727,10 +10963,92 @@ export namespace Prisma {
     deleteMany?: SubjectScalarWhereInput | SubjectScalarWhereInput[]
   }
 
+  export type NoteUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput> | NoteCreateWithoutUserInput[] | NoteUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: NoteCreateOrConnectWithoutUserInput | NoteCreateOrConnectWithoutUserInput[]
+    upsert?: NoteUpsertWithWhereUniqueWithoutUserInput | NoteUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: NoteCreateManyUserInputEnvelope
+    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+    update?: NoteUpdateWithWhereUniqueWithoutUserInput | NoteUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: NoteUpdateManyWithWhereWithoutUserInput | NoteUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput> | DayCalendarActivitiesCreateWithoutUserInput[] | DayCalendarActivitiesUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutUserInput | DayCalendarActivitiesCreateOrConnectWithoutUserInput[]
+    upsert?: DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput | DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: DayCalendarActivitiesCreateManyUserInputEnvelope
+    set?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    disconnect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    delete?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    connect?: DayCalendarActivitiesWhereUniqueInput | DayCalendarActivitiesWhereUniqueInput[]
+    update?: DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput | DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput | DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: DayCalendarActivitiesScalarWhereInput | DayCalendarActivitiesScalarWhereInput[]
+  }
+
+  export type SubjectCreateweek_dayInput = {
+    set: string[]
+  }
+
+  export type SubjectCreatependingSubjectsInput = {
+    set: string[]
+  }
+
   export type UserCreateNestedOneWithoutSubjectsInput = {
     create?: XOR<UserCreateWithoutSubjectsInput, UserUncheckedCreateWithoutSubjectsInput>
     connectOrCreate?: UserCreateOrConnectWithoutSubjectsInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type StudyRecordCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<StudyRecordCreateWithoutSubjectInput, StudyRecordUncheckedCreateWithoutSubjectInput> | StudyRecordCreateWithoutSubjectInput[] | StudyRecordUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: StudyRecordCreateOrConnectWithoutSubjectInput | StudyRecordCreateOrConnectWithoutSubjectInput[]
+    createMany?: StudyRecordCreateManySubjectInputEnvelope
+    connect?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+  }
+
+  export type PendingActivityCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<PendingActivityCreateWithoutSubjectInput, PendingActivityUncheckedCreateWithoutSubjectInput> | PendingActivityCreateWithoutSubjectInput[] | PendingActivityUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: PendingActivityCreateOrConnectWithoutSubjectInput | PendingActivityCreateOrConnectWithoutSubjectInput[]
+    createMany?: PendingActivityCreateManySubjectInputEnvelope
+    connect?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+  }
+
+  export type StudyRecordUncheckedCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<StudyRecordCreateWithoutSubjectInput, StudyRecordUncheckedCreateWithoutSubjectInput> | StudyRecordCreateWithoutSubjectInput[] | StudyRecordUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: StudyRecordCreateOrConnectWithoutSubjectInput | StudyRecordCreateOrConnectWithoutSubjectInput[]
+    createMany?: StudyRecordCreateManySubjectInputEnvelope
+    connect?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+  }
+
+  export type PendingActivityUncheckedCreateNestedManyWithoutSubjectInput = {
+    create?: XOR<PendingActivityCreateWithoutSubjectInput, PendingActivityUncheckedCreateWithoutSubjectInput> | PendingActivityCreateWithoutSubjectInput[] | PendingActivityUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: PendingActivityCreateOrConnectWithoutSubjectInput | PendingActivityCreateOrConnectWithoutSubjectInput[]
+    createMany?: PendingActivityCreateManySubjectInputEnvelope
+    connect?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type SubjectUpdateweek_dayInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type SubjectUpdatependingSubjectsInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type UserUpdateOneRequiredWithoutSubjectsNestedInput = {
@@ -3739,6 +11057,182 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutSubjectsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSubjectsInput, UserUpdateWithoutSubjectsInput>, UserUncheckedUpdateWithoutSubjectsInput>
+  }
+
+  export type StudyRecordUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<StudyRecordCreateWithoutSubjectInput, StudyRecordUncheckedCreateWithoutSubjectInput> | StudyRecordCreateWithoutSubjectInput[] | StudyRecordUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: StudyRecordCreateOrConnectWithoutSubjectInput | StudyRecordCreateOrConnectWithoutSubjectInput[]
+    upsert?: StudyRecordUpsertWithWhereUniqueWithoutSubjectInput | StudyRecordUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: StudyRecordCreateManySubjectInputEnvelope
+    set?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+    disconnect?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+    delete?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+    connect?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+    update?: StudyRecordUpdateWithWhereUniqueWithoutSubjectInput | StudyRecordUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: StudyRecordUpdateManyWithWhereWithoutSubjectInput | StudyRecordUpdateManyWithWhereWithoutSubjectInput[]
+    deleteMany?: StudyRecordScalarWhereInput | StudyRecordScalarWhereInput[]
+  }
+
+  export type PendingActivityUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<PendingActivityCreateWithoutSubjectInput, PendingActivityUncheckedCreateWithoutSubjectInput> | PendingActivityCreateWithoutSubjectInput[] | PendingActivityUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: PendingActivityCreateOrConnectWithoutSubjectInput | PendingActivityCreateOrConnectWithoutSubjectInput[]
+    upsert?: PendingActivityUpsertWithWhereUniqueWithoutSubjectInput | PendingActivityUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: PendingActivityCreateManySubjectInputEnvelope
+    set?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+    disconnect?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+    delete?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+    connect?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+    update?: PendingActivityUpdateWithWhereUniqueWithoutSubjectInput | PendingActivityUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: PendingActivityUpdateManyWithWhereWithoutSubjectInput | PendingActivityUpdateManyWithWhereWithoutSubjectInput[]
+    deleteMany?: PendingActivityScalarWhereInput | PendingActivityScalarWhereInput[]
+  }
+
+  export type StudyRecordUncheckedUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<StudyRecordCreateWithoutSubjectInput, StudyRecordUncheckedCreateWithoutSubjectInput> | StudyRecordCreateWithoutSubjectInput[] | StudyRecordUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: StudyRecordCreateOrConnectWithoutSubjectInput | StudyRecordCreateOrConnectWithoutSubjectInput[]
+    upsert?: StudyRecordUpsertWithWhereUniqueWithoutSubjectInput | StudyRecordUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: StudyRecordCreateManySubjectInputEnvelope
+    set?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+    disconnect?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+    delete?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+    connect?: StudyRecordWhereUniqueInput | StudyRecordWhereUniqueInput[]
+    update?: StudyRecordUpdateWithWhereUniqueWithoutSubjectInput | StudyRecordUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: StudyRecordUpdateManyWithWhereWithoutSubjectInput | StudyRecordUpdateManyWithWhereWithoutSubjectInput[]
+    deleteMany?: StudyRecordScalarWhereInput | StudyRecordScalarWhereInput[]
+  }
+
+  export type PendingActivityUncheckedUpdateManyWithoutSubjectNestedInput = {
+    create?: XOR<PendingActivityCreateWithoutSubjectInput, PendingActivityUncheckedCreateWithoutSubjectInput> | PendingActivityCreateWithoutSubjectInput[] | PendingActivityUncheckedCreateWithoutSubjectInput[]
+    connectOrCreate?: PendingActivityCreateOrConnectWithoutSubjectInput | PendingActivityCreateOrConnectWithoutSubjectInput[]
+    upsert?: PendingActivityUpsertWithWhereUniqueWithoutSubjectInput | PendingActivityUpsertWithWhereUniqueWithoutSubjectInput[]
+    createMany?: PendingActivityCreateManySubjectInputEnvelope
+    set?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+    disconnect?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+    delete?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+    connect?: PendingActivityWhereUniqueInput | PendingActivityWhereUniqueInput[]
+    update?: PendingActivityUpdateWithWhereUniqueWithoutSubjectInput | PendingActivityUpdateWithWhereUniqueWithoutSubjectInput[]
+    updateMany?: PendingActivityUpdateManyWithWhereWithoutSubjectInput | PendingActivityUpdateManyWithWhereWithoutSubjectInput[]
+    deleteMany?: PendingActivityScalarWhereInput | PendingActivityScalarWhereInput[]
+  }
+
+  export type SubjectCreateNestedOneWithoutStudyRecordInput = {
+    create?: XOR<SubjectCreateWithoutStudyRecordInput, SubjectUncheckedCreateWithoutStudyRecordInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutStudyRecordInput
+    connect?: SubjectWhereUniqueInput
+  }
+
+  export type SubjectUpdateOneRequiredWithoutStudyRecordNestedInput = {
+    create?: XOR<SubjectCreateWithoutStudyRecordInput, SubjectUncheckedCreateWithoutStudyRecordInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutStudyRecordInput
+    upsert?: SubjectUpsertWithoutStudyRecordInput
+    connect?: SubjectWhereUniqueInput
+    update?: XOR<XOR<SubjectUpdateToOneWithWhereWithoutStudyRecordInput, SubjectUpdateWithoutStudyRecordInput>, SubjectUncheckedUpdateWithoutStudyRecordInput>
+  }
+
+  export type SubjectCreateNestedOneWithoutPendingActivitiesInput = {
+    create?: XOR<SubjectCreateWithoutPendingActivitiesInput, SubjectUncheckedCreateWithoutPendingActivitiesInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutPendingActivitiesInput
+    connect?: SubjectWhereUniqueInput
+  }
+
+  export type SubjectUpdateOneRequiredWithoutPendingActivitiesNestedInput = {
+    create?: XOR<SubjectCreateWithoutPendingActivitiesInput, SubjectUncheckedCreateWithoutPendingActivitiesInput>
+    connectOrCreate?: SubjectCreateOrConnectWithoutPendingActivitiesInput
+    upsert?: SubjectUpsertWithoutPendingActivitiesInput
+    connect?: SubjectWhereUniqueInput
+    update?: XOR<XOR<SubjectUpdateToOneWithWhereWithoutPendingActivitiesInput, SubjectUpdateWithoutPendingActivitiesInput>, SubjectUncheckedUpdateWithoutPendingActivitiesInput>
+  }
+
+  export type UserCreateNestedOneWithoutNoteInput = {
+    create?: XOR<UserCreateWithoutNoteInput, UserUncheckedCreateWithoutNoteInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNoteInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutNoteNestedInput = {
+    create?: XOR<UserCreateWithoutNoteInput, UserUncheckedCreateWithoutNoteInput>
+    connectOrCreate?: UserCreateOrConnectWithoutNoteInput
+    upsert?: UserUpsertWithoutNoteInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutNoteInput, UserUpdateWithoutNoteInput>, UserUncheckedUpdateWithoutNoteInput>
+  }
+
+  export type UserCreateNestedOneWithoutCalendarActiviesInput = {
+    create?: XOR<UserCreateWithoutCalendarActiviesInput, UserUncheckedCreateWithoutCalendarActiviesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCalendarActiviesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ActivityCalendarCreateNestedManyWithoutDayCalendarActivityInput = {
+    create?: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput> | ActivityCalendarCreateWithoutDayCalendarActivityInput[] | ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput[]
+    connectOrCreate?: ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput | ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput[]
+    createMany?: ActivityCalendarCreateManyDayCalendarActivityInputEnvelope
+    connect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+  }
+
+  export type ActivityCalendarUncheckedCreateNestedManyWithoutDayCalendarActivityInput = {
+    create?: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput> | ActivityCalendarCreateWithoutDayCalendarActivityInput[] | ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput[]
+    connectOrCreate?: ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput | ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput[]
+    createMany?: ActivityCalendarCreateManyDayCalendarActivityInputEnvelope
+    connect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+  }
+
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type UserUpdateOneRequiredWithoutCalendarActiviesNestedInput = {
+    create?: XOR<UserCreateWithoutCalendarActiviesInput, UserUncheckedCreateWithoutCalendarActiviesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCalendarActiviesInput
+    upsert?: UserUpsertWithoutCalendarActiviesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCalendarActiviesInput, UserUpdateWithoutCalendarActiviesInput>, UserUncheckedUpdateWithoutCalendarActiviesInput>
+  }
+
+  export type ActivityCalendarUpdateManyWithoutDayCalendarActivityNestedInput = {
+    create?: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput> | ActivityCalendarCreateWithoutDayCalendarActivityInput[] | ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput[]
+    connectOrCreate?: ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput | ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput[]
+    upsert?: ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput | ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput[]
+    createMany?: ActivityCalendarCreateManyDayCalendarActivityInputEnvelope
+    set?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    disconnect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    delete?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    connect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    update?: ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput | ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput[]
+    updateMany?: ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput | ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput[]
+    deleteMany?: ActivityCalendarScalarWhereInput | ActivityCalendarScalarWhereInput[]
+  }
+
+  export type ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityNestedInput = {
+    create?: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput> | ActivityCalendarCreateWithoutDayCalendarActivityInput[] | ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput[]
+    connectOrCreate?: ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput | ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput[]
+    upsert?: ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput | ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput[]
+    createMany?: ActivityCalendarCreateManyDayCalendarActivityInputEnvelope
+    set?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    disconnect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    delete?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    connect?: ActivityCalendarWhereUniqueInput | ActivityCalendarWhereUniqueInput[]
+    update?: ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput | ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput[]
+    updateMany?: ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput | ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput[]
+    deleteMany?: ActivityCalendarScalarWhereInput | ActivityCalendarScalarWhereInput[]
+  }
+
+  export type DayCalendarActivitiesCreateNestedOneWithoutActivityCalendarInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput>
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutActivityCalendarInput
+    connect?: DayCalendarActivitiesWhereUniqueInput
+  }
+
+  export type DayCalendarActivitiesUpdateOneRequiredWithoutActivityCalendarNestedInput = {
+    create?: XOR<DayCalendarActivitiesCreateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput>
+    connectOrCreate?: DayCalendarActivitiesCreateOrConnectWithoutActivityCalendarInput
+    upsert?: DayCalendarActivitiesUpsertWithoutActivityCalendarInput
+    connect?: DayCalendarActivitiesWhereUniqueInput
+    update?: XOR<XOR<DayCalendarActivitiesUpdateToOneWithWhereWithoutActivityCalendarInput, DayCalendarActivitiesUpdateWithoutActivityCalendarInput>, DayCalendarActivitiesUncheckedUpdateWithoutActivityCalendarInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3821,18 +11315,84 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
   export type SubjectCreateWithoutUserInput = {
     id?: string
     title: string
+    priority?: number
     description: string
-    week_day: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
+    studyRecord?: StudyRecordCreateNestedManyWithoutSubjectInput
+    pendingActivities?: PendingActivityCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectUncheckedCreateWithoutUserInput = {
     id?: string
     title: string
+    priority?: number
     description: string
-    week_day: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
+    studyRecord?: StudyRecordUncheckedCreateNestedManyWithoutSubjectInput
+    pendingActivities?: PendingActivityUncheckedCreateNestedManyWithoutSubjectInput
   }
 
   export type SubjectCreateOrConnectWithoutUserInput = {
@@ -3842,6 +11402,54 @@ export namespace Prisma {
 
   export type SubjectCreateManyUserInputEnvelope = {
     data: SubjectCreateManyUserInput | SubjectCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type NoteCreateWithoutUserInput = {
+    id?: string
+    title: string
+    content: string
+  }
+
+  export type NoteUncheckedCreateWithoutUserInput = {
+    id?: string
+    title: string
+    content: string
+  }
+
+  export type NoteCreateOrConnectWithoutUserInput = {
+    where: NoteWhereUniqueInput
+    create: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput>
+  }
+
+  export type NoteCreateManyUserInputEnvelope = {
+    data: NoteCreateManyUserInput | NoteCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DayCalendarActivitiesCreateWithoutUserInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarCreateNestedManyWithoutDayCalendarActivityInput
+  }
+
+  export type DayCalendarActivitiesUncheckedCreateWithoutUserInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUncheckedCreateNestedManyWithoutDayCalendarActivityInput
+  }
+
+  export type DayCalendarActivitiesCreateOrConnectWithoutUserInput = {
+    where: DayCalendarActivitiesWhereUniqueInput
+    create: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput>
+  }
+
+  export type DayCalendarActivitiesCreateManyUserInputEnvelope = {
+    data: DayCalendarActivitiesCreateManyUserInput | DayCalendarActivitiesCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -3868,8 +11476,65 @@ export namespace Prisma {
     id?: StringFilter<"Subject"> | string
     id_user?: StringFilter<"Subject"> | string
     title?: StringFilter<"Subject"> | string
+    priority?: IntFilter<"Subject"> | number
     description?: StringFilter<"Subject"> | string
-    week_day?: StringFilter<"Subject"> | string
+    week_day?: StringNullableListFilter<"Subject">
+    updated_at?: DateTimeFilter<"Subject"> | Date | string
+    created_at?: DateTimeFilter<"Subject"> | Date | string
+    pendingSubjects?: StringNullableListFilter<"Subject">
+  }
+
+  export type NoteUpsertWithWhereUniqueWithoutUserInput = {
+    where: NoteWhereUniqueInput
+    update: XOR<NoteUpdateWithoutUserInput, NoteUncheckedUpdateWithoutUserInput>
+    create: XOR<NoteCreateWithoutUserInput, NoteUncheckedCreateWithoutUserInput>
+  }
+
+  export type NoteUpdateWithWhereUniqueWithoutUserInput = {
+    where: NoteWhereUniqueInput
+    data: XOR<NoteUpdateWithoutUserInput, NoteUncheckedUpdateWithoutUserInput>
+  }
+
+  export type NoteUpdateManyWithWhereWithoutUserInput = {
+    where: NoteScalarWhereInput
+    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type NoteScalarWhereInput = {
+    AND?: NoteScalarWhereInput | NoteScalarWhereInput[]
+    OR?: NoteScalarWhereInput[]
+    NOT?: NoteScalarWhereInput | NoteScalarWhereInput[]
+    id?: StringFilter<"Note"> | string
+    title?: StringFilter<"Note"> | string
+    content?: StringFilter<"Note"> | string
+    userId?: StringFilter<"Note"> | string
+  }
+
+  export type DayCalendarActivitiesUpsertWithWhereUniqueWithoutUserInput = {
+    where: DayCalendarActivitiesWhereUniqueInput
+    update: XOR<DayCalendarActivitiesUpdateWithoutUserInput, DayCalendarActivitiesUncheckedUpdateWithoutUserInput>
+    create: XOR<DayCalendarActivitiesCreateWithoutUserInput, DayCalendarActivitiesUncheckedCreateWithoutUserInput>
+  }
+
+  export type DayCalendarActivitiesUpdateWithWhereUniqueWithoutUserInput = {
+    where: DayCalendarActivitiesWhereUniqueInput
+    data: XOR<DayCalendarActivitiesUpdateWithoutUserInput, DayCalendarActivitiesUncheckedUpdateWithoutUserInput>
+  }
+
+  export type DayCalendarActivitiesUpdateManyWithWhereWithoutUserInput = {
+    where: DayCalendarActivitiesScalarWhereInput
+    data: XOR<DayCalendarActivitiesUpdateManyMutationInput, DayCalendarActivitiesUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type DayCalendarActivitiesScalarWhereInput = {
+    AND?: DayCalendarActivitiesScalarWhereInput | DayCalendarActivitiesScalarWhereInput[]
+    OR?: DayCalendarActivitiesScalarWhereInput[]
+    NOT?: DayCalendarActivitiesScalarWhereInput | DayCalendarActivitiesScalarWhereInput[]
+    id?: StringFilter<"DayCalendarActivities"> | string
+    day?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    userId?: StringFilter<"DayCalendarActivities"> | string
+    month?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
+    year?: DecimalFilter<"DayCalendarActivities"> | Decimal | DecimalJsLike | number | string
   }
 
   export type UserCreateWithoutSubjectsInput = {
@@ -3881,6 +11546,8 @@ export namespace Prisma {
     receiveNotify: boolean
     updated_at?: Date | string
     created_at?: Date | string
+    note?: NoteCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSubjectsInput = {
@@ -3892,11 +11559,63 @@ export namespace Prisma {
     receiveNotify: boolean
     updated_at?: Date | string
     created_at?: Date | string
+    note?: NoteUncheckedCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSubjectsInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutSubjectsInput, UserUncheckedCreateWithoutSubjectsInput>
+  }
+
+  export type StudyRecordCreateWithoutSubjectInput = {
+    id?: string
+    dayOfWeek: string
+    minutesStudied: number
+    created_at?: Date | string
+  }
+
+  export type StudyRecordUncheckedCreateWithoutSubjectInput = {
+    id?: string
+    dayOfWeek: string
+    minutesStudied: number
+    created_at?: Date | string
+  }
+
+  export type StudyRecordCreateOrConnectWithoutSubjectInput = {
+    where: StudyRecordWhereUniqueInput
+    create: XOR<StudyRecordCreateWithoutSubjectInput, StudyRecordUncheckedCreateWithoutSubjectInput>
+  }
+
+  export type StudyRecordCreateManySubjectInputEnvelope = {
+    data: StudyRecordCreateManySubjectInput | StudyRecordCreateManySubjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PendingActivityCreateWithoutSubjectInput = {
+    id?: string
+    name: string
+    description: string
+    percentageConclud: number
+    created_at?: Date | string
+  }
+
+  export type PendingActivityUncheckedCreateWithoutSubjectInput = {
+    id?: string
+    name: string
+    description: string
+    percentageConclud: number
+    created_at?: Date | string
+  }
+
+  export type PendingActivityCreateOrConnectWithoutSubjectInput = {
+    where: PendingActivityWhereUniqueInput
+    create: XOR<PendingActivityCreateWithoutSubjectInput, PendingActivityUncheckedCreateWithoutSubjectInput>
+  }
+
+  export type PendingActivityCreateManySubjectInputEnvelope = {
+    data: PendingActivityCreateManySubjectInput | PendingActivityCreateManySubjectInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithoutSubjectsInput = {
@@ -3919,6 +11638,8 @@ export namespace Prisma {
     receiveNotify?: BoolFieldUpdateOperationsInput | boolean
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NoteUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSubjectsInput = {
@@ -3930,34 +11651,624 @@ export namespace Prisma {
     receiveNotify?: BoolFieldUpdateOperationsInput | boolean
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    note?: NoteUncheckedUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type StudyRecordUpsertWithWhereUniqueWithoutSubjectInput = {
+    where: StudyRecordWhereUniqueInput
+    update: XOR<StudyRecordUpdateWithoutSubjectInput, StudyRecordUncheckedUpdateWithoutSubjectInput>
+    create: XOR<StudyRecordCreateWithoutSubjectInput, StudyRecordUncheckedCreateWithoutSubjectInput>
+  }
+
+  export type StudyRecordUpdateWithWhereUniqueWithoutSubjectInput = {
+    where: StudyRecordWhereUniqueInput
+    data: XOR<StudyRecordUpdateWithoutSubjectInput, StudyRecordUncheckedUpdateWithoutSubjectInput>
+  }
+
+  export type StudyRecordUpdateManyWithWhereWithoutSubjectInput = {
+    where: StudyRecordScalarWhereInput
+    data: XOR<StudyRecordUpdateManyMutationInput, StudyRecordUncheckedUpdateManyWithoutSubjectInput>
+  }
+
+  export type StudyRecordScalarWhereInput = {
+    AND?: StudyRecordScalarWhereInput | StudyRecordScalarWhereInput[]
+    OR?: StudyRecordScalarWhereInput[]
+    NOT?: StudyRecordScalarWhereInput | StudyRecordScalarWhereInput[]
+    id?: StringFilter<"StudyRecord"> | string
+    subjectId?: StringFilter<"StudyRecord"> | string
+    dayOfWeek?: StringFilter<"StudyRecord"> | string
+    minutesStudied?: IntFilter<"StudyRecord"> | number
+    created_at?: DateTimeFilter<"StudyRecord"> | Date | string
+  }
+
+  export type PendingActivityUpsertWithWhereUniqueWithoutSubjectInput = {
+    where: PendingActivityWhereUniqueInput
+    update: XOR<PendingActivityUpdateWithoutSubjectInput, PendingActivityUncheckedUpdateWithoutSubjectInput>
+    create: XOR<PendingActivityCreateWithoutSubjectInput, PendingActivityUncheckedCreateWithoutSubjectInput>
+  }
+
+  export type PendingActivityUpdateWithWhereUniqueWithoutSubjectInput = {
+    where: PendingActivityWhereUniqueInput
+    data: XOR<PendingActivityUpdateWithoutSubjectInput, PendingActivityUncheckedUpdateWithoutSubjectInput>
+  }
+
+  export type PendingActivityUpdateManyWithWhereWithoutSubjectInput = {
+    where: PendingActivityScalarWhereInput
+    data: XOR<PendingActivityUpdateManyMutationInput, PendingActivityUncheckedUpdateManyWithoutSubjectInput>
+  }
+
+  export type PendingActivityScalarWhereInput = {
+    AND?: PendingActivityScalarWhereInput | PendingActivityScalarWhereInput[]
+    OR?: PendingActivityScalarWhereInput[]
+    NOT?: PendingActivityScalarWhereInput | PendingActivityScalarWhereInput[]
+    id?: StringFilter<"PendingActivity"> | string
+    subjectId?: StringFilter<"PendingActivity"> | string
+    name?: StringFilter<"PendingActivity"> | string
+    description?: StringFilter<"PendingActivity"> | string
+    percentageConclud?: IntFilter<"PendingActivity"> | number
+    created_at?: DateTimeFilter<"PendingActivity"> | Date | string
+  }
+
+  export type SubjectCreateWithoutStudyRecordInput = {
+    id?: string
+    title: string
+    priority?: number
+    description: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
+    user: UserCreateNestedOneWithoutSubjectsInput
+    pendingActivities?: PendingActivityCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectUncheckedCreateWithoutStudyRecordInput = {
+    id?: string
+    id_user: string
+    title: string
+    priority?: number
+    description: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
+    pendingActivities?: PendingActivityUncheckedCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectCreateOrConnectWithoutStudyRecordInput = {
+    where: SubjectWhereUniqueInput
+    create: XOR<SubjectCreateWithoutStudyRecordInput, SubjectUncheckedCreateWithoutStudyRecordInput>
+  }
+
+  export type SubjectUpsertWithoutStudyRecordInput = {
+    update: XOR<SubjectUpdateWithoutStudyRecordInput, SubjectUncheckedUpdateWithoutStudyRecordInput>
+    create: XOR<SubjectCreateWithoutStudyRecordInput, SubjectUncheckedCreateWithoutStudyRecordInput>
+    where?: SubjectWhereInput
+  }
+
+  export type SubjectUpdateToOneWithWhereWithoutStudyRecordInput = {
+    where?: SubjectWhereInput
+    data: XOR<SubjectUpdateWithoutStudyRecordInput, SubjectUncheckedUpdateWithoutStudyRecordInput>
+  }
+
+  export type SubjectUpdateWithoutStudyRecordInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
+    user?: UserUpdateOneRequiredWithoutSubjectsNestedInput
+    pendingActivities?: PendingActivityUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectUncheckedUpdateWithoutStudyRecordInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    id_user?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
+    pendingActivities?: PendingActivityUncheckedUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectCreateWithoutPendingActivitiesInput = {
+    id?: string
+    title: string
+    priority?: number
+    description: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
+    user: UserCreateNestedOneWithoutSubjectsInput
+    studyRecord?: StudyRecordCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectUncheckedCreateWithoutPendingActivitiesInput = {
+    id?: string
+    id_user: string
+    title: string
+    priority?: number
+    description: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
+    studyRecord?: StudyRecordUncheckedCreateNestedManyWithoutSubjectInput
+  }
+
+  export type SubjectCreateOrConnectWithoutPendingActivitiesInput = {
+    where: SubjectWhereUniqueInput
+    create: XOR<SubjectCreateWithoutPendingActivitiesInput, SubjectUncheckedCreateWithoutPendingActivitiesInput>
+  }
+
+  export type SubjectUpsertWithoutPendingActivitiesInput = {
+    update: XOR<SubjectUpdateWithoutPendingActivitiesInput, SubjectUncheckedUpdateWithoutPendingActivitiesInput>
+    create: XOR<SubjectCreateWithoutPendingActivitiesInput, SubjectUncheckedCreateWithoutPendingActivitiesInput>
+    where?: SubjectWhereInput
+  }
+
+  export type SubjectUpdateToOneWithWhereWithoutPendingActivitiesInput = {
+    where?: SubjectWhereInput
+    data: XOR<SubjectUpdateWithoutPendingActivitiesInput, SubjectUncheckedUpdateWithoutPendingActivitiesInput>
+  }
+
+  export type SubjectUpdateWithoutPendingActivitiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
+    user?: UserUpdateOneRequiredWithoutSubjectsNestedInput
+    studyRecord?: StudyRecordUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type SubjectUncheckedUpdateWithoutPendingActivitiesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    id_user?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
+    studyRecord?: StudyRecordUncheckedUpdateManyWithoutSubjectNestedInput
+  }
+
+  export type UserCreateWithoutNoteInput = {
+    id?: string
+    name: string
+    email: string
+    cellphoneNumber: string
+    password: string
+    receiveNotify: boolean
+    updated_at?: Date | string
+    created_at?: Date | string
+    subjects?: SubjectCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutNoteInput = {
+    id?: string
+    name: string
+    email: string
+    cellphoneNumber: string
+    password: string
+    receiveNotify: boolean
+    updated_at?: Date | string
+    created_at?: Date | string
+    subjects?: SubjectUncheckedCreateNestedManyWithoutUserInput
+    calendarActivies?: DayCalendarActivitiesUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutNoteInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutNoteInput, UserUncheckedCreateWithoutNoteInput>
+  }
+
+  export type UserUpsertWithoutNoteInput = {
+    update: XOR<UserUpdateWithoutNoteInput, UserUncheckedUpdateWithoutNoteInput>
+    create: XOR<UserCreateWithoutNoteInput, UserUncheckedCreateWithoutNoteInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutNoteInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutNoteInput, UserUncheckedUpdateWithoutNoteInput>
+  }
+
+  export type UserUpdateWithoutNoteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cellphoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    receiveNotify?: BoolFieldUpdateOperationsInput | boolean
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subjects?: SubjectUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutNoteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cellphoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    receiveNotify?: BoolFieldUpdateOperationsInput | boolean
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subjects?: SubjectUncheckedUpdateManyWithoutUserNestedInput
+    calendarActivies?: DayCalendarActivitiesUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutCalendarActiviesInput = {
+    id?: string
+    name: string
+    email: string
+    cellphoneNumber: string
+    password: string
+    receiveNotify: boolean
+    updated_at?: Date | string
+    created_at?: Date | string
+    subjects?: SubjectCreateNestedManyWithoutUserInput
+    note?: NoteCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutCalendarActiviesInput = {
+    id?: string
+    name: string
+    email: string
+    cellphoneNumber: string
+    password: string
+    receiveNotify: boolean
+    updated_at?: Date | string
+    created_at?: Date | string
+    subjects?: SubjectUncheckedCreateNestedManyWithoutUserInput
+    note?: NoteUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutCalendarActiviesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCalendarActiviesInput, UserUncheckedCreateWithoutCalendarActiviesInput>
+  }
+
+  export type ActivityCalendarCreateWithoutDayCalendarActivityInput = {
+    id?: string
+    activityName: string
+    description: string
+    time: string
+  }
+
+  export type ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput = {
+    id?: string
+    activityName: string
+    description: string
+    time: string
+  }
+
+  export type ActivityCalendarCreateOrConnectWithoutDayCalendarActivityInput = {
+    where: ActivityCalendarWhereUniqueInput
+    create: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput>
+  }
+
+  export type ActivityCalendarCreateManyDayCalendarActivityInputEnvelope = {
+    data: ActivityCalendarCreateManyDayCalendarActivityInput | ActivityCalendarCreateManyDayCalendarActivityInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutCalendarActiviesInput = {
+    update: XOR<UserUpdateWithoutCalendarActiviesInput, UserUncheckedUpdateWithoutCalendarActiviesInput>
+    create: XOR<UserCreateWithoutCalendarActiviesInput, UserUncheckedCreateWithoutCalendarActiviesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutCalendarActiviesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutCalendarActiviesInput, UserUncheckedUpdateWithoutCalendarActiviesInput>
+  }
+
+  export type UserUpdateWithoutCalendarActiviesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cellphoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    receiveNotify?: BoolFieldUpdateOperationsInput | boolean
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subjects?: SubjectUpdateManyWithoutUserNestedInput
+    note?: NoteUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCalendarActiviesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    cellphoneNumber?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    receiveNotify?: BoolFieldUpdateOperationsInput | boolean
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    subjects?: SubjectUncheckedUpdateManyWithoutUserNestedInput
+    note?: NoteUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ActivityCalendarUpsertWithWhereUniqueWithoutDayCalendarActivityInput = {
+    where: ActivityCalendarWhereUniqueInput
+    update: XOR<ActivityCalendarUpdateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedUpdateWithoutDayCalendarActivityInput>
+    create: XOR<ActivityCalendarCreateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedCreateWithoutDayCalendarActivityInput>
+  }
+
+  export type ActivityCalendarUpdateWithWhereUniqueWithoutDayCalendarActivityInput = {
+    where: ActivityCalendarWhereUniqueInput
+    data: XOR<ActivityCalendarUpdateWithoutDayCalendarActivityInput, ActivityCalendarUncheckedUpdateWithoutDayCalendarActivityInput>
+  }
+
+  export type ActivityCalendarUpdateManyWithWhereWithoutDayCalendarActivityInput = {
+    where: ActivityCalendarScalarWhereInput
+    data: XOR<ActivityCalendarUpdateManyMutationInput, ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityInput>
+  }
+
+  export type ActivityCalendarScalarWhereInput = {
+    AND?: ActivityCalendarScalarWhereInput | ActivityCalendarScalarWhereInput[]
+    OR?: ActivityCalendarScalarWhereInput[]
+    NOT?: ActivityCalendarScalarWhereInput | ActivityCalendarScalarWhereInput[]
+    id?: StringFilter<"ActivityCalendar"> | string
+    activityName?: StringFilter<"ActivityCalendar"> | string
+    description?: StringFilter<"ActivityCalendar"> | string
+    activityCalendarId?: StringFilter<"ActivityCalendar"> | string
+    time?: StringFilter<"ActivityCalendar"> | string
+  }
+
+  export type DayCalendarActivitiesCreateWithoutActivityCalendarInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+    user: UserCreateNestedOneWithoutCalendarActiviesInput
+  }
+
+  export type DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    userId: string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
+  }
+
+  export type DayCalendarActivitiesCreateOrConnectWithoutActivityCalendarInput = {
+    where: DayCalendarActivitiesWhereUniqueInput
+    create: XOR<DayCalendarActivitiesCreateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput>
+  }
+
+  export type DayCalendarActivitiesUpsertWithoutActivityCalendarInput = {
+    update: XOR<DayCalendarActivitiesUpdateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedUpdateWithoutActivityCalendarInput>
+    create: XOR<DayCalendarActivitiesCreateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedCreateWithoutActivityCalendarInput>
+    where?: DayCalendarActivitiesWhereInput
+  }
+
+  export type DayCalendarActivitiesUpdateToOneWithWhereWithoutActivityCalendarInput = {
+    where?: DayCalendarActivitiesWhereInput
+    data: XOR<DayCalendarActivitiesUpdateWithoutActivityCalendarInput, DayCalendarActivitiesUncheckedUpdateWithoutActivityCalendarInput>
+  }
+
+  export type DayCalendarActivitiesUpdateWithoutActivityCalendarInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    user?: UserUpdateOneRequiredWithoutCalendarActiviesNestedInput
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateWithoutActivityCalendarInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    userId?: StringFieldUpdateOperationsInput | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type SubjectCreateManyUserInput = {
     id?: string
     title: string
+    priority?: number
     description: string
-    week_day: string
+    week_day?: SubjectCreateweek_dayInput | string[]
+    updated_at?: Date | string
+    created_at?: Date | string
+    pendingSubjects?: SubjectCreatependingSubjectsInput | string[]
+  }
+
+  export type NoteCreateManyUserInput = {
+    id?: string
+    title: string
+    content: string
+  }
+
+  export type DayCalendarActivitiesCreateManyUserInput = {
+    id?: string
+    day: Decimal | DecimalJsLike | number | string
+    month: Decimal | DecimalJsLike | number | string
+    year: Decimal | DecimalJsLike | number | string
   }
 
   export type SubjectUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    week_day?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
+    studyRecord?: StudyRecordUpdateManyWithoutSubjectNestedInput
+    pendingActivities?: PendingActivityUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    week_day?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
+    studyRecord?: StudyRecordUncheckedUpdateManyWithoutSubjectNestedInput
+    pendingActivities?: PendingActivityUncheckedUpdateManyWithoutSubjectNestedInput
   }
 
   export type SubjectUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
+    priority?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
-    week_day?: StringFieldUpdateOperationsInput | string
+    week_day?: SubjectUpdateweek_dayInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    pendingSubjects?: SubjectUpdatependingSubjectsInput | string[]
+  }
+
+  export type NoteUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type NoteUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type NoteUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DayCalendarActivitiesUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUpdateManyWithoutDayCalendarActivityNestedInput
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    activityCalendar?: ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityNestedInput
+  }
+
+  export type DayCalendarActivitiesUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    day?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    month?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    year?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type StudyRecordCreateManySubjectInput = {
+    id?: string
+    dayOfWeek: string
+    minutesStudied: number
+    created_at?: Date | string
+  }
+
+  export type PendingActivityCreateManySubjectInput = {
+    id?: string
+    name: string
+    description: string
+    percentageConclud: number
+    created_at?: Date | string
+  }
+
+  export type StudyRecordUpdateWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayOfWeek?: StringFieldUpdateOperationsInput | string
+    minutesStudied?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StudyRecordUncheckedUpdateWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayOfWeek?: StringFieldUpdateOperationsInput | string
+    minutesStudied?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StudyRecordUncheckedUpdateManyWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    dayOfWeek?: StringFieldUpdateOperationsInput | string
+    minutesStudied?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PendingActivityUpdateWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    percentageConclud?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PendingActivityUncheckedUpdateWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    percentageConclud?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PendingActivityUncheckedUpdateManyWithoutSubjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    percentageConclud?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ActivityCalendarCreateManyDayCalendarActivityInput = {
+    id?: string
+    activityName: string
+    description: string
+    time: string
+  }
+
+  export type ActivityCalendarUpdateWithoutDayCalendarActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ActivityCalendarUncheckedUpdateWithoutDayCalendarActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ActivityCalendarUncheckedUpdateManyWithoutDayCalendarActivityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    activityName?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
   }
 
 

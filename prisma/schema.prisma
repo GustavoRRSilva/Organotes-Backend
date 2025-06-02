@@ -25,6 +25,8 @@ model User{
   updated_at DateTime @updatedAt
   created_at DateTime @default(now())
   subjects Subject[]
+  note Note[]
+  calendarActivies DayCalendarActivities[]
 }
 
 model Subject{
@@ -32,6 +34,63 @@ model Subject{
   id_user String 
   user User @relation(fields: [id_user],references: [id])
   title String
+  priority Int @default(1)
   description String
-  week_day String 
+  week_day String[] 
+  updated_at DateTime @updatedAt
+  created_at DateTime @default(now())
+  studyRecord StudyRecord[]
+  pendingSubjects String[] @default(["Atividade 1","Atividade 2"])
+  pendingActivities PendingActivity[]
+}
+
+model StudyRecord{
+  id String @id @default(uuid())
+  subjectId String
+  subject Subject @relation(fields:[subjectId],references:[id])
+  dayOfWeek String
+  minutesStudied Int
+  created_at DateTime @default(now())
+
+  @@index([subjectId])
+}
+
+model PendingActivity {
+  id String @id @default(uuid())
+  subjectId String
+  subject Subject @relation(fields: [subjectId],references: [id])
+  name String 
+  description String
+  percentageConclud Int
+  created_at DateTime @default(now())
+
+  @@index([subjectId])
+}
+
+model Note {
+  id String @id @default(uuid())
+  title String 
+  content String
+  userId String
+  user User @relation(fields:[userId],references: [id])
+}
+
+model DayCalendarActivities{
+  id String @id @default(uuid())
+  day Decimal
+  userId String
+  user User @relation(fields: [userId],references: [id])
+  month Decimal 
+  year Decimal
+  activityCalendar ActivityCalendar[]
+}
+
+model ActivityCalendar{
+  id String @id @default(uuid())
+  activityName String
+  description String
+  activityCalendarId String
+  time String
+  duration String @default("01:00")
+  dayCalendarActivity DayCalendarActivities @relation(fields:[activityCalendarId],references:[id])
 }

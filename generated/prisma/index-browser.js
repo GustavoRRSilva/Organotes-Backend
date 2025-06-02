@@ -132,8 +132,52 @@ exports.Prisma.SubjectScalarFieldEnum = {
   id: 'id',
   id_user: 'id_user',
   title: 'title',
+  priority: 'priority',
   description: 'description',
-  week_day: 'week_day'
+  week_day: 'week_day',
+  updated_at: 'updated_at',
+  created_at: 'created_at',
+  pendingSubjects: 'pendingSubjects'
+};
+
+exports.Prisma.StudyRecordScalarFieldEnum = {
+  id: 'id',
+  subjectId: 'subjectId',
+  dayOfWeek: 'dayOfWeek',
+  minutesStudied: 'minutesStudied',
+  created_at: 'created_at'
+};
+
+exports.Prisma.PendingActivityScalarFieldEnum = {
+  id: 'id',
+  subjectId: 'subjectId',
+  name: 'name',
+  description: 'description',
+  percentageConclud: 'percentageConclud',
+  created_at: 'created_at'
+};
+
+exports.Prisma.NoteScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  content: 'content',
+  userId: 'userId'
+};
+
+exports.Prisma.DayCalendarActivitiesScalarFieldEnum = {
+  id: 'id',
+  day: 'day',
+  userId: 'userId',
+  month: 'month',
+  year: 'year'
+};
+
+exports.Prisma.ActivityCalendarScalarFieldEnum = {
+  id: 'id',
+  activityName: 'activityName',
+  description: 'description',
+  activityCalendarId: 'activityCalendarId',
+  time: 'time'
 };
 
 exports.Prisma.SortOrder = {
@@ -149,7 +193,12 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Subject: 'Subject'
+  Subject: 'Subject',
+  StudyRecord: 'StudyRecord',
+  PendingActivity: 'PendingActivity',
+  Note: 'Note',
+  DayCalendarActivities: 'DayCalendarActivities',
+  ActivityCalendar: 'ActivityCalendar'
 };
 
 /**

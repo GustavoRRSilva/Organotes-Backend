@@ -61,13 +61,45 @@ export class AuthService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const acessToken = await this.jwtService.signAsync({
+    const accessToken = await this.jwtService.signAsync({
       id: accountUser.id,
       name: accountUser.name,
       email: accountUser.email,
     });
-    console.log('Access Token:', acessToken); // <-- isso deve aparecer no terminal
 
-    return { acessToken };
+    return { accessToken };
+  }
+
+  async userInfos(userId: string) {
+    return this.prismaService.user.findFirst({
+      where: {
+        id: userId,
+      },
+      include: {
+        subjects: {
+          include: {
+            studyRecord: true,
+            pendingActivities: true,
+          },
+        },
+      },
+    });
+  }
+
+  async userProfile(userId: string) {
+    return await this.prismaService.user.findUnique({
+      where: {
+        id: userId,
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        created_at: true,
+        cellphoneNumber: true,
+        receiveNotify: true,
+        // tudo que quiser retornar — NÃO inclua `password`
+      },
+    });
   }
 }
