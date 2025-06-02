@@ -30,4 +30,10 @@ export class AuthController {
   async getUserInfo(@Request() req) {
     return this.authService.userInfos(req.user.id);
   }
+
+  @UseGuards(AuthGuard)
+  @Get('userProfile')
+  async getUserProfile(@Request() req) {
+    return this.authService.userProfile(req.user.id);
+  }
 }

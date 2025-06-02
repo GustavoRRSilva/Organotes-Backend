@@ -10,6 +10,7 @@ import {
 import { ActivityCalendarService } from './activity-calendar.service';
 import { CreateActivityCalendarDto } from './dto/create-activity-calendar.dto';
 import { UpdateActivityCalendarDto } from './dto/update-activity-calendar.dto';
+import { User } from 'src/auth/decorators/user.decorator';
 
 @Controller('activity-calendar')
 export class ActivityCalendarController {
@@ -17,14 +18,14 @@ export class ActivityCalendarController {
     private readonly activityCalendarService: ActivityCalendarService,
   ) {}
 
-  @Post(':dayCalendarId')
+  @Post('')
   create(
     @Body() createActivityCalendarDto: CreateActivityCalendarDto,
-    @Param('dayCalendarId') dayCalendarId: string,
+    @User('id') userId: string,
   ) {
     return this.activityCalendarService.create(
       createActivityCalendarDto,
-      dayCalendarId,
+      userId,
     );
   }
 

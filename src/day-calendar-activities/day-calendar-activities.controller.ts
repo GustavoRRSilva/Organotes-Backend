@@ -6,11 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  Req,
 } from '@nestjs/common';
 
 import { CreateDayCalendarActivityDto } from './dto/create-day-calendar-activity.dto';
 import { UpdateDayCalendarActivityDto } from './dto/update-day-calendar-activity.dto';
 import { DayCalendarActivitiesService } from './day-calendar-activities.service';
+import { User } from 'src/auth/decorators/user.decorator';
 
 @Controller('day-calendar-activities')
 export class DayCalendarActivitiesController {
@@ -18,7 +20,7 @@ export class DayCalendarActivitiesController {
     private readonly dayCalendarActivitiesService: DayCalendarActivitiesService,
   ) {}
 
-  @Post(':userId')
+  @Post()
   create(
     @Body() createDayCalendarActivityDto: CreateDayCalendarActivityDto,
     @Param('userId') userId: string,
@@ -30,8 +32,8 @@ export class DayCalendarActivitiesController {
   }
 
   @Get()
-  findAll() {
-    return this.dayCalendarActivitiesService.findAll();
+  findAll(@User('id') userId: string) {
+    return this.dayCalendarActivitiesService.findAll(userId);
   }
 
   @Get(':id')

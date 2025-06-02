@@ -85,4 +85,21 @@ export class AuthService {
       },
     });
   }
+
+  async userProfile(userId: string) {
+    return await this.prismaService.user.findUnique({
+      where: {
+        id: userId,
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        created_at: true,
+        cellphoneNumber: true,
+        receiveNotify: true,
+        // tudo que quiser retornar — NÃO inclua `password`
+      },
+    });
+  }
 }

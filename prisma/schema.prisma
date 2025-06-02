@@ -91,5 +91,6 @@ model ActivityCalendar{
   description String
   activityCalendarId String
   time String
+  duration String @default("01:00")
   dayCalendarActivity DayCalendarActivities @relation(fields:[activityCalendarId],references:[id])
 }

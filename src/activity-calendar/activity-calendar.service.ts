@@ -8,13 +8,32 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class ActivityCalendarService {
   constructor(private prisma: PrismaService) {}
 
-  create(dto: CreateActivityCalendarDto, id: string) {
+  async create(data: CreateActivityCalendarDto, userId: string) {
+    let dayRecord = await this.prisma.dayCalendarActivities.findFirst({
+      where: {
+        userId: userId,
+        day: data.day,
+        month: data.month,
+        year: data.year,
+      },
+    });
+
+    if (!dayRecord) {
+      dayRecord = await this.prisma.dayCalendarActivities.create({
+        data: {
+          userId: userId,
+          day: data.day,
+          month: data.month,
+          year: data.year,
+        },
+      });
+    }
     return this.prisma.activityCalendar.create({
       data: {
-        activityName: dto.activityName,
-        description: dto.description,
-        activityCalendarId: id,
-        time: dto.time,
+        activityName: data.activityName,
+        description: data.description,
+        activityCalendarId: dayRecord.id,
+        time: data.time,
       },
     });
   }

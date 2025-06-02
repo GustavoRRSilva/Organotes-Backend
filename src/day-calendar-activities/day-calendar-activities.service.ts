@@ -17,10 +17,12 @@ export class DayCalendarActivitiesService {
     });
   }
 
-  async findAll() {
+  async findAll(userId: string) {
     return await this.prisma.dayCalendarActivities.findMany({
+      where: {
+        userId: userId,
+      },
       include: {
-        user: true,
         activityCalendar: true,
       },
     });
